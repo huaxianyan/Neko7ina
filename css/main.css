@@ -1819,7 +1819,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #a1ff45;
+  background: #1a3801;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2908,4 +2908,8 @@ pre .javascript .function {
   .header .site-meta {
     background: #276193;
   }
+}
+html,
+body {
+  background-image: url("http://ww1.sinaimg.cn/large/6c41674cgy1fplngi7rjxj20bg0bga9v.jpg");
 }
