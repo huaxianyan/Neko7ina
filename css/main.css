@@ -1819,7 +1819,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffffd6;
+  background: #e39ef2;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2925,4 +2925,5 @@ body {
 }
 .tag-cloud a {
   font-weight: unset;
+  border-bottom: none;
 }
