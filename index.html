@@ -434,9 +434,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/repair-bicycle.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="repair-bicycle.html" itemprop="commentCount"></span>
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/repair-bicycle.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -608,9 +606,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/travel-in-japan.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="travel-in-japan.html" itemprop="commentCount"></span>
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/travel-in-japan.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -781,9 +777,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/ffm.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="ffm.html" itemprop="commentCount"></span>
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/ffm.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -955,9 +949,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/new-god-of-war.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="new-god-of-war.html" itemprop="commentCount"></span>
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/new-god-of-war.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1127,9 +1119,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/misster-seven.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="misster-seven.html" itemprop="commentCount"></span>
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/misster-seven.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1302,9 +1292,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/food-in-memory.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="food-in-memory.html" itemprop="commentCount"></span>
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/food-in-memory.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1474,9 +1462,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/yorosiku.html#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="yorosiku.html" itemprop="commentCount"></span>
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/yorosiku.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1873,9 +1859,7 @@
 
   
 
-  
-    <script id="dsq-count-scr" src="https://neko7ina.disqus.com/count.js" async></script>
-  
+
 
   
 
@@ -1886,7 +1870,30 @@
 
 
 
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
+  <script>
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '1ExzNBKc3WHf9jE7pnIhGYHE-gzGzoHsz',
+        appKey: 'dWKfqdTkCOf1C3AtwjT7SYXi',
+        placeholder: '发表评论…',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
 
 
 
