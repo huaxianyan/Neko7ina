@@ -4,14 +4,39 @@
 
     
   <url>
-    <loc>http://www.neko7ina.com/travel-in-japan.html</loc>
-    <lastmod>2019-03-23T12:36:03.856Z</lastmod>
+    <loc>http://www.neko7ina.com/syncthing.html</loc>
+    <lastmod>2019-03-30T17:27:11.386Z</lastmod>
     <data>
         <display>
-        <title>日本之行</title>
-        <pubTime>2018-12-31T12:41:26.000Z</pubTime>
+        <title>被逼无奈，用 Syncthing 打造自己的同步云盘</title>
+        <pubTime>2019-03-30T17:19:38.000Z</pubTime>
         
-        <tag>旅行</tag>
+        <tag>折腾</tag>
+         
+        <tag>多平台</tag>
+         
+        <tag>Syncthing</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.neko7ina.com/ffm.html</loc>
+    <lastmod>2019-03-30T17:23:40.688Z</lastmod>
+    <data>
+        <display>
+        <title>用 FCM 来推送 QQ 消息</title>
+        <pubTime>2018-07-31T13:09:37.000Z</pubTime>
+        
+        <tag>折腾</tag>
+         
+        <tag>Android</tag>
+         
+        <tag>FFM</tag>
          
          
            
@@ -22,7 +47,7 @@
     
   <url>
     <loc>http://www.neko7ina.com/rime.html</loc>
-    <lastmod>2019-02-28T05:20:59.200Z</lastmod>
+    <lastmod>2019-03-30T17:23:22.387Z</lastmod>
     <data>
         <display>
         <title>我的输入法，我的 Rime</title>
@@ -31,6 +56,48 @@
         <tag>折腾</tag>
          
         <tag>多平台</tag>
+         
+        <tag>Rime</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.neko7ina.com/new-god-of-war.html</loc>
+    <lastmod>2019-03-30T17:22:57.101Z</lastmod>
+    <data>
+        <display>
+        <title>宝剑锋从磨砺出，梅花香自苦寒来——PS4《战神》游感</title>
+        <pubTime>2018-05-22T05:25:37.000Z</pubTime>
+        
+        <tag>游戏</tag>
+         
+        <tag>PlayStation</tag>
+         
+        <tag>PS4</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.neko7ina.com/travel-in-japan.html</loc>
+    <lastmod>2019-03-30T17:22:45.637Z</lastmod>
+    <data>
+        <display>
+        <title>日本之行</title>
+        <pubTime>2018-12-31T12:41:26.000Z</pubTime>
+        
+        <tag>旅行</tag>
+         
+        <tag>日本</tag>
          
          
            
@@ -48,25 +115,6 @@
         <pubTime>2019-01-14T10:31:33.000Z</pubTime>
         
         <tag>随笔</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.neko7ina.com/ffm.html</loc>
-    <lastmod>2019-01-01T06:56:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>用 FCM 来推送 QQ 消息</title>
-        <pubTime>2018-07-31T13:09:37.000Z</pubTime>
-        
-        <tag>折腾</tag>
-         
-        <tag>Android</tag>
          
          
            
@@ -118,27 +166,6 @@
         <pubTime>2018-03-16T17:35:41.000Z</pubTime>
         
         <tag>跑团</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.neko7ina.com/new-god-of-war.html</loc>
-    <lastmod>2018-12-10T06:31:38.060Z</lastmod>
-    <data>
-        <display>
-        <title>宝剑锋从磨砺出，梅花香自苦寒来——PS4《战神》游感</title>
-        <pubTime>2018-05-22T05:25:37.000Z</pubTime>
-        
-        <tag>游戏</tag>
-         
-        <tag>PlayStation</tag>
-         
-        <tag>PS4</tag>
          
          
            
