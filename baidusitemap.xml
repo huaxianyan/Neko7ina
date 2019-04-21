@@ -4,29 +4,8 @@
 
     
   <url>
-    <loc>http://www.neko7ina.com/syncthing.html</loc>
-    <lastmod>2019-04-21T17:13:39.455Z</lastmod>
-    <data>
-        <display>
-        <title>被逼无奈，用 Syncthing 打造自己的同步云盘</title>
-        <pubTime>2019-03-30T17:19:38.000Z</pubTime>
-        
-        <tag>折腾</tag>
-         
-        <tag>多平台</tag>
-         
-        <tag>Syncthing</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.neko7ina.com/some-problems-on-macos.html</loc>
-    <lastmod>2019-04-21T17:11:51.722Z</lastmod>
+    <lastmod>2019-04-21T17:18:29.052Z</lastmod>
     <data>
         <display>
         <title>处理了点 macOS 上的小问题</title>
@@ -41,6 +20,27 @@
         <tag>Synology</tag>
          
         <tag>macOS</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.neko7ina.com/syncthing.html</loc>
+    <lastmod>2019-04-21T17:15:24.685Z</lastmod>
+    <data>
+        <display>
+        <title>被逼无奈，用 Syncthing 打造自己的同步云盘</title>
+        <pubTime>2019-03-30T17:19:38.000Z</pubTime>
+        
+        <tag>折腾</tag>
+         
+        <tag>多平台</tag>
+         
+        <tag>Syncthing</tag>
          
          
            

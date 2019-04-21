@@ -121,7 +121,7 @@
 <meta property="og:site_name" content="七言八语">
 <meta property="og:description" content="最近折腾了一些东西，在使用的时候渐渐发现了一些问题。 逐个解决的同时，发现都是 macOS 上发生的，便写下这篇小结记录。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-21T17:11:51.722Z">
+<meta property="og:updated_time" content="2019-04-21T17:18:29.052Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="处理了点 macOS 上的小问题">
 <meta name="twitter:description" content="最近折腾了一些东西，在使用的时候渐渐发现了一些问题。 逐个解决的同时，发现都是 macOS 上发生的，便写下这篇小结记录。">
@@ -407,7 +407,7 @@
                 
               
 
-              <time title="创建时间：2019-04-22 01:11:40 / 修改时间：01:11:51" itemprop="dateCreated datePublished" datetime="2019-04-22T01:11:40+08:00">2019-04-22</time>
+              <time title="创建时间：2019-04-22 01:11:40 / 修改时间：01:18:29" itemprop="dateCreated datePublished" datetime="2019-04-22T01:11:40+08:00">2019-04-22</time>
             
 
             
@@ -466,7 +466,7 @@
 <p>我对它的看法还可以，在 macOS 上的确也发挥了不错的作用。</p>
 <p>但是在其他设备不仅没用，看着还很难受，每个文件夹都有整得跟病毒似的，所以还是动手料理了它。</p>
 <p>.DS_Store 的处理方式搜了一下，基本就只有那些个方法在各个地方复读。</p>
-<p>但是苹果官方提供的方法是防止在连接远程设备时在其上建立 .DS_Store 文件，对于本地硬盘还是不管用。</p>
+<p>苹果官方提供的方法是防止在连接远程设备时在其上建立 .DS_Store 文件，对于本地硬盘还是不管用。</p>
 <p>于是再仔细寻找一番，我发现了 <a href="https://asepsis.binaryage.com/" target="_blank" rel="noopener">Asepsis</a>。</p>
 <p>仔细阅读的时候，我又发现了一个问题：这个软件在 macOS 10.8 - 10.10 上可直接使用，在 macOS 10.11 和 10.12 上需要做一番操作才能够使用。</p>
 <p>这个操作就是，关闭 SIP。</p>
@@ -488,10 +488,10 @@
 <p>只要打开终端，粘贴以上命令，回车执行即可生效。</p>
 <p>理论上执行后需要重启后才能生效，但我没重启后发现也没有生成了。</p>
 <h2 id="Rime-输入法"><a href="#Rime-输入法" class="headerlink" title="Rime 输入法"></a>Rime 输入法</h2><p>Rime 输入法在 macOS 上的发行版叫鼠鬚管（Squirrel），不同于 Windows 上的小狼毫（Weasel），所以在将配置文件搬过来的时候，要 <code>weasel.custom.yaml</code> 的文件名，要改成 <code>squirrel.custom.yaml</code>。</p>
-<p>不过这个问题不大，大问题在于，我每次部署的时候都提示失败，明明我仔细检查的相关的文件都在。</p>
-<p>虽然可以正常使用，但是每次重新部署或者同步时提示错误，还是挺闹心的，于是在这上面花时间研究怎么解决。</p>
-<p>一步步尝试，最终发现还是引入了袖珍简化字拼音输入方案的问题。</p>
-<p>但是我能正常使用它打字啊，这是个什么事？</p>
+<p>不过这个问题不大，大问题在于，我每次部署的时候都提示失败，明明我仔细检查相关的文件都在。</p>
+<p>虽然可以正常使用，但每次重新部署或者同步时提示错误，还是挺闹心的，于是在这上面花时间研究怎么解决。</p>
+<p>一步步尝试，最终发现还是引入了袖珍简化字拼音输入方案产生的问题。</p>
+<p>但是我能正常使用它打字啊，这算是个什么事……</p>
 <p>尝试了几个方向都无果之外，无聊之下用 <a href="https://github.com/rime/plum" target="_blank" rel="noopener">东风破</a> 安装了全部的输入方案，再部署时就发现不报错了。</p>
 <p>代价就是 Rime 用户文件夹里塞了一大堆我用不到的输入方案，不过问题能够解决，也就不太在乎了。</p>
 
