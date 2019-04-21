@@ -12,5 +12,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: https://www.neko7ina.com/sitemap.xml
-Sitemap: https://www.neko7ina.com/baidusitemap.xml
+Sitemap: http://www.neko7ina.com/sitemap.xml
+Sitemap: http://www.neko7ina.com/baidusitemap.xml
