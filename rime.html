@@ -39,6 +39,8 @@
 
 
 
+  <meta name="google-site-verification" content="wwzY2BSMtlrJhu-WBn9rnzlFQvkdNt4Yc2vGtJg5g-M">
+
 
 
 
@@ -381,11 +383,11 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">我的输入法，我的 Rime
+          <h2 class="post-title" itemprop="name headline">我的输入法，我的 Rime
 
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -477,7 +479,8 @@
 <a id="more"></a>
 <p>Rime，中文名为 <a href="https://rime.im/" target="_blank" rel="noopener">中州韵输入法引擎</a>，是由佛振编写的开源中文输入法。</p>
 <p>现在的 Windows 发行版在 Win 10 上的表现已经相当不错，尤其相对于几年前，对我个人来说是能用和不能用的区别。</p>
-<h2 id="初次见面"><a href="#初次见面" class="headerlink" title="初次见面"></a>初次见面</h2><p>从官网上下载并安装了最新的 Windows 版，按 F4 切换到朙月拼音简化字，就可以像一般输入法一样使用，感觉还不错。</p>
+<h2 id="初次见面"><a class="markdownIt-Anchor" href="#初次见面"></a> 初次见面</h2>
+<p>从官网上下载并安装了最新的 Windows 版，按 F4 切换到朙月拼音简化字，就可以像一般输入法一样使用，感觉还不错。</p>
 <p>简单适应了一下，就开始输入法的调教工作了。Rime 被很多人喜爱，强大的定制功能功不可没，具体可以看官方的 <a href="https://github.com/rime/home/wiki/CustomizationGuide" target="_blank" rel="noopener">定制指南</a>。</p>
 <p>那么按照我的习惯，首先要干掉左 Shift 键。</p>
 <p>安装时，程序会让用户指定一个 Rime 用户文件夹，在文件夹里我们建立文件 <code>default.custom.yaml</code> 并编辑，加入下面一段：</p>
@@ -491,7 +494,8 @@
 <p>至于文件 <code>custom_phrase.txt</code> 参考 <a href="https://gist.github.com/lotem/5440677" target="_blank" rel="noopener">这里</a> 建立放在 Rime 用户文件夹，编辑内容即可实现。</p>
 <p>另外，一个文件内只需要一段 Patch，多个定制直接在下面跟定制内容即可。</p>
 <p>这么简单定制了一下，基本就回归了我的日常使用习惯。</p>
-<h2 id="深陷泥潭"><a href="#深陷泥潭" class="headerlink" title="深陷泥潭"></a>深陷泥潭</h2><p>使用了半个多月，我发现了一个事情：在我的候选列表首页中，有一些没有用过的字占据着，不仅看着不爽，还影响我的选字效率。</p>
+<h2 id="深陷泥潭"><a class="markdownIt-Anchor" href="#深陷泥潭"></a> 深陷泥潭</h2>
+<p>使用了半个多月，我发现了一个事情：在我的候选列表首页中，有一些没有用过的字占据着，不仅看着不爽，还影响我的选字效率。</p>
 <p><img alt="没用过的字" data-original="https://ws1.sinaimg.cn/large/6c41674cgy1g0lzecuj4nj204g06iglk.jpg"></p>
 <p>发现这个现象后，我开始有意识地去注意这些字，最后发现这些字的候选顺序是会和另外一个字绑定的。比如「𧹒」，就一直跟着「买」，跟兄弟似的谁也不离谁。</p>
 <p>向作者提了个 <a href="https://github.com/rime/home/issues/322" target="_blank" rel="noopener">issue</a>，在交流的过程中我明白了几个事情。</p>
@@ -500,7 +504,8 @@
 <li>用户词典记录的词频是按繁体字来计的，转换出的所有简体字共享词频，这个是这些字都会紧跟其他字的原因。</li>
 </ul>
 <p>作者提供的两种解决方案工作量都不小，为了图省事，我借助修改 <code>custom_phrase.txt</code> 文件固定「买」「卖」两字顺序，总算能够让「卖」跟在「买」后面了。</p>
-<h2 id="从头再来"><a href="#从头再来" class="headerlink" title="从头再来"></a>从头再来</h2><p>可能我考虑的比较多，我总觉得这种使用方式会有隐患，等到真的用很长时间后再考虑就太痛苦了。</p>
+<h2 id="从头再来"><a class="markdownIt-Anchor" href="#从头再来"></a> 从头再来</h2>
+<p>可能我考虑的比较多，我总觉得这种使用方式会有隐患，等到真的用很长时间后再考虑就太痛苦了。</p>
 <p>于是在寻觅之下，我发现了另外一个输入方案——<a href="https://github.com/rime/rime-pinyin-simp" target="_blank" rel="noopener">袖珍简化字拼音</a>。</p>
 <p>这是一款以简体中文为出发点的输入方案，简单试用了一下没有什么问题，看了下记录的用户词典也是简体中文，就是字库的确是比较薄弱。</p>
 <p>为了弥补字库的问题，在搜索过程中我又发现了这个 <a href="https://github.com/alswl/Rime" target="_blank" rel="noopener">项目</a>。其中「现在汉语常用词表」，特别适合作为起步基础词库，那么我们就将它带进输入法中。</p>
@@ -512,10 +517,12 @@
 <p>这里可以看出我们这边引用了两个词典，一个是袖珍拼音输入法原本的词典，另一个是我们找到的。</p>
 <p>将 <a href="https://raw.githubusercontent.com/alswl/Rime/master/luna_pinyin.xiandaihanyuchangyongcibiao.dict.yaml" target="_blank" rel="noopener">现代汉语常用词表</a> 文件下载并复制到 Rime 用户文件夹，最后再将之前在朙月拼音简化字方案中的一些自定义搬运过来，重新部署就大功告成了。</p>
 <p>试了试，好像没什么问题。以前的用户词典也没养多久，懒得处理，就直接从 0 开始重新养吧。</p>
-<h2 id="如臂使指"><a href="#如臂使指" class="headerlink" title="如臂使指"></a>如臂使指</h2><p>从更换了方案使用到现在，期间时不时有新的想法，在多次尝试和积累之后，Rime 已经越来越顺手，同时方案也打磨得越来越细，我有点能体会很多用户推崇 Rime 的乐趣究竟在哪里了。</p>
+<h2 id="如臂使指"><a class="markdownIt-Anchor" href="#如臂使指"></a> 如臂使指</h2>
+<p>从更换了方案使用到现在，期间时不时有新的想法，在多次尝试和积累之后，Rime 已经越来越顺手，同时方案也打磨得越来越细，我有点能体会很多用户推崇 Rime 的乐趣究竟在哪里了。</p>
 <p>我的定制也比开始要变化了更多，我将这些放在 GitHub 上，定期更新，既是备份，也希望能帮到他人。</p>
 <p>平心而论，从一般人的眼光中，Rime 并不是一款能够吊打其他家的存在。但是它能给我更多的可能，以及多了向流氓说「不」的机会，这是我喜欢并使用 Rime 的原因。</p>
-<h2 id="附：GitHub-项目"><a href="#附：GitHub-项目" class="headerlink" title="附：GitHub 项目"></a>附：GitHub 项目</h2><p><a href="https://github.com/huaxianyan/Rime" target="_blank" rel="noopener">https://github.com/huaxianyan/Rime</a></p>
+<h2 id="附github-项目"><a class="markdownIt-Anchor" href="#附github-项目"></a> 附：GitHub 项目</h2>
+<p><a href="https://github.com/huaxianyan/Rime" target="_blank" rel="noopener">https://github.com/huaxianyan/Rime</a></p>
 
       
     </div>
@@ -782,7 +789,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初次见面"><span class="nav-number">1.</span> <span class="nav-text">初次见面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深陷泥潭"><span class="nav-number">2.</span> <span class="nav-text">深陷泥潭</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从头再来"><span class="nav-number">3.</span> <span class="nav-text">从头再来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如臂使指"><span class="nav-number">4.</span> <span class="nav-text">如臂使指</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附：GitHub-项目"><span class="nav-number">5.</span> <span class="nav-text">附：GitHub 项目</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初次见面"><span class="nav-number">1.</span> <span class="nav-text"> 初次见面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深陷泥潭"><span class="nav-number">2.</span> <span class="nav-text"> 深陷泥潭</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从头再来"><span class="nav-number">3.</span> <span class="nav-text"> 从头再来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如臂使指"><span class="nav-number">4.</span> <span class="nav-text"> 如臂使指</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附github-项目"><span class="nav-number">5.</span> <span class="nav-text"> 附：GitHub 项目</span></a></li></ol></div>
             
 
           </div>
