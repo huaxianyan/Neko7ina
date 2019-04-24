@@ -52,7 +52,7 @@ NexT.utils = NexT.$u = {
     //  threshold: 0
     //});
     $('img').lazyload({
-    //placeholder: '../images/loading.gif',
+        placeholder: '/images/base/loading.svg',
         effect: 'fadeIn',
         threshold : 400,
         failure_limit : 20,
