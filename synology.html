@@ -116,14 +116,14 @@
 
 
   <meta name="description" content="上个月在折腾 Syncthing 取代 Dropbox 时，我就觉得在 VPS 上存放不太稳。 虽然多终端都有副本，很难运气差到同时爆炸，但心底还是想有个更靠谱的存放地点。 于是，我对个人 NAS 存储就心痒痒了起来。">
-<meta name="keywords" content="折腾,Synology,群晖">
+<meta name="keywords" content="折腾,群晖,Synology">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Synology 的使用初体验">
 <meta property="og:url" content="http://www.neko7ina.com/synology.html">
 <meta property="og:site_name" content="七言八语">
 <meta property="og:description" content="上个月在折腾 Syncthing 取代 Dropbox 时，我就觉得在 VPS 上存放不太稳。 虽然多终端都有副本，很难运气差到同时爆炸，但心底还是想有个更靠谱的存放地点。 于是，我对个人 NAS 存储就心痒痒了起来。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-20T07:58:05.339Z">
+<meta property="og:updated_time" content="2019-04-24T01:53:19.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Synology 的使用初体验">
 <meta name="twitter:description" content="上个月在折腾 Syncthing 取代 Dropbox 时，我就觉得在 VPS 上存放不太稳。 虽然多终端都有副本，很难运气差到同时爆炸，但心底还是想有个更靠谱的存放地点。 于是，我对个人 NAS 存储就心痒痒了起来。">
@@ -409,12 +409,24 @@
                 
               
 
-              <time title="创建时间：2019-04-20 15:53:51 / 修改时间：15:58:05" itemprop="dateCreated datePublished" datetime="2019-04-20T15:53:51+08:00">2019-04-20</time>
+              <time title="创建时间：2019-04-20 15:53:51" itemprop="dateCreated datePublished" datetime="2019-04-20T15:53:51+08:00">2019-04-20</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-24 09:53:19" itemprop="dateModified" datetime="2019-04-24T09:53:19+08:00">2019-04-24</time>
               
             
           </span>
@@ -454,7 +466,7 @@
 <a id="more"></a>
 <p>事先做了点简单功课，审视了下自身需求，对空间、性能及功能扩展方面要求不高，人特别懒又想稳定方便，那么黑群就直接 Pass 了。</p>
 <p>最终选择了 Synology DS218j 这款，顺便买了 2 块希捷酷狼。</p>
-<p><img alt="真不便宜" data-original="https://wx3.sinaimg.cn/large/80078bdcgy1g293jostv7j23402c01kz.jpg"></p>
+<p><img alt="真不便宜" data-original="https://ws3.sinaimg.cn/large/80078bdcgy1g293jostv7j23402c01kz.jpg"></p>
 <p>东西到了噼里啪啦一顿拆，安装起来很简单：盖子一拆，两块盘一插，螺丝一上，最后上盖上螺丝，完事儿！</p>
 <h2 id="首次开机"><a href="#首次开机" class="headerlink" title="首次开机"></a>首次开机</h2><p>首次开机初始化时间较长，为了顺利使用需要下载官方的 <a href="https://www.synology.cn/zh-cn/support/download/DS218j#utilities" target="_blank" rel="noopener">Synology Assistant</a>，按照引导进行操作，进入 DSM 的引导界面。</p>
 <p>引导步骤不多，信息也很易懂，一番下一步之后就来到主界面，这个时候群晖才算真正运行起来。</p>
@@ -472,7 +484,7 @@
 <p>但是这还没完呢，群晖因为是接在路由器下面的，通过 DDNS 也只是连到路由器，所以还需要在路由器上做端口转发，这才能够顺利连到群晖本体。</p>
 <p>大部分路由器都有个端口转发的选项，找到这里，打开端口转发。</p>
 <p>在下面的规则配置中添加一条，将 5000 端口映射到本地群晖 IP 的 5000 端口，保存生效。</p>
-<p><img alt="端口转发" data-original="https://wx3.sinaimg.cn/large/80078bdcgy1g294rz7n7aj20tc0iwabr.jpg"></p>
+<p><img alt="端口转发" data-original="https://ws3.sinaimg.cn/large/80078bdcgy1g294rz7n7aj20tc0iwabr.jpg"></p>
 <p>试着访问一下，果然就通了。</p>
 <h3 id="内网穿透"><a href="#内网穿透" class="headerlink" title="内网穿透"></a>内网穿透</h3><p>如果没有公网 IP，又不想用 QuickConncet，那么就只好用内网穿透了。</p>
 <p>内网穿透的方案有很多，类似 frp、ngork。</p>
@@ -483,7 +495,7 @@
 <h3 id="Let-39-s-Encrypt-证书"><a href="#Let-39-s-Encrypt-证书" class="headerlink" title="Let&#39;s Encrypt 证书"></a>Let&#39;s Encrypt 证书</h3><p>涉及到安全，就肯定会涉及到证书。</p>
 <p>群晖默认自签了一个证书，使用自签证书虽可达到目的，但每个设备都需要安装证书，否则就各种警告。</p>
 <p>还好群晖支持 Let&#39;s Encrypt 签发，打开 <code>控制面板</code> - <code>安全性</code>，转到 <code>证书</code> 选项卡，点击 <code>新增</code> 添加新证书，之后的动作选择 <code>从 Let&#39;s Encrypt 获取证书</code>，并勾上 <code>设为默认证书</code>。</p>
-<p><img alt="Let&#39;s Encrypt 证书" data-original="https://wx2.sinaimg.cn/large/80078bdcgy1g294z3allcj20p80l4n00.jpg"></p>
+<p><img alt="Let&#39;s Encrypt 证书" data-original="https://ws2.sinaimg.cn/large/80078bdcgy1g294z3allcj20p80l4n00.jpg"></p>
 <p>点击 <code>下一步</code>，填上之前申请的 DDNS 域名及个人邮箱，点 <code>应用</code> 提交，如无问题，很快就能成功签发证书。</p>
 <p>虽然设为默认证书，但之前已经存在的系统还是使用的自签证书，点 <code>配置</code> 将各个服务的证书切换到新申请的证书才算完工。</p>
 <p>Let&#39;s Encrypt 的证书有效期为 3 个月，群晖会自动续签，不用担心。</p>
@@ -522,9 +534,9 @@
           
             <a href="/tags/折腾/" rel="tag"># 折腾</a>
           
-            <a href="/tags/Synology/" rel="tag"># Synology</a>
-          
             <a href="/tags/群晖/" rel="tag"># 群晖</a>
+          
+            <a href="/tags/Synology/" rel="tag"># Synology</a>
           
         </div>
       
