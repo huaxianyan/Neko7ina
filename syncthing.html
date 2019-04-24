@@ -123,7 +123,7 @@
 <meta property="og:site_name" content="七言八语">
 <meta property="og:description" content="3 月份，Dropbox 悄悄「公布」了一项新改动：  从 2019 年 3 月开始，Basic 用户最多只能关联 3 台设备。 Plus 和 Professional 用户可以关联的设备数量没有限制。 Business 用户可以关联的设备数量没有限制，但 Advanced 和 Enterprise Dropbox Business 管理员能够限制其团队可以关联的设备数量。  对于我这种设备绝对不">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-24T06:20:04.739Z">
+<meta property="og:updated_time" content="2019-04-24T16:33:57.766Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="被逼无奈，用 Syncthing 打造自己的同步云盘">
 <meta name="twitter:description" content="3 月份，Dropbox 悄悄「公布」了一项新改动：  从 2019 年 3 月开始，Basic 用户最多只能关联 3 台设备。 Plus 和 Professional 用户可以关联的设备数量没有限制。 Business 用户可以关联的设备数量没有限制，但 Advanced 和 Enterprise Dropbox Business 管理员能够限制其团队可以关联的设备数量。  对于我这种设备绝对不">
@@ -426,7 +426,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-24 14:20:04" itemprop="dateModified" datetime="2019-04-24T14:20:04+08:00">2019-04-24</time>
+                <time title="修改时间：2019-04-25 00:33:57" itemprop="dateModified" datetime="2019-04-25T00:33:57+08:00">2019-04-25</time>
               
             
           </span>
@@ -498,39 +498,39 @@
 <h4 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h4><p>没啥说的，<a href="https://play.google.com/store/apps/details?id=com.nutomic.syncthingandroid" target="_blank" rel="noopener">官方客户端</a>。</p>
 <p>更新也是按照 Google Play 官方提示更新。</p>
 <h4 id="Synology"><a href="#Synology" class="headerlink" title="Synology"></a>Synology</h4><p>打开 <code>套件中心</code> - <code>设置</code> - <code>套件来源</code>，点击 <code>新增</code> 添加第三方来源 SynoCommunity，地址为 <a href="http://packages.synocommunity.com/" target="_blank" rel="noopener">http://packages.synocommunity.com/</a>，确定保存。</p>
-<p><img alt="添加来源" data-original="https://i.loli.net/2019/04/24/5cbfff2da9678.png"></p>
+<p><img alt="添加来源" data-original="https://pic.neko7ina.com/images/20190331/1.png"></p>
 <p>刷新套件中心会看到多出一个 <code>社群</code> 类别，点进去找到 Syncthing 安装即可。</p>
-<p><img alt="安装 Syncthing" data-original="https://i.loli.net/2019/04/24/5cbfff3dd804b.png"></p>
+<p><img alt="安装 Syncthing" data-original="https://pic.neko7ina.com/images/20190331/2.png"></p>
 <p>这个客户端 Web GUI 默认监听 <code>0.0.0.0:8384</code>，可以直接访问群晖内网 IP 的 8384 端口而不需要更改任何设置。</p>
 <p>更新可以依赖套件中心（可能会慢），或 Web GUI 自动更新。</p>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>不论服务端还是客户端，使用逻辑都是同一套的 Web UI，服务端访问方式上面已说，本地客户端可以访问 <code>http://127.0.0.1:8384/</code>。</p>
 <p>当然，SyncTrayzor 之类的客户端自带界面。</p>
-<p><img alt="Web GUI 界面" data-original="https://i.loli.net/2019/04/24/5cbfff7ddb164.png"></p>
+<p><img alt="Web GUI 界面" data-original="https://pic.neko7ina.com/images/20190331/3.png"></p>
 <p>右上角 <code>操作</code> 中有个 <code>显示 ID</code>，点开可以看到 ID 和二维码，方便其他设备添加该设备，点击右下角的 <code>添加远程设备</code> 输入 ID 提交添加申请，被添加的设备通过后设备之间就联系上了。</p>
 <p>在用电脑添加服务端时，在 <code>共享</code> 选项卡中把 <code>作为中介</code> 勾上，这样其他设备在添加服务端后，会自动把与服务端联系的设备自动添加上。</p>
-<p><img alt="添加设备" data-original="https://i.loli.net/2019/04/24/5cbfff95a65ea.png"></p>
+<p><img alt="添加设备" data-original="https://pic.neko7ina.com/images/20190331/4.png"></p>
 <p>设备添加完了，就该设置同步了。</p>
 <p>点击 <code>添加文件夹</code> 打开界面。</p>
-<p><img alt="添加文件夹" data-original="https://i.loli.net/2019/04/24/5cbfffa78fbda.png"></p>
+<p><img alt="添加文件夹" data-original="https://pic.neko7ina.com/images/20190331/5.png"></p>
 <p>设置一下 <code>文件夹路径</code>，不要去 <code>动文件夹 ID</code>，<code>文件夹标签</code> 按自己的习惯填写。</p>
 <p>然后打开 <code>版本控制</code> 选项卡。</p>
-<p><img alt="版本控制" data-original="https://i.loli.net/2019/04/24/5cbfffd0ddac2.png"></p>
+<p><img alt="版本控制" data-original="https://pic.neko7ina.com/images/20190331/6.png"></p>
 <p>Syncthing 有一个强大的版本控制功能，合理设置能有效降低误操作带来的损失。</p>
 <p>对于一般使用者来说，<code>简易版本控制</code> 够用了，保留版本数量随自己喜好。</p>
 <p>实际使用中，效果是这样的：</p>
-<p><img alt="恢复历史版本" data-original="https://i.loli.net/2019/04/24/5cbfffec5e58a.png"></p>
+<p><img alt="恢复历史版本" data-original="https://pic.neko7ina.com/images/20190331/7.png"></p>
 <p>这时再回到 <code>共享</code> 选项卡，把文件夹共享给要同步的设备，目标设备接受就算完成了。</p>
 <p>如果设备勾选了 <code>自动接受</code>，在共享勾上时就会自动接受并开始同步，但会在默认目录建立，所以如果对路径有比较强的规划，不推荐给设备勾选此选项。</p>
 <p>不过这里有个问题，Android 客户端接受之后会让用户设置文件夹属性，并指定位置，但 Web UI 界面下接受后就直接在默认目录按照 <code>文件夹标签</code> 建立文件夹，这个并不符合所有人的使用习惯，起码不符合我的。</p>
 <p>为了避免这个文件，我会在所有设备上先建立好要同步的文件夹，指定好路径，只要所有设备里同步文件夹的 <code>文件夹 ID</code> 一致，设置完后勾上共享就可以开始同步了。</p>
 <p>到这里，属于我自己的私人同步云盘就建立起来并正常开始工作了，使用方式和 Dropbox 并无太大区别，将要同步的内容丢到文件夹中即可。</p>
 <h2 id="微小的工作"><a href="#微小的工作" class="headerlink" title="微小的工作"></a>微小的工作</h2><h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p>Web UI 的字体我总是看它不太爽，尤其是字母和数字对不齐真是要了我的老命。</p>
-<p><img alt="这字体可真让我难受" data-original="https://i.loli.net/2019/04/24/5cbfffff68f61.png"></p>
+<p><img alt="这字体可真让我难受" data-original="https://pic.neko7ina.com/images/20190331/8.png"></p>
 <p>看了看好像是默认字体的锅，想了想还是没忍住把它给干了。</p>
 <p>使用类似 <a href="https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne" target="_blank" rel="noopener">Stylus</a> 之类的扩展，在里面添加一个新样式，写入如下内容：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h4</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: -apple-system, BlinkMacSystemFont, <span class="string">"Segoe UI"</span>, Roboto, <span class="string">"Helvetica Neue"</span>, Arial, <span class="string">"Noto Sans"</span>, sans-serif, <span class="string">"Apple Color Emoji"</span>, <span class="string">"Segoe UI Emoji"</span>, <span class="string">"Segoe UI Symbol"</span>, <span class="string">"Noto Color Emoji"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然后应用于本地及远程 Web UI 的地址即可，效果如下：</p>
-<p><img alt="对齐后就舒服了" data-original="https://i.loli.net/2019/04/24/5cc0000b39f8d.png"></p>
+<p><img alt="对齐后就舒服了" data-original="https://pic.neko7ina.com/images/20190331/9.png"></p>
 <h3 id="eaDir-文件夹"><a href="#eaDir-文件夹" class="headerlink" title="@eaDir 文件夹"></a>@eaDir 文件夹</h3><p>DSM 会在含有图片的文件夹建立索引，@eaDir 文件夹就是为了实现这个功能而在目录自动添加的。</p>
 <p>但是对我来说，其他设备上看到这个挺烦的，还好 Syncthing 支持忽略模式，可以写一条规则避免将这个文件夹同步到别的设备上。</p>
 <p>点击要修改的文件夹，点击 <code>选项</code>，转到 <code>忽略模式</code> 选项卡，在下面正文部分添加一条：</p>
