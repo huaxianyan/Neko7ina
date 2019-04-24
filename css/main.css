@@ -1760,7 +1760,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #380e57;
+  background: #ffde05;
 }
 .feed-link,
 .chat {
@@ -2974,7 +2974,7 @@ ul.breadcrumb li+li:last-child {
 }
 html,
 body {
-  background-image: url("https://ws1.sinaimg.cn/large/6c41674cgy1fplo4e8hmlj20bg0bga9v.jpg");
+  background-image: url("/images/base/background.png");
 }
 .post-body a {
   color: #0366d6;
