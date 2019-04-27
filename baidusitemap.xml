@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>http://www.neko7ina.com/about-my-pictures.html</loc>
+    <lastmod>2019-04-27T14:51:19.053Z</lastmod>
+    <data>
+        <display>
+        <title>懒人的「图床」打造</title>
+        <pubTime>2019-04-27T02:51:13.000Z</pubTime>
+        
+        <tag>折腾</tag>
+         
+        <tag>Syncthing</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>Nginx</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.neko7ina.com/some-problems-on-macos.html</loc>
     <lastmod>2019-04-24T16:35:21.393Z</lastmod>
     <data>
@@ -17,9 +40,9 @@
          
         <tag>Syncthing</tag>
          
-        <tag>Synology</tag>
-         
         <tag>macOS</tag>
+         
+        <tag>Synology</tag>
          
          
            
@@ -38,9 +61,9 @@
         
         <tag>折腾</tag>
          
-        <tag>群晖</tag>
-         
         <tag>Synology</tag>
+         
+        <tag>群晖</tag>
          
          
            
