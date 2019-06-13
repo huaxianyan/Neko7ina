@@ -115,13 +115,18 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="七言八语">
-<meta property="og:url" content="http://www.neko7ina.com/tags/Linux/index.html">
+  <meta name="description" content="最近值夜班闲着没事把 FF7R 的 E3 演示看了看，担心又出 15 那么个玩意儿的战斗系统。 仔细分析了一下，结论让我感到有趣。">
+<meta name="keywords" content="最终幻想,FINAL FANTASY,FF7R,FF7">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FF7R 战斗系统简单剖析">
+<meta property="og:url" content="http://www.neko7ina.com/ff7r-battle.html">
 <meta property="og:site_name" content="七言八语">
+<meta property="og:description" content="最近值夜班闲着没事把 FF7R 的 E3 演示看了看，担心又出 15 那么个玩意儿的战斗系统。 仔细分析了一下，结论让我感到有趣。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-13T15:16:24.780Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="七言八语">
+<meta name="twitter:title" content="FF7R 战斗系统简单剖析">
+<meta name="twitter:description" content="最近值夜班闲着没事把 FF7R 的 E3 演示看了看，担心又出 15 那么个玩意儿的战斗系统。 仔细分析了一下，结论让我感到有趣。">
 
 
 
@@ -129,7 +134,7 @@
 
   
   
-  <link rel="canonical" href="http://www.neko7ina.com/tags/Linux/">
+  <link rel="canonical" href="http://www.neko7ina.com/ff7r-battle">
 
 
 
@@ -139,7 +144,7 @@
   };
 </script>
 
-  <title>标签: Linux | 七言八语</title>
+  <title>FF7R 战斗系统简单剖析 | 七言八语</title>
   
 
 
@@ -198,7 +203,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -253,7 +258,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -341,77 +346,200 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>Linux<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.neko7ina.com/ff7r-battle.html">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Neko7ina">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://pic.neko7ina.com/images/base/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="七言八语">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/about-my-pictures.html" itemprop="url">
-            
-              <span itemprop="name">懒人的「图床」打造</span>
-            
-          </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">FF7R 战斗系统简单剖析
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-27T10:51:13+08:00" content="2019-04-27">
-          04-27
-        </time>
-      </div>
+              
+            
+          </h2>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-13 21:21:21 / 修改时间：23:16:24" itemprop="dateCreated datePublished" datetime="2019-06-13T21:21:21+08:00">2019-06-13</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近值夜班闲着没事把 FF7R 的 E3 演示看了看，担心又出 15 那么个玩意儿的战斗系统。</p>
+<p>仔细分析了一下，结论让我感到有趣。</p>
+<a id="more"></a>
+<p>原版 7 使用的是 ATB，战斗操作方式大致可以分为两个阶段：等待 ATB 满，ATB 满后下指令。</p>
+<p>「ATB 满后下指令」是核心系统，这点做了改进在 7R 里保留了下来，完全改变的是「等待 ATB 满」这个阶段。</p>
+<p>将 ATB 积累从单纯的时间流逝，替换成了一个基本的即时动作战斗框架，积攒 ATB 的手段变成多种基本即时动作操作，比如攻击、防御等，这样给了玩家更多操控性，又不会损伤 7 原本的战斗系统核心。</p>
+<p>这也是 MP 系统依然存在的原因，ATB Charge 只是相当于 ATB 满，释放魔法本就要额外消耗，需要 MP 数值系统制约，不像释放黄色魔石指令。</p>
+<p>ATB 也吸收了一些后作经验，演示中分成 2 段的 ATB Charge 就是来自 13 系列「高速 ATB」变种，将 ATB 切割，指令存在不同消耗，并且不排除游戏流程中有增加 ATB 上限的设计。</p>
+<p>原版「Haste/Slow」可能会不存在，也可能改变成「增加/减少 ATB 增涨幅度」这种效果，毕竟在即时动作战斗框架下直接给人物动作全方位变速反而会影响节奏和手感。</p>
+<p>那么改后的「等待 ATB 满」和「ATB 满后下指令」这两个阶段，不可能完全割裂地简单拼凑在一起，即时动作战斗框架像是一个更大的容器，将原本 ATB 战斗包含在其中，和其进行方方面面的交互、融合，ATB 也要考虑到即时动作战斗的展现形式，指令上会做一些修改及取舍，基于这个战斗框架下的对战设计也有了更大的设计空间，就如同演示中看到的第一个 Boss 多阶段一般。</p>
+<p>换句话说，即时这次 SE 的即时动作战斗又做砸了（我为什么要说又），最大也只会让这个战斗系统沦为时间流逝积累的替代品，给玩家更多主观能动性是怎么也无法抹去的，只要灵魂没有简化过头、服务到没有自我，7R 的战斗系统不会差到令人发指的地步。</p>
+<p>这个战斗系统这样做，既表现一个不错的视觉效果，获得尚佳的互动感受，同时也让一些老内容更佳容易、完整地继承。</p>
+<p>最后要强调的是，并不是说这次 7R 的战斗就一定会做得好，结果如何开发组的设计至关重要，但是情况一定会比 15 那种东西要好的多，能发挥成什么样，只能期待了。</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/最终幻想/" rel="tag"># 最终幻想</a>
+          
+            <a href="/tags/FINAL-FANTASY/" rel="tag"># FINAL FANTASY</a>
+          
+            <a href="/tags/FF7R/" rel="tag"># FF7R</a>
+          
+            <a href="/tags/FF7/" rel="tag"># FF7</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/about-my-pictures.html" rel="next" title="懒人的「图床」打造">
+                <i class="fa fa-chevron-left"></i> 懒人的「图床」打造
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -729,6 +857,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
 
   
 
@@ -744,6 +876,43 @@
 
   
 
+
+  
+    
+
+  
+
+<script src="//cdn.staticfile.org/gitalk/1.4.0/gitalk.min.js"></script>
+
+
+
+  
+
+<link rel="stylesheet" href="//cdn.staticfile.org/gitalk/1.4.0/gitalk.css">
+
+
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '52aaa5e7cca2d4ce7380',
+    clientSecret: '899215fbec1f684b5a4e94701e7b3375e4574a81',
+    repo: 'hexo-comment',
+    owner: 'huaxianyan',
+    admin: ['huaxianyan'],
+    id: md5(location.pathname),
+    
+      language: 'zh-CN',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
 
 
   
