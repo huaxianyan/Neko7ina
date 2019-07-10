@@ -123,7 +123,7 @@
 <meta property="og:site_name" content="七言八语">
 <meta property="og:description" content="月初买了个 iPhone SE，将辣鸡软件全部转移到 iOS 上之后，Android 的使用体验瞬间上升，不用忍受辣鸡国产软件的涂毒，还省了去镇压调教的功夫，续航也大幅提升，快哉快哉。 但是日常用的国产软件还有 QQ 和微信这两大流氓。微信还好，Play Store 上的版本只要关闭了后台就可以使用 FCM 来接收通知（虽然实现方式还是有点不老实），但是 QQ 就真没什么辙。 直到我找到了这个。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-24T16:26:11.601Z">
+<meta property="og:updated_time" content="2019-07-10T11:13:20.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用 FCM 来推送 QQ 消息">
 <meta name="twitter:description" content="月初买了个 iPhone SE，将辣鸡软件全部转移到 iOS 上之后，Android 的使用体验瞬间上升，不用忍受辣鸡国产软件的涂毒，还省了去镇压调教的功夫，续航也大幅提升，快哉快哉。 但是日常用的国产软件还有 QQ 和微信这两大流氓。微信还好，Play Store 上的版本只要关闭了后台就可以使用 FCM 来接收通知（虽然实现方式还是有点不老实），但是 QQ 就真没什么辙。 直到我找到了这个。">
@@ -413,22 +413,6 @@
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-25 00:26:11" itemprop="dateModified" datetime="2019-04-25T00:26:11+08:00">2019-04-25</time>
-              
-            
           </span>
 
           
@@ -470,7 +454,7 @@
 <p><strong>重要通知：WebQQ将在2019年1月1日停止服务，项目目前已停止维护，感谢大家四年来一路陪伴</strong></p>
 </blockquote>
 <p><strong>就到此为止了，留一张做最后的纪念，感谢开发者给我们带来了一段美好时光。</strong></p>
-<p><img width="37%" data-original="https://pic.neko7ina.com/images/20180731/8.png"></p>
+<p><img width="37%" data-original="https://pic.neko7ina.com:7777/images/20180731/8.png"></p>
 <p><strong>2018/10/30 更新：增加可选工作，提供 HTTP 基本认证、HTTPS 及 Nginx 配置部分内容。</strong></p>
 <h2 id="配置服务端"><a href="#配置服务端" class="headerlink" title="配置服务端"></a>配置服务端</h2><h3 id="安装相关依赖"><a href="#安装相关依赖" class="headerlink" title="安装相关依赖"></a>安装相关依赖</h3><p>笔者所使用的系统是 Ubuntu 16.04 LTS。</p>
 <p>git：使用包管理器来安装。</p>
@@ -484,20 +468,20 @@
 <p>如要更新，关闭当前正在运行的 FFM 并进入 <code>FCM-for-Mojo-Server</code> 目录执行以下命令。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 <h2 id="配置客户端"><a href="#配置客户端" class="headerlink" title="配置客户端"></a>配置客户端</h2><p>前往 Play Store 下载安装 <a href="https://play.google.com/store/apps/details?id=moe.shizuku.fcmformojo" target="_blank" rel="noopener">Android 客户端</a>。</p>
-<p><img width="37%" data-original="https://pic.neko7ina.com/images/20180731/1.png"></p>
+<p><img width="37%" data-original="https://pic.neko7ina.com:7777/images/20180731/1.png"></p>
 <p>点击 <code>服务器设置</code>，在 <code>服务器 URL</code> 处填写服务端地址，默认端口 <code>5005</code>，写成 <code>http://w.x.y.z:5005/</code> 形式即可。</p>
-<p><img width="37%" data-original="https://pic.neko7ina.com/images/20180731/2.png"></p>
+<p><img width="37%" data-original="https://pic.neko7ina.com:7777/images/20180731/2.png"></p>
 <p>点击 <code>管理设备</code> 点击加号将当前设备加入管理列表，再点击右侧上传云端保存。</p>
-<p><img width="37%" data-original="https://pic.neko7ina.com/images/20180731/3.png"></p>
+<p><img width="37%" data-original="https://pic.neko7ina.com:7777/images/20180731/3.png"></p>
 <p>返回主界面点击 <code>账号设置</code> 将自己的账号密码填入其中。账号密码登录现已失效，但是如要实现某些特性还要填写账号密码，详情请看 <a href="https://github.com/sjdy521/Mojo-Webqq/issues/183" target="_blank" rel="noopener">这里</a>。</p>
 <p>FFM 服务端默认使用明文保存密码，如果介意上面的链接中也提及了解决办法。</p>
-<p><img width="37%" data-original="https://pic.neko7ina.com/images/20180731/4.png"></p>
+<p><img width="37%" data-original="https://pic.neko7ina.com:7777/images/20180731/4.png"></p>
 <p>最后进入 <code>通知设置</code> 做最后修改。<code>获取前台应用方式</code> 如没有 root，则选择 <code>使用情况访问</code>，否则可以搭配 <a href="https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api&amp;hl=zh" target="_blank" rel="noopener">Shizuku Manager</a> 的 root 模式选择 <code>Shizuku</code> 使用。</p>
-<p><img width="37%" data-original="https://pic.neko7ina.com/images/20180731/5.png"></p>
+<p><img width="37%" data-original="https://pic.neko7ina.com:7777/images/20180731/5.png"></p>
 <h2 id="测试使用"><a href="#测试使用" class="headerlink" title="测试使用"></a>测试使用</h2><p>服务端进入 <code>FCM-for-Mojo-Server</code> 目录，启动服务端。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
 <p>如设置无误，手机上会收到通知并自动从服务端下载登录二维码，打开 QQ 选择扫码，点击相册从手机中选择刚下载的二维码，确认登录即可完成。</p>
-<p><img width="37%" data-original="https://pic.neko7ina.com/images/20180731/6.png"></p>
+<p><img width="37%" data-original="https://pic.neko7ina.com:7777/images/20180731/6.png"></p>
 <p>现在就可以通过 FCM 来接收你的 QQ 消息了，顺便去系统设置中把 QQ 的后台给关闭掉。</p>
 <h2 id="作为服务启动"><a href="#作为服务启动" class="headerlink" title="作为服务启动"></a>作为服务启动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /lib/systemd/system/ffm.service</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=a server for FCM-for-Mojo-Server</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">User=root</span><br><span class="line">WorkingDirectory=/root/FCM-for-Mojo-Server</span><br><span class="line">ExecStart=/usr/bin/npm start</span><br><span class="line">PrivateTmp=true</span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
@@ -516,7 +500,7 @@
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> ffm.neko7ina.com;</span><br><span class="line">    <span class="attribute">return</span> <span class="number">301</span> https://ffm.neko7ina.com<span class="variable">$request_uri</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line">    <span class="attribute">root</span> /var/www/ffm;</span><br><span class="line">    <span class="attribute">access_log</span>  /var/log/nginx/ffm_access.log;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">ssl_certificate</span> /etc/nginx/ssl/fullchain.cer;</span><br><span class="line">    <span class="attribute">ssl_certificate_key</span> /etc/nginx/ssl/neko7ina.com.key;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">ssl_session_timeout</span> <span class="number">1d</span>;</span><br><span class="line">    <span class="attribute">ssl_session_cache</span> shared:SSL:<span class="number">50m</span>;</span><br><span class="line">    <span class="attribute">ssl_session_tickets</span> <span class="literal">off</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">ssl_protocols</span> TLSv1 TLSv1.<span class="number">1</span> TLSv1.<span class="number">2</span>;</span><br><span class="line">    <span class="attribute">add_header</span> Strict-Transport-Security max-age=<span class="number">15768000</span>;</span><br><span class="line">    <span class="attribute">ssl_stapling</span> <span class="literal">on</span>;</span><br><span class="line">    <span class="attribute">ssl_stapling_verify</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> https://127.0.0.1:5005/;</span><br><span class="line">        <span class="attribute">proxy_redirect</span> <span class="literal">off</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">        <span class="attribute">auth_basic</span> <span class="string">"FCM for Mojo"</span>;</span><br><span class="line">        <span class="attribute">auth_basic_user_file</span> /root/FCM-for-Mojo-Server/ffm_auth;</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -t</span><br><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
 <p>最后修改一下客户端上的 <code>服务器配置</code>，将新的 URL 以及登录信息填写进去即可。</p>
-<p><img width="37%" data-original="https://pic.neko7ina.com/images/20180731/7.png"></p>
+<p><img width="37%" data-original="https://pic.neko7ina.com:7777/images/20180731/7.png"></p>
 <h2 id="收尾工作"><a href="#收尾工作" class="headerlink" title="收尾工作"></a>收尾工作</h2><p>最后换一个简洁版本的 QQ，比如 <a href="https://play.google.com/store/apps/details?id=com.tencent.mobileqqi&amp;hl=zh" target="_blank" rel="noopener">QQ 国际版</a>，并关掉其后台权限及通知权限。</p>
 <p>现在，在别的 IM 软件上能够享受的 Android 通知新特性，也可以在 QQ 上享受的到了。</p>
 
