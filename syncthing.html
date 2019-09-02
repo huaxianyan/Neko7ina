@@ -111,38 +111,34 @@
 <p>虽然 Dropbox 特别好用，但是新改动对于我来说太致命，也让我不得不寻找一个新的解决方案了。</p>
 <a id="more"></a>
 <p><a href="https://syncthing.net/" target="_blank" rel="noopener">Syncthing</a> 是一款开源的同步工具，简单了解一下发现可以实现我的需求，于是就动了下手。</p>
-<h2 id="安装与更新"><a class="markdownIt-Anchor" href="#安装与更新"></a> 安装与更新</h2>
-<h3 id="服务端"><a class="markdownIt-Anchor" href="#服务端"></a> 服务端</h3>
-<h4 id="安装-syncthing"><a class="markdownIt-Anchor" href="#安装-syncthing"></a> 安装 Syncthing</h4>
-<p>本来考虑到家里有公网 IP，就直接 24 小时开家里的 PC，其他设备都以它为主进行同步。</p>
+<h2 id="安装与更新"><a href="#安装与更新" class="headerlink" title="安装与更新"></a>安装与更新</h2><h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><h4 id="安装-Syncthing"><a href="#安装-Syncthing" class="headerlink" title="安装 Syncthing"></a>安装 Syncthing</h4><p>本来考虑到家里有公网 IP，就直接 24 小时开家里的 PC，其他设备都以它为主进行同步。</p>
 <p>不过考虑再三，保险起见，还是在 VPS 上部署一个服务端。</p>
 <p>其实这个服务端本质上也是客户端，因为我的 VPS 系统是 Ubuntu 18.04 LTS，所以这个也可以视为 Linux 系统下的客户端使用指南。</p>
 <p>打开 <a href="https://syncthing.net/" target="_blank" rel="noopener">官网</a>，找到最新的 Linux 64 bit 版的客户端，将其下到 VPS 上，并解压出来，将其中的执行程序复制到 <code>/usr/local/bin</code> 目录下。</p>
-<pre class="highlight"><code class="bash">wget https://github.com/syncthing/syncthing/releases/download/v1.1.0/syncthing-linux-amd64-v1.1.0.tar.gz
+<pre><code class="bash">wget https://github.com/syncthing/syncthing/releases/download/v1.1.0/syncthing-linux-amd64-v1.1.0.tar.gz
 tar xzvf syncthing-linux-amd64-v1.1.0.tar.gz
-<span class="hljs-built_in">cd</span> syncthing-linux-amd64-v1.1.0
-cp syncthing /usr/<span class="hljs-built_in">local</span>/bin
+cd syncthing-linux-amd64-v1.1.0
+cp syncthing /usr/local/bin
 </code></pre>
 <p>如果以 root 用户启动 Syncthing 会被提示不建议在 root 用户下运行，所以在正式使用之前，先建立一个专门的用户。</p>
-<pre class="highlight"><code class="bash">adduser syncthing
+<pre><code class="bash">adduser syncthing
 </code></pre>
 <p>按照引导将用户建立完成，切换到刚创建的用户 syncthing 运行一次 Syncthing，程序会将配置文件释放出来。</p>
 <p>停止运行程序，先编辑配置文件。</p>
-<pre class="highlight"><code class="bash">vim /home/syncthing/.config/syncthing/config.xml
+<pre><code class="bash">vim /home/syncthing/.config/syncthing/config.xml
 </code></pre>
 <p>找到 <code>&lt;address&gt;</code> 这行，将 <code>127.0.0.1</code> 改为 <code>0.0.0.0</code>，这样就可以从公网访问 Web UI 了，保存退出。</p>
 <p>再次直接运行 Syncthing，然后在地址栏输入 <code>http://w.x.y.z:8384/</code> 进入 Syncthing 的 Web UI 管理界面，第一次访问时会提醒设置账号及密码，建议设置并重启 Syncthing。</p>
 <p>这时候 Syncthing 就已经可以开始正常使用了，如果使用了防火墙，在过程中对相应的规则进行放行。</p>
 <p>比如我使用的是 UFW，那么将执行以下命令：</p>
-<pre class="highlight"><code class="bash">ufw allow syncthing
+<pre><code class="bash">ufw allow syncthing
 ufw allow syncthing-gui
 </code></pre>
-<h4 id="作为服务启动"><a class="markdownIt-Anchor" href="#作为服务启动"></a> 作为服务启动</h4>
-<p>Syncthing 非常地贴心啊，在第一次启动时不止在用户的 <code>.config</code> 目录释放了配置文件及证书，也释放了 systemd 服务文件，可以直接启用。</p>
+<h4 id="作为服务启动"><a href="#作为服务启动" class="headerlink" title="作为服务启动"></a>作为服务启动</h4><p>Syncthing 非常地贴心啊，在第一次启动时不止在用户的 <code>.config</code> 目录释放了配置文件及证书，也释放了 systemd 服务文件，可以直接启用。</p>
 <p>不过我为了偷懒，拿它的文件改了一下，指定了用户，这样在用 systemd 控制时可以少打点字母。</p>
-<pre class="highlight"><code class="bash">vim /lib/systemd/system/syncthing.service
+<pre><code class="bash">vim /lib/systemd/system/syncthing.service
 </code></pre>
-<pre class="highlight"><code class="">[Unit]
+<pre><code>[Unit]
 Description=Syncthing
 Documentation=man:syncthing(1)
 After=network.target
@@ -163,35 +159,28 @@ NoNewPrivileges=true
 
 [Install]
 WantedBy=multi-user.target
-</code></pre>
-<pre class="highlight"><code class="bash">systemctl <span class="hljs-built_in">enable</span> syncthing
+</code></pre><pre><code class="bash">systemctl enable syncthing
 systemctl start syncthing
 </code></pre>
-<h4 id="更新-syncthing"><a class="markdownIt-Anchor" href="#更新-syncthing"></a> 更新 Syncthing</h4>
-<p>下新版本的 Syncthing，关闭当前运行的程序，将可执行文件替换即可，操作如下：</p>
-<pre class="highlight"><code class="bash">wget https://github.com/syncthing/syncthing/releases/download/v1.1.1/syncthing-linux-amd64-v1.1.1.tar.gz
+<h4 id="更新-Syncthing"><a href="#更新-Syncthing" class="headerlink" title="更新 Syncthing"></a>更新 Syncthing</h4><p>下新版本的 Syncthing，关闭当前运行的程序，将可执行文件替换即可，操作如下：</p>
+<pre><code class="bash">wget https://github.com/syncthing/syncthing/releases/download/v1.1.1/syncthing-linux-amd64-v1.1.1.tar.gz
 tar zxvf syncthing-linux-amd64-v1.1.1.tar.gz
-<span class="hljs-built_in">cd</span> syncthing-linux-amd64-v1.1.1
+cd syncthing-linux-amd64-v1.1.1
 systemctl stop syncthing
-cp syncthing /usr/<span class="hljs-built_in">local</span>/bin
+cp syncthing /usr/local/bin
 systemctl start syncthing
 </code></pre>
-<h3 id="客户端"><a class="markdownIt-Anchor" href="#客户端"></a> 客户端</h3>
-<h4 id="windows"><a class="markdownIt-Anchor" href="#windows"></a> Windows</h4>
-<p>Windows 平台下有个很好用的 GUI 客户端 <a href="https://github.com/canton7/SyncTrayzor/releases/latest" target="_blank" rel="noopener">SyncTrayzor</a>，基本上就是下载、安装、打开使用，开袋即食。</p>
+<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><h4 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h4><p>Windows 平台下有个很好用的 GUI 客户端 <a href="https://github.com/canton7/SyncTrayzor/releases/latest" target="_blank" rel="noopener">SyncTrayzor</a>，基本上就是下载、安装、打开使用，开袋即食。</p>
 <p>GUI 客户端本身及 Syncthing 核心都会提示更新，按照提示操作即可。</p>
-<h4 id="android"><a class="markdownIt-Anchor" href="#android"></a> Android</h4>
-<p>没啥说的，<a href="https://play.google.com/store/apps/details?id=com.nutomic.syncthingandroid" target="_blank" rel="noopener">官方客户端</a>。</p>
+<h4 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h4><p>没啥说的，<a href="https://play.google.com/store/apps/details?id=com.nutomic.syncthingandroid" target="_blank" rel="noopener">官方客户端</a>。</p>
 <p>更新也是按照 Google Play 官方提示更新。</p>
-<h4 id="synology"><a class="markdownIt-Anchor" href="#synology"></a> Synology</h4>
-<p>打开 <code>套件中心</code> - <code>设置</code> - <code>套件来源</code>，点击 <code>新增</code> 添加第三方来源 SynoCommunity，地址为 <a href="http://packages.synocommunity.com/" target="_blank" rel="noopener">http://packages.synocommunity.com/</a>，确定保存。</p>
+<h4 id="Synology"><a href="#Synology" class="headerlink" title="Synology"></a>Synology</h4><p>打开 <code>套件中心</code> - <code>设置</code> - <code>套件来源</code>，点击 <code>新增</code> 添加第三方来源 SynoCommunity，地址为 <a href="http://packages.synocommunity.com/" target="_blank" rel="noopener">http://packages.synocommunity.com/</a>，确定保存。</p>
 <p><img src="https://pic.neko7ina.com:7777/images/20190331/1.png" alt="添加来源"></p>
 <p>刷新套件中心会看到多出一个 <code>社群</code> 类别，点进去找到 Syncthing 安装即可。</p>
 <p><img src="https://pic.neko7ina.com:7777/images/20190331/2.png" alt="安装 Syncthing"></p>
 <p>这个客户端 Web GUI 默认监听 <code>0.0.0.0:8384</code>，可以直接访问群晖内网 IP 的 8384 端口而不需要更改任何设置。</p>
 <p>更新可以依赖套件中心（可能会慢），或 Web GUI 自动更新。</p>
-<h2 id="使用"><a class="markdownIt-Anchor" href="#使用"></a> 使用</h2>
-<p>不论服务端还是客户端，使用逻辑都是同一套的 Web UI，服务端访问方式上面已说，本地客户端可以访问 <code>http://127.0.0.1:8384/</code>。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>不论服务端还是客户端，使用逻辑都是同一套的 Web UI，服务端访问方式上面已说，本地客户端可以访问 <code>http://127.0.0.1:8384/</code>。</p>
 <p>当然，SyncTrayzor 之类的客户端自带界面。</p>
 <p><img src="https://pic.neko7ina.com:7777/images/20190331/3.png" alt="Web GUI 界面"></p>
 <p>右上角 <code>操作</code> 中有个 <code>显示 ID</code>，点开可以看到 ID 和二维码，方便其他设备添加该设备，点击右下角的 <code>添加远程设备</code> 输入 ID 提交添加申请，被添加的设备通过后设备之间就联系上了。</p>
@@ -212,27 +201,22 @@ systemctl start syncthing
 <p>不过这里有个问题，Android 客户端接受之后会让用户设置文件夹属性，并指定位置，但 Web UI 界面下接受后就直接在默认目录按照 <code>文件夹标签</code> 建立文件夹，这个并不符合所有人的使用习惯，起码不符合我的。</p>
 <p>为了避免这个文件，我会在所有设备上先建立好要同步的文件夹，指定好路径，只要所有设备里同步文件夹的 <code>文件夹 ID</code> 一致，设置完后勾上共享就可以开始同步了。</p>
 <p>到这里，属于我自己的私人同步云盘就建立起来并正常开始工作了，使用方式和 Dropbox 并无太大区别，将要同步的内容丢到文件夹中即可。</p>
-<h2 id="微小的工作"><a class="markdownIt-Anchor" href="#微小的工作"></a> 微小的工作</h2>
-<h3 id="字体"><a class="markdownIt-Anchor" href="#字体"></a> 字体</h3>
-<p>Web UI 的字体我总是看它不太爽，尤其是字母和数字对不齐真是要了我的老命。</p>
+<h2 id="微小的工作"><a href="#微小的工作" class="headerlink" title="微小的工作"></a>微小的工作</h2><h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p>Web UI 的字体我总是看它不太爽，尤其是字母和数字对不齐真是要了我的老命。</p>
 <p><img src="https://pic.neko7ina.com:7777/images/20190331/8.png" alt="这字体可真让我难受"></p>
 <p>看了看好像是默认字体的锅，想了想还是没忍住把它给干了。</p>
 <p>使用类似 <a href="https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne" target="_blank" rel="noopener">Stylus</a> 之类的扩展，在里面添加一个新样式，写入如下内容：</p>
-<pre class="highlight"><code class="css"><span class="hljs-selector-tag">h4</span> {
-    <span class="hljs-attribute">font-family</span>: -apple-system, BlinkMacSystemFont, <span class="hljs-string">"Segoe UI"</span>, Roboto, <span class="hljs-string">"Helvetica Neue"</span>, Arial, <span class="hljs-string">"Noto Sans"</span>, sans-serif, <span class="hljs-string">"Apple Color Emoji"</span>, <span class="hljs-string">"Segoe UI Emoji"</span>, <span class="hljs-string">"Segoe UI Symbol"</span>, <span class="hljs-string">"Noto Color Emoji"</span>
+<pre><code class="css">h4 {
+    font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;
 }
 </code></pre>
 <p>然后应用于本地及远程 Web UI 的地址即可，效果如下：</p>
 <p><img src="https://pic.neko7ina.com:7777/images/20190331/9.png" alt="对齐后就舒服了"></p>
-<h3 id="eadir-文件夹"><a class="markdownIt-Anchor" href="#eadir-文件夹"></a> @eaDir 文件夹</h3>
-<p>DSM 会在含有图片的文件夹建立索引，@eaDir 文件夹就是为了实现这个功能而在目录自动添加的。</p>
+<h3 id="eaDir-文件夹"><a href="#eaDir-文件夹" class="headerlink" title="@eaDir 文件夹"></a>@eaDir 文件夹</h3><p>DSM 会在含有图片的文件夹建立索引，@eaDir 文件夹就是为了实现这个功能而在目录自动添加的。</p>
 <p>但是对我来说，其他设备上看到这个挺烦的，还好 Syncthing 支持忽略模式，可以写一条规则避免将这个文件夹同步到别的设备上。</p>
 <p>点击要修改的文件夹，点击 <code>选项</code>，转到 <code>忽略模式</code> 选项卡，在下面正文部分添加一条：</p>
-<pre class="highlight"><code class="">@eaDir
-</code></pre>
-<p>保存即可生效。</p>
-<h2 id="结语"><a class="markdownIt-Anchor" href="#结语"></a> 结语</h2>
-<p>这么多天使用下来，Syncthing 还是能满足我的使用要求的，并且相对于 Dropbox 来说，我有了一些更自由的选项。</p>
+<pre><code>@eaDir
+</code></pre><p>保存即可生效。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>这么多天使用下来，Syncthing 还是能满足我的使用要求的，并且相对于 Dropbox 来说，我有了一些更自由的选项。</p>
 <p>天下宴席，终有散时，Dropbox，我们后会有期，感谢这么些年来给我带来的美好体验。</p>
 
                             <hr>

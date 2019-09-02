@@ -104,64 +104,58 @@
 <p>但是日常用的国产软件还有 QQ 和微信这两大流氓。微信还好，Play Store 上的版本只要关闭了后台就可以使用 FCM 来接收通知（虽然实现方式还是有点不老实），但是 QQ 就真没什么辙。</p>
 <p>直到我找到了这个。</p>
 <a id="more"></a>
-<p><a href="https://github.com/RikkaApps/FCM-for-Mojo" target="_blank" rel="noopener">FCM for Mojo</a>，简称 FFM，由 Rikka 酱开发，借助 <a href="https://github.com/sjdy521/Mojo-Webqq" target="_blank" rel="noopener">Mojo-Webqq</a> 实现将 QQ 消息通过 FCM 推送至 Android 设备。 有了这个，就可以从 FCM 来接收 QQ 消息了。</p>
+<p><a href="https://github.com/RikkaApps/FCM-for-Mojo" target="_blank" rel="noopener">FCM for Mojo</a>，简称 FFM，由 Rikka 酱开发，借助 <a href="https://github.com/sjdy521/Mojo-Webqq" target="_blank" rel="noopener">Mojo-Webqq</a> 实现将 QQ 消息通过 FCM 推送至 Android 设备。 有了这个，就可以从 FCM 来接收 QQ 消息了。</p>
 <p><strong>2018/12/19 更新：</strong></p>
 <blockquote>
 <p><strong>重要通知：WebQQ将在2019年1月1日停止服务，项目目前已停止维护，感谢大家四年来一路陪伴</strong></p>
 </blockquote>
 <p><strong>就到此为止了，留一张做最后的纪念，感谢开发者给我们带来了一段美好时光。</strong></p>
-<img src="https://pic.neko7ina.com:7777/images/20180731/8.png" width="37%">
+<p><img src="https://pic.neko7ina.com:7777/images/20180731/8.png" width="37%"></p>
 <p><strong>2018/10/30 更新：增加可选工作，提供 HTTP 基本认证、HTTPS 及 Nginx 配置部分内容。</strong></p>
-<h2 id="配置服务端"><a class="markdownIt-Anchor" href="#配置服务端"></a> 配置服务端</h2>
-<h3 id="安装相关依赖"><a class="markdownIt-Anchor" href="#安装相关依赖"></a> 安装相关依赖</h3>
-<p>笔者所使用的系统是 Ubuntu 16.04 LTS。</p>
+<h2 id="配置服务端"><a href="#配置服务端" class="headerlink" title="配置服务端"></a>配置服务端</h2><h3 id="安装相关依赖"><a href="#安装相关依赖" class="headerlink" title="安装相关依赖"></a>安装相关依赖</h3><p>笔者所使用的系统是 Ubuntu 16.04 LTS。</p>
 <p>git：使用包管理器来安装。</p>
-<pre class="highlight"><code class="bash">apt-get install git
+<pre><code class="bash">apt-get install git
 </code></pre>
 <p>Node.js：版本看自己喜好选择。</p>
-<pre class="highlight"><code class="bash">curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+<pre><code class="bash">curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y nodejs
 </code></pre>
 <p>Mojo-Webqq：项目推荐使用 <a href="https://metacpan.org/pod/distribution/App-cpanminus/bin/cpanm" target="_blank" rel="noopener">cpanm</a>  在线安装或升级模块。</p>
-<pre class="highlight"><code class="bash">curl -kL https://cpanmin.us | perl - App::cpanminus
+<pre><code class="bash">curl -kL https://cpanmin.us | perl - App::cpanminus
 cpanm Mojo::Webqq
 cpanm Webqq::Encryption
 </code></pre>
 <p>如要更新只需再执行 <code>cpanm Mojo::Webqq</code> 即可。</p>
-<h3 id="安装-fcm-for-mojo-服务端"><a class="markdownIt-Anchor" href="#安装-fcm-for-mojo-服务端"></a> 安装 FCM for Mojo 服务端</h3>
-<pre class="highlight"><code class="bash"><span class="hljs-built_in">cd</span>
-git <span class="hljs-built_in">clone</span> https://github.com/RikkaApps/FCM-for-Mojo-Server.git
-<span class="hljs-built_in">cd</span> FCM-for-Mojo-Server
+<h3 id="安装-FCM-for-Mojo-服务端"><a href="#安装-FCM-for-Mojo-服务端" class="headerlink" title="安装 FCM for Mojo 服务端"></a>安装 FCM for Mojo 服务端</h3><pre><code class="bash">cd
+git clone https://github.com/RikkaApps/FCM-for-Mojo-Server.git
+cd FCM-for-Mojo-Server
 cp config.example.js config.js
 npm install
 </code></pre>
 <p>如要更新，关闭当前正在运行的 FFM 并进入 <code>FCM-for-Mojo-Server</code> 目录执行以下命令。</p>
-<pre class="highlight"><code class="bash">git pull
+<pre><code class="bash">git pull
 npm install
 </code></pre>
-<h2 id="配置客户端"><a class="markdownIt-Anchor" href="#配置客户端"></a> 配置客户端</h2>
-<p>前往 Play Store 下载安装 <a href="https://play.google.com/store/apps/details?id=moe.shizuku.fcmformojo" target="_blank" rel="noopener">Android 客户端</a>。</p>
-<img src="https://pic.neko7ina.com:7777/images/20180731/1.png" width="37%">
+<h2 id="配置客户端"><a href="#配置客户端" class="headerlink" title="配置客户端"></a>配置客户端</h2><p>前往 Play Store 下载安装 <a href="https://play.google.com/store/apps/details?id=moe.shizuku.fcmformojo" target="_blank" rel="noopener">Android 客户端</a>。</p>
+<p><img src="https://pic.neko7ina.com:7777/images/20180731/1.png" width="37%"></p>
 <p>点击 <code>服务器设置</code>，在 <code>服务器 URL</code> 处填写服务端地址，默认端口 <code>5005</code>，写成 <code>http://w.x.y.z:5005/</code> 形式即可。</p>
-<img src="https://pic.neko7ina.com:7777/images/20180731/2.png" width="37%">
+<p><img src="https://pic.neko7ina.com:7777/images/20180731/2.png" width="37%"></p>
 <p>点击 <code>管理设备</code> 点击加号将当前设备加入管理列表，再点击右侧上传云端保存。</p>
-<img src="https://pic.neko7ina.com:7777/images/20180731/3.png" width="37%">
+<p><img src="https://pic.neko7ina.com:7777/images/20180731/3.png" width="37%"></p>
 <p>返回主界面点击 <code>账号设置</code> 将自己的账号密码填入其中。账号密码登录现已失效，但是如要实现某些特性还要填写账号密码，详情请看 <a href="https://github.com/sjdy521/Mojo-Webqq/issues/183" target="_blank" rel="noopener">这里</a>。</p>
 <p>FFM 服务端默认使用明文保存密码，如果介意上面的链接中也提及了解决办法。</p>
-<img src="https://pic.neko7ina.com:7777/images/20180731/4.png" width="37%">
+<p><img src="https://pic.neko7ina.com:7777/images/20180731/4.png" width="37%"></p>
 <p>最后进入 <code>通知设置</code> 做最后修改。<code>获取前台应用方式</code> 如没有 root，则选择 <code>使用情况访问</code>，否则可以搭配 <a href="https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api&amp;hl=zh" target="_blank" rel="noopener">Shizuku Manager</a> 的 root 模式选择 <code>Shizuku</code> 使用。</p>
-<img src="https://pic.neko7ina.com:7777/images/20180731/5.png" width="37%">
-<h2 id="测试使用"><a class="markdownIt-Anchor" href="#测试使用"></a> 测试使用</h2>
-<p>服务端进入 <code>FCM-for-Mojo-Server</code> 目录，启动服务端。</p>
-<pre class="highlight"><code class="bash">npm start
+<p><img src="https://pic.neko7ina.com:7777/images/20180731/5.png" width="37%"></p>
+<h2 id="测试使用"><a href="#测试使用" class="headerlink" title="测试使用"></a>测试使用</h2><p>服务端进入 <code>FCM-for-Mojo-Server</code> 目录，启动服务端。</p>
+<pre><code class="bash">npm start
 </code></pre>
 <p>如设置无误，手机上会收到通知并自动从服务端下载登录二维码，打开 QQ 选择扫码，点击相册从手机中选择刚下载的二维码，确认登录即可完成。</p>
-<img src="https://pic.neko7ina.com:7777/images/20180731/6.png" width="37%">
+<p><img src="https://pic.neko7ina.com:7777/images/20180731/6.png" width="37%"></p>
 <p>现在就可以通过 FCM 来接收你的 QQ 消息了，顺便去系统设置中把 QQ 的后台给关闭掉。</p>
-<h2 id="作为服务启动"><a class="markdownIt-Anchor" href="#作为服务启动"></a> 作为服务启动</h2>
-<pre class="highlight"><code class="bash">vim /lib/systemd/system/ffm.service
+<h2 id="作为服务启动"><a href="#作为服务启动" class="headerlink" title="作为服务启动"></a>作为服务启动</h2><pre><code class="bash">vim /lib/systemd/system/ffm.service
 </code></pre>
-<pre class="highlight"><code class="">[Unit]
+<pre><code>[Unit]
 Description=a server for FCM-for-Mojo-Server
 After=network.target
 
@@ -175,74 +169,68 @@ Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
-</code></pre>
-<pre class="highlight"><code class="bash">systemctl <span class="hljs-built_in">enable</span> ffm
+</code></pre><pre><code class="bash">systemctl enable ffm
 systemctl start ffm
 </code></pre>
 <p>现在就可以通过服务来控制 FFM 了。</p>
-<h2 id="可选工作"><a class="markdownIt-Anchor" href="#可选工作"></a> 可选工作</h2>
-<h3 id="http-基本认证"><a class="markdownIt-Anchor" href="#http-基本认证"></a> HTTP 基本认证</h3>
-<p>HTTP 基本认证由 <a href="https://github.com/http-auth/http-auth" target="_blank" rel="noopener">http-auth</a> 实现，这里只使用最简单的方法。</p>
+<h2 id="可选工作"><a href="#可选工作" class="headerlink" title="可选工作"></a>可选工作</h2><h3 id="HTTP-基本认证"><a href="#HTTP-基本认证" class="headerlink" title="HTTP 基本认证"></a>HTTP 基本认证</h3><p>HTTP 基本认证由 <a href="https://github.com/http-auth/http-auth" target="_blank" rel="noopener">http-auth</a> 实现，这里只使用最简单的方法。</p>
 <p>生成密码文件</p>
-<pre class="highlight"><code class="bash">htpasswd -c -s /root/FCM-for-Mojo-Server/ffm_auth username
+<pre><code class="bash">htpasswd -c -s /root/FCM-for-Mojo-Server/ffm_auth username
 </code></pre>
 <p>输入2次密码之后，文件就生成在 FFM 服务端目录。编辑 <code>config.js</code>，找到 <code>basic_auth</code> 那段去掉注释（<code>/*</code> 和 <code>*/</code>）并写上密码文件的路径：</p>
-<pre class="highlight"><code class="js">    <span class="hljs-string">"basic_auth"</span>: {
-        <span class="hljs-string">"file"</span>: <span class="hljs-string">"/root/FCM-for-Mojo-Server/ffm_auth"</span>
+<pre><code class="js">    &quot;basic_auth&quot;: {
+        &quot;file&quot;: &quot;/root/FCM-for-Mojo-Server/ffm_auth&quot;
     },
 </code></pre>
-<h3 id="https"><a class="markdownIt-Anchor" href="#https"></a> HTTPS</h3>
-<p>HTTPS 通过 <a href="https://nodejs.org/dist/latest/docs/api/https.html" target="_blank" rel="noopener">https 模块</a> 实现，这里只使用最简单的方法。</p>
+<h3 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h3><p>HTTPS 通过 <a href="https://nodejs.org/dist/latest/docs/api/https.html" target="_blank" rel="noopener">https 模块</a> 实现，这里只使用最简单的方法。</p>
 <p>编辑 <code>config.js</code>，找到有 <code>https</code> 那段去掉附近的注释（<code>/*</code> 和 <code>*/</code>）：</p>
-<pre class="highlight"><code class="js">    <span class="hljs-string">"https"</span>: {
-        <span class="hljs-string">"key"</span>: fs.readFileSync(<span class="hljs-string">"/etc/nginx/ssl/neko7ina.com.key"</span>),
-        <span class="hljs-string">"ca"</span>: fs.readFileSync(<span class="hljs-string">"/etc/nginx/ssl/ca.cer"</span>),
-        <span class="hljs-string">"cert"</span>: fs.readFileSync(<span class="hljs-string">"/etc/nginx/ssl/fullchain.cer"</span>)
+<pre><code class="js">    &quot;https&quot;: {
+        &quot;key&quot;: fs.readFileSync(&quot;/etc/nginx/ssl/neko7ina.com.key&quot;),
+        &quot;ca&quot;: fs.readFileSync(&quot;/etc/nginx/ssl/ca.cer&quot;),
+        &quot;cert&quot;: fs.readFileSync(&quot;/etc/nginx/ssl/fullchain.cer&quot;)
     }
 </code></pre>
 <p>证书可以使用 <a href="https://acme.sh" target="_blank" rel="noopener">acme.sh</a> 很方便地进行申请，现在支持泛域名证书的申请，在稍后的 Nginx 的配置中可以分配一个单独的二级域名给 FFM 使用。</p>
-<h3 id="配置-nginx"><a class="markdownIt-Anchor" href="#配置-nginx"></a> 配置 Nginx</h3>
-<p>在 <code>/etc/nginx/conf.d</code> 中创建一个新的文件 <code>ffm.conf</code> 并写上如下配置：</p>
-<pre class="highlight"><code class="nginx"><span class="hljs-section">server</span> {
-    <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span>;
-    <span class="hljs-attribute">server_name</span> ffm.neko7ina.com;
-    <span class="hljs-attribute">return</span> <span class="hljs-number">301</span> https://ffm.neko7ina.com<span class="hljs-variable">$request_uri</span>;
+<h3 id="配置-Nginx"><a href="#配置-Nginx" class="headerlink" title="配置 Nginx"></a>配置 Nginx</h3><p>在 <code>/etc/nginx/conf.d</code> 中创建一个新的文件 <code>ffm.conf</code> 并写上如下配置：</p>
+<pre><code class="nginx">server {
+    listen 80;
+    server_name ffm.neko7ina.com;
+    return 301 https://ffm.neko7ina.com$request_uri;
 }
-<span class="hljs-section">server</span> {
-    <span class="hljs-attribute">listen</span> <span class="hljs-number">443</span> ssl;
-    <span class="hljs-attribute">root</span> /var/www/ffm;
-    <span class="hljs-attribute">access_log</span>  /var/log/nginx/ffm_access.log;
+server {
+    listen 443 ssl;
+    root /var/www/ffm;
+    access_log  /var/log/nginx/ffm_access.log;
 
-    <span class="hljs-attribute">ssl_certificate</span> /etc/nginx/ssl/fullchain.cer;
-    <span class="hljs-attribute">ssl_certificate_key</span> /etc/nginx/ssl/neko7ina.com.key;
+    ssl_certificate /etc/nginx/ssl/fullchain.cer;
+    ssl_certificate_key /etc/nginx/ssl/neko7ina.com.key;
 
-    <span class="hljs-attribute">ssl_session_timeout</span> <span class="hljs-number">1d</span>;
-    <span class="hljs-attribute">ssl_session_cache</span> shared:SSL:<span class="hljs-number">50m</span>;
-    <span class="hljs-attribute">ssl_session_tickets</span> <span class="hljs-literal">off</span>;
+    ssl_session_timeout 1d;
+    ssl_session_cache shared:SSL:50m;
+    ssl_session_tickets off;
 
-    <span class="hljs-attribute">ssl_protocols</span> TLSv1 TLSv1.<span class="hljs-number">1</span> TLSv1.<span class="hljs-number">2</span>;
-    <span class="hljs-attribute">add_header</span> Strict-Transport-Security max-age=<span class="hljs-number">15768000</span>;
-    <span class="hljs-attribute">ssl_stapling</span> <span class="hljs-literal">on</span>;
-    <span class="hljs-attribute">ssl_stapling_verify</span> <span class="hljs-literal">on</span>;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    add_header Strict-Transport-Security max-age=15768000;
+    ssl_stapling on;
+    ssl_stapling_verify on;
 
-    <span class="hljs-attribute">location</span> / {
-        <span class="hljs-attribute">proxy_pass</span> https://127.0.0.1:5005/;
-        <span class="hljs-attribute">proxy_redirect</span> <span class="hljs-literal">off</span>;
-        <span class="hljs-attribute">proxy_set_header</span> Host <span class="hljs-variable">$host</span>;
-        <span class="hljs-attribute">proxy_set_header</span> X-Real-IP <span class="hljs-variable">$remote_addr</span>;
-        <span class="hljs-attribute">proxy_set_header</span> X-Forwarded-For <span class="hljs-variable">$proxy_add_x_forwarded_for</span>;
-        <span class="hljs-attribute">auth_basic</span> <span class="hljs-string">"FCM for Mojo"</span>;
-        <span class="hljs-attribute">auth_basic_user_file</span> /root/FCM-for-Mojo-Server/ffm_auth;
+    location / {
+        proxy_pass https://127.0.0.1:5005/;
+        proxy_redirect off;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        auth_basic &quot;FCM for Mojo&quot;;
+        auth_basic_user_file /root/FCM-for-Mojo-Server/ffm_auth;
        }
 }
 </code></pre>
-<pre class="highlight"><code class="bash">nginx -t
+<pre><code class="bash">nginx -t
 nginx -s reload
 </code></pre>
 <p>最后修改一下客户端上的 <code>服务器配置</code>，将新的 URL 以及登录信息填写进去即可。</p>
-<img src="https://pic.neko7ina.com:7777/images/20180731/7.png" width="37%">
-<h2 id="收尾工作"><a class="markdownIt-Anchor" href="#收尾工作"></a> 收尾工作</h2>
-<p>最后换一个简洁版本的 QQ，比如 <a href="https://play.google.com/store/apps/details?id=com.tencent.mobileqqi&amp;hl=zh" target="_blank" rel="noopener">QQ 国际版</a>，并关掉其后台权限及通知权限。</p>
+<p><img src="https://pic.neko7ina.com:7777/images/20180731/7.png" width="37%"></p>
+<h2 id="收尾工作"><a href="#收尾工作" class="headerlink" title="收尾工作"></a>收尾工作</h2><p>最后换一个简洁版本的 QQ，比如 <a href="https://play.google.com/store/apps/details?id=com.tencent.mobileqqi&amp;hl=zh" target="_blank" rel="noopener">QQ 国际版</a>，并关掉其后台权限及通知权限。</p>
 <p>现在，在别的 IM 软件上能够享受的 Android 通知新特性，也可以在 QQ 上享受的到了。</p>
 
                             <hr>
