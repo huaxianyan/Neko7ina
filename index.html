@@ -124,9 +124,9 @@
                         
                             <a href="/tags/%E6%8A%98%E8%85%BE">折腾</a>&nbsp;
                         
-                            <a href="/tags/Nginx">Nginx</a>&nbsp;
-                        
                             <a href="/tags/GBF">GBF</a>&nbsp;
+                        
+                            <a href="/tags/Nginx">Nginx</a>&nbsp;
                         
                     
                 </div>
@@ -199,9 +199,9 @@
                         
                             <a href="/tags/Syncthing">Syncthing</a>&nbsp;
                         
-                            <a href="/tags/Linux">Linux</a>&nbsp;
-                        
                             <a href="/tags/Nginx">Nginx</a>&nbsp;
+                        
+                            <a href="/tags/Linux">Linux</a>&nbsp;
                         
                     
                 </div>
@@ -233,13 +233,13 @@
                         
                             <a href="/tags/%E6%8A%98%E8%85%BE">折腾</a>&nbsp;
                         
-                            <a href="/tags/Syncthing">Syncthing</a>&nbsp;
-                        
                             <a href="/tags/Rime">Rime</a>&nbsp;
                         
-                            <a href="/tags/macOS">macOS</a>&nbsp;
+                            <a href="/tags/Syncthing">Syncthing</a>&nbsp;
                         
                             <a href="/tags/Synology">Synology</a>&nbsp;
+                        
+                            <a href="/tags/macOS">macOS</a>&nbsp;
                         
                     
                 </div>
@@ -272,9 +272,9 @@
                         
                             <a href="/tags/%E6%8A%98%E8%85%BE">折腾</a>&nbsp;
                         
-                            <a href="/tags/Synology">Synology</a>&nbsp;
-                        
                             <a href="/tags/%E7%BE%A4%E6%99%96">群晖</a>&nbsp;
+                        
+                            <a href="/tags/Synology">Synology</a>&nbsp;
                         
                     
                 </div>
@@ -463,7 +463,7 @@ Rime 是我发现的第二款。...</div>
     
     
         <li class="page-item">
-        <a class="page-link" href="/page/2/">Next</a>
+        <a class="page-link" href="/page/2/">下一页</a>
         </li>
     
 </ul>
@@ -482,7 +482,7 @@ Rime 是我发现的第二款。...</div>
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -490,7 +490,7 @@ Rime 是我发现的第二款。...</div>
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">keyword</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -500,72 +500,78 @@ Rime 是我发现的第二款。...</div>
 
 
 <footer class="mt-5">
-  <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/0x2e/Material-T" target="_blank" rel="nofollow noopener"> <b>Material-T</b></a>
-    <br>
-    
-  </div>
+    <div class="text-center py-3">
+        <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+        <i class="iconfont icon-love"></i>
+        <a href="https://github.com/0x2e/Material-T" target="_blank" rel="nofollow noopener"> <b>Material-T</b></a>
+        <br>
+        
+    </div>
 </footer>
 
-  <!-- SCRIPTS -->
-  <script src="/lib/mdbootstrap/js/jquery-3.4.1.min.js"></script>
-  <script src="/lib/mdbootstrap/js/popper.min.js"></script>
-  <script src="/lib/mdbootstrap/js/bootstrap.min.js?v=4.3.1"></script>
-  <script src="/lib/mdbootstrap/js/mdb.min.js?v=4.8.7"></script>
-  <script src="/lib/nprogress/nprogress.min.js?v=0.2.0"></script>
-  <script src="/js/main.js"></script>
-  
-  
+<!-- SCRIPTS -->
+<script src="/lib/mdbootstrap/js/jquery-3.4.1.min.js"></script>
+<script src="/lib/mdbootstrap/js/popper.min.js"></script>
+<script src="/lib/mdbootstrap/js/bootstrap.min.js?v=4.3.1"></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js?v=4.8.7"></script>
+<script src="/lib/nprogress/nprogress.min.js?v=0.2.0"></script>
+<script src="/js/main.js"></script>
+
+
     <script src="/lib/prettify/prettify.min.js?v=0.1.0"></script>
     <script>
-      $(document).ready(function(){
-        $('pre').addClass('prettyprint linenums');
-        prettyPrint();
-      })
+        $(document).ready(function () {
+            $('pre').addClass('prettyprint linenums');
+            prettyPrint();
+        })
     </script>
-  
-  
+
+
     <script src="/lib/typed/typed.min.js?v=2.0.9"></script>
     <script>
         var typed = new Typed('#subtitle', {
-          strings: [
-            '  ',
-            "七言八语&nbsp;",
-        ],
-        cursorChar: "_",
-        typeSpeed: 77,
-        startDelay: 300, //开始之前延迟300毫秒
-        loop: false,
+            strings: [
+                '  ',
+                "七言八语&nbsp;",
+            ],
+            cursorChar: "_",
+            typeSpeed: 77,
+            loop: false,
         });
-        $(".typed-cursor").addClass("h2");
+        typed.stop();
+        $(document).ready(function () {
+            $(".typed-cursor").addClass("h2");
+            typed.start();
+        });
     </script>
-  
-  
+
+
     <script src="/lib/anchor/anchor.min.js?v=4.2.0"></script>
     <script>
-      anchors.options = {
-        placement: "right",
-        visible: "false",
-        
-      };
-      var el = "h1,h2,h3,h4,h5,h6".split(",")
-      var res = []
-      for (item of el) {
-        res.push(".markdown-body > " + item)
-      }
-      anchors.add(res.join(", "))
+        anchors.options = {
+            placement: "right",
+            visible: "false",
+            
+        };
+        var el = "h1,h2,h3,h4,h5,h6".split(",")
+        var res = []
+        for (item of el) {
+            res.push(".markdown-body > " + item)
+        }
+        anchors.add(res.join(", "))
     </script>
-  
 
-  
+
+
     <script src="/js/local-search.js"></script>
     <script>
-      var path = "/local-search.xml";
-      var inputArea = document.querySelector("#local-search-input");
-      inputArea.onclick = function(){ getSearchFile(path); this.onclick = null }
+        var path = "/local-search.xml";
+        var inputArea = document.querySelector("#local-search-input");
+        inputArea.onclick = function () {
+            getSearchFile(path);
+            this.onclick = null
+        }
     </script>
-  
+
 </body>
 </html>
