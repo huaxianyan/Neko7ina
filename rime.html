@@ -1,471 +1,160 @@
 <!DOCTYPE html>
+<html lang="zh-CN">
 
 
 
 
 
-
-
-
-
-
-
-
-
-<html class="theme-next gemini" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#276193">
-
-
-
-
-  
-  
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="author" content="Neko7ina">
+    <meta name="keywords" content="">
+    <title>我的输入法，我的 Rime ~ 七言八语</title>
+    <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css?v=5.7.2">
+    <link rel="stylesheet" href="/lib/mdbootstrap/css/bootstrap.min.css?v=4.3.1">
+    <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css?v=4.8.7">
+    <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+    <link rel="stylesheet" href="/lib/nprogress/nprogress.css?v=0.2.0">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
     
-      
+        <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
     
+    <link rel="stylesheet" href="/css/main.css">
+
     
-      
-    
-  <script src="//cdn.staticfile.org/pace/1.0.2/pace.min.js"></script>
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-flash.min.css">
-
-
-
-
-
-
-
-  <meta name="google-site-verification" content="wwzY2BSMtlrJhu-WBn9rnzlFQvkdNt4Yc2vGtJg5g-M">
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-  <link rel="stylesheet" href="//cdn.staticfile.org/fancybox/3.5.6/jquery.fancybox.min.css">
-
-
-
-
-
-
-
-  
-
-<link rel="stylesheet" href="//cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<link rel="stylesheet" href="/css/main.css?v=7.1.0">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#276193">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.1.0',
-    sidebar: {"position":"right","display":"hide","offset":12,"onmobile":false,"dimmer":false},
-    back2top: true,
-    back2top_sidebar: true,
-    fancybox: true,
-    fastclick: true,
-    lazyload: true,
-    tabs: true,
-    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
-
-
-
-
-  <meta name="description" content="我这个人比较守旧，很多习惯不到非变不可的时候，是很少会主动去寻求改变的。 所以即使微软为了自带的拼音输入法砍了 Bing 输入法之后，我还是一直在用着它，它是我当时了解的唯一一款可以关闭左 Shift 只用右 Shift 切换中英文的输入法。 Rime 是我发现的第二款。">
-<meta name="keywords" content="折腾,多平台,Rime">
-<meta property="og:type" content="article">
-<meta property="og:title" content="我的输入法，我的 Rime">
-<meta property="og:url" content="http://www.neko7ina.com/rime.html">
-<meta property="og:site_name" content="七言八语">
-<meta property="og:description" content="我这个人比较守旧，很多习惯不到非变不可的时候，是很少会主动去寻求改变的。 所以即使微软为了自带的拼音输入法砍了 Bing 输入法之后，我还是一直在用着它，它是我当时了解的唯一一款可以关闭左 Shift 只用右 Shift 切换中英文的输入法。 Rime 是我发现的第二款。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-10T11:09:39.829Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的输入法，我的 Rime">
-<meta name="twitter:description" content="我这个人比较守旧，很多习惯不到非变不可的时候，是很少会主动去寻求改变的。 所以即使微软为了自带的拼音输入法砍了 Bing 输入法之后，我还是一直在用着它，它是我当时了解的唯一一款可以关闭左 Shift 只用右 Shift 切换中英文的输入法。 Rime 是我发现的第二款。">
-
-
-
-
-
-  
-  
-  <link rel="canonical" href="http://www.neko7ina.com/rime">
-
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>我的输入法，我的 Rime | 七言八语</title>
-  
-
-
-
-
-  <script async src="//www.googletagmanager.com/gtag/js?id=UA-131548224-1"></script>
-  <script>
-    var host = window.location.hostname;
-    if (host !== "localhost" || !true) {
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-131548224-1');
-    }
-  </script>
-
-
-
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  
-  
-    
-  
+<body>
+<header style="height: 47vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+<div class="container">
+    <a class="navbar-brand" href="/">&nbsp;<strong>七言八语</strong>&nbsp;</a>
 
-  <div class="container sidebar-position-right page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">七言八语</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-    
-    
-  </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
-  </div>
-</div>
 
-
-
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
-
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto text-center">
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
-        </li>
-      
-    </ul>
-  
-
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+            <li class="nav-item">
+                <a class="nav-link" href="/">主页</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/archives/">归档</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/tags/">标签</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/about/">关于</a>
+            </li>
+            
+            
+                <li class="nav-item" id="search-btn">
+                    <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+                </li>
+            
+        </ul>
     </div>
-  </div>
-  <div id="local-search-result"></div>
 </div>
 
 
-
-    </div>
-  
 </nav>
-
-
-
-  
-
-
-
-</div>
-    </header>
-
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-            
-
-          
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.neko7ina.com/rime.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Neko7ina">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://pic.neko7ina.com:7777/images/base/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="七言八语">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">我的输入法，我的 Rime
-
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-28 13:15:47" itemprop="dateCreated datePublished" datetime="2019-02-28T13:15:47+08:00">2019-02-28</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+    <div class="view intro-2"
+         style="background: url('https://pic.neko7ina.com:7777/images/base/index.jpg')no-repeat center center;background-size: cover;">
+        <div class="full-bg-img">
+            <div class="mask rgba-black-light flex-center">
+                <div class="container text-center white-text wow fadeInUp">
+                    <span class="h2" id="subtitle">
+                        
+                    </span>
+                    
+                        <br>
+                        <p>2019 年 2 月 28 日 下午 1:15 星期四</p>
+                    
+                </div>
+            </div>
         </div>
-      </header>
-    
+    </div>
+</header>
 
+<main>
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
+        
 
-      
-      
-
-      
-        <p>我这个人比较守旧，很多习惯不到非变不可的时候，是很少会主动去寻求改变的。</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="d-none d-lg-block col-lg-2"></div>
+            <div class="col-lg-8 nopadding-md">
+                <div class="py-5 z-depth-3 board">
+                    <div class="post-content mx-auto">
+                        <div class="markdown-body">
+                            <p>我这个人比较守旧，很多习惯不到非变不可的时候，是很少会主动去寻求改变的。</p>
 <p>所以即使微软为了自带的拼音输入法砍了 Bing 输入法之后，我还是一直在用着它，它是我当时了解的唯一一款可以关闭左 Shift 只用右 Shift 切换中英文的输入法。</p>
 <p>Rime 是我发现的第二款。</p>
 <a id="more"></a>
 <p>Rime，中文名为 <a href="https://rime.im/" target="_blank" rel="noopener">中州韵输入法引擎</a>，是由佛振编写的开源中文输入法。</p>
 <p>现在的 Windows 发行版在 Win 10 上的表现已经相当不错，尤其相对于几年前，对我个人来说是能用和不能用的区别。</p>
-<h2 id="初次见面"><a href="#初次见面" class="headerlink" title="初次见面"></a>初次见面</h2><p>从官网上下载并安装了最新的 Windows 版，按 F4 切换到朙月拼音简化字，就可以像一般输入法一样使用，感觉还不错。</p>
+<h2 id="初次见面"><a class="markdownIt-Anchor" href="#初次见面"></a> 初次见面</h2>
+<p>从官网上下载并安装了最新的 Windows 版，按 F4 切换到朙月拼音简化字，就可以像一般输入法一样使用，感觉还不错。</p>
 <p>简单适应了一下，就开始输入法的调教工作了。Rime 被很多人喜爱，强大的定制功能功不可没，具体可以看官方的 <a href="https://github.com/rime/home/wiki/CustomizationGuide" target="_blank" rel="noopener">定制指南</a>。</p>
 <p>那么按照我的习惯，首先要干掉左 Shift 键。</p>
 <p>安装时，程序会让用户指定一个 Rime 用户文件夹，在文件夹里我们建立文件 <code>default.custom.yaml</code> 并编辑，加入下面一段：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">patch:</span></span><br><span class="line">  <span class="string">"ascii_composer/switch_key/Shift_L"</span><span class="string">:</span> <span class="string">noop</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="yaml"><span class="hljs-attr">patch:</span>
+  <span class="hljs-string">"ascii_composer/switch_key/Shift_L"</span><span class="hljs-string">:</span> <span class="hljs-string">noop</span>
+</code></pre>
 <p>重新部署后再按了按左 Shift，果然就和不存在一样，很好。</p>
 <p>用了一段时间之后，我又发现标点符号的确提供了更多选择，但是会影响键入速度，于是我将比较常用的标点符号又处理了一下。</p>
 <p>在 Rime 用户文件夹建立 <code>luna_pinyin_simp.custom.yaml</code> 并加入以下内容：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">patch:</span></span><br><span class="line"><span class="attr">  punctuator:</span></span><br><span class="line"><span class="attr">    import_preset:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">    half_shape:</span></span><br><span class="line">      <span class="string">'`'</span><span class="string">:</span> <span class="string">'`'</span></span><br><span class="line">      <span class="string">'@'</span><span class="string">:</span> <span class="string">'@'</span></span><br><span class="line">      <span class="string">'#'</span><span class="string">:</span> <span class="string">'#'</span></span><br><span class="line">      <span class="string">'%'</span><span class="string">:</span> <span class="string">'%'</span></span><br><span class="line">      <span class="string">'='</span><span class="string">:</span> <span class="string">'='</span></span><br><span class="line">      <span class="string">'/'</span><span class="string">:</span> <span class="string">'/'</span></span><br><span class="line">      <span class="string">'\': '</span><span class="string">、'</span></span><br><span class="line">      <span class="string">'~'</span><span class="string">:</span> <span class="string">'~'</span></span><br><span class="line"><span class="attr">    full_shape:</span></span><br><span class="line">      <span class="string">'`'</span><span class="string">:</span> <span class="string">'`'</span></span><br><span class="line">      <span class="string">'@'</span><span class="string">:</span> <span class="string">'@'</span></span><br><span class="line">      <span class="string">'#'</span><span class="string">:</span> <span class="string">'#'</span></span><br><span class="line">      <span class="string">'%'</span><span class="string">:</span> <span class="string">'%'</span></span><br><span class="line">      <span class="string">'='</span><span class="string">:</span> <span class="string">'='</span></span><br><span class="line">      <span class="string">'/'</span><span class="string">:</span> <span class="string">'/'</span></span><br><span class="line">      <span class="string">'\': '</span><span class="string">、'</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="yaml"><span class="hljs-attr">patch:</span>
+<span class="hljs-attr">  punctuator:</span>
+<span class="hljs-attr">    import_preset:</span> <span class="hljs-string">default</span>
+<span class="hljs-attr">    half_shape:</span>
+      <span class="hljs-string">'`'</span><span class="hljs-string">:</span> <span class="hljs-string">'`'</span>
+      <span class="hljs-string">'@'</span><span class="hljs-string">:</span> <span class="hljs-string">'@'</span>
+      <span class="hljs-string">'#'</span><span class="hljs-string">:</span> <span class="hljs-string">'#'</span>
+      <span class="hljs-string">'%'</span><span class="hljs-string">:</span> <span class="hljs-string">'%'</span>
+      <span class="hljs-string">'='</span><span class="hljs-string">:</span> <span class="hljs-string">'='</span>
+      <span class="hljs-string">'/'</span><span class="hljs-string">:</span> <span class="hljs-string">'/'</span>
+      <span class="hljs-string">'\': '</span><span class="hljs-string">、'</span>
+      <span class="hljs-string">'~'</span><span class="hljs-string">:</span> <span class="hljs-string">'~'</span>
+<span class="hljs-attr">    full_shape:</span>
+      <span class="hljs-string">'`'</span><span class="hljs-string">:</span> <span class="hljs-string">'`'</span>
+      <span class="hljs-string">'@'</span><span class="hljs-string">:</span> <span class="hljs-string">'@'</span>
+      <span class="hljs-string">'#'</span><span class="hljs-string">:</span> <span class="hljs-string">'#'</span>
+      <span class="hljs-string">'%'</span><span class="hljs-string">:</span> <span class="hljs-string">'%'</span>
+      <span class="hljs-string">'='</span><span class="hljs-string">:</span> <span class="hljs-string">'='</span>
+      <span class="hljs-string">'/'</span><span class="hljs-string">:</span> <span class="hljs-string">'/'</span>
+      <span class="hljs-string">'\': '</span><span class="hljs-string">、'</span>
+</code></pre>
 <p>好像还少了点什么？哦自定义短语功能，继续编辑 <code>luna_pinyin_simp.custom.yaml</code> 加入以下内容：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">patch:</span></span><br><span class="line">  <span class="string">"engine/translators/@next"</span><span class="string">:</span> <span class="string">table_translator@custom_phrase</span></span><br><span class="line"><span class="attr">  custom_phrase:</span></span><br><span class="line"><span class="attr">    dictionary:</span> <span class="string">""</span></span><br><span class="line"><span class="attr">    user_dict:</span> <span class="string">custom_phrase</span></span><br><span class="line"><span class="attr">    db_class:</span> <span class="string">stabledb</span></span><br><span class="line"><span class="attr">    enable_completion:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">    enable_sentence:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">    initial_quality:</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="yaml"><span class="hljs-attr">patch:</span>
+  <span class="hljs-string">"engine/translators/@next"</span><span class="hljs-string">:</span> <span class="hljs-string">table_translator@custom_phrase</span>
+<span class="hljs-attr">  custom_phrase:</span>
+<span class="hljs-attr">    dictionary:</span> <span class="hljs-string">""</span>
+<span class="hljs-attr">    user_dict:</span> <span class="hljs-string">custom_phrase</span>
+<span class="hljs-attr">    db_class:</span> <span class="hljs-string">stabledb</span>
+<span class="hljs-attr">    enable_completion:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">    enable_sentence:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">    initial_quality:</span> <span class="hljs-number">1</span>
+</code></pre>
 <p>至于文件 <code>custom_phrase.txt</code> 参考 <a href="https://gist.github.com/lotem/5440677" target="_blank" rel="noopener">这里</a> 建立放在 Rime 用户文件夹，编辑内容即可实现。</p>
 <p>另外，一个文件内只需要一段 Patch，多个定制直接在下面跟定制内容即可。</p>
 <p>这么简单定制了一下，基本就回归了我的日常使用习惯。</p>
-<h2 id="深陷泥潭"><a href="#深陷泥潭" class="headerlink" title="深陷泥潭"></a>深陷泥潭</h2><p>使用了半个多月，我发现了一个事情：在我的候选列表首页中，有一些没有用过的字占据着，不仅看着不爽，还影响我的选字效率。</p>
-<p><img alt="没用过的字" data-original="https://pic.neko7ina.com:7777/images/20190228/1.png"></p>
+<h2 id="深陷泥潭"><a class="markdownIt-Anchor" href="#深陷泥潭"></a> 深陷泥潭</h2>
+<p>使用了半个多月，我发现了一个事情：在我的候选列表首页中，有一些没有用过的字占据着，不仅看着不爽，还影响我的选字效率。</p>
+<p><img src="https://pic.neko7ina.com:7777/images/20190228/1.png" alt="没用过的字"></p>
 <p>发现这个现象后，我开始有意识地去注意这些字，最后发现这些字的候选顺序是会和另外一个字绑定的。比如「𧹒」，就一直跟着「买」，跟兄弟似的谁也不离谁。</p>
 <p>向作者提了个 <a href="https://github.com/rime/home/issues/322" target="_blank" rel="noopener">issue</a>，在交流的过程中我明白了几个事情。</p>
 <ul>
@@ -473,858 +162,187 @@
 <li>用户词典记录的词频是按繁体字来计的，转换出的所有简体字共享词频，这个是这些字都会紧跟其他字的原因。</li>
 </ul>
 <p>作者提供的两种解决方案工作量都不小，为了图省事，我借助修改 <code>custom_phrase.txt</code> 文件固定「买」「卖」两字顺序，总算能够让「卖」跟在「买」后面了。</p>
-<h2 id="从头再来"><a href="#从头再来" class="headerlink" title="从头再来"></a>从头再来</h2><p>可能我考虑的比较多，我总觉得这种使用方式会有隐患，等到真的用很长时间后再考虑就太痛苦了。</p>
+<h2 id="从头再来"><a class="markdownIt-Anchor" href="#从头再来"></a> 从头再来</h2>
+<p>可能我考虑的比较多，我总觉得这种使用方式会有隐患，等到真的用很长时间后再考虑就太痛苦了。</p>
 <p>于是在寻觅之下，我发现了另外一个输入方案——<a href="https://github.com/rime/rime-pinyin-simp" target="_blank" rel="noopener">袖珍简化字拼音</a>。</p>
 <p>这是一款以简体中文为出发点的输入方案，简单试用了一下没有什么问题，看了下记录的用户词典也是简体中文，就是字库的确是比较薄弱。</p>
 <p>为了弥补字库的问题，在搜索过程中我又发现了这个 <a href="https://github.com/alswl/Rime" target="_blank" rel="noopener">项目</a>。其中「现在汉语常用词表」，特别适合作为起步基础词库，那么我们就将它带进输入法中。</p>
 <p>首先在 Rime 用户文件夹中创建文件 <code>pinyin_simp.custom.yaml</code> 并编辑，添加以下内容：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">patch:</span></span><br><span class="line">  <span class="string">"translator/dictionary"</span><span class="string">:</span> <span class="string">pinyin_simp.extended</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="yaml"><span class="hljs-attr">patch:</span>
+  <span class="hljs-string">"translator/dictionary"</span><span class="hljs-string">:</span> <span class="hljs-string">pinyin_simp.extended</span>
+</code></pre>
 <p>这样我们就将输入法的词典指定到这个文件了。</p>
 <p>然后再在文件夹中创建文件 <code>pinyin_simp.extended.dict.yaml</code>，打开添加以下内容：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Rime dictionary</span></span><br><span class="line"><span class="comment"># encoding: utf-8</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">pinyin_simp.extended</span></span><br><span class="line"><span class="attr">version:</span> <span class="string">"2019.02.02"</span></span><br><span class="line"><span class="attr">sort:</span> <span class="string">by_weight</span></span><br><span class="line"><span class="attr">use_preset_vocabulary:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">import_tables:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">pinyin_simp</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">luna_pinyin.xiandaihanyuchangyongcibiao</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="yaml"><span class="hljs-comment"># Rime dictionary</span>
+<span class="hljs-comment"># encoding: utf-8</span>
+<span class="hljs-comment">#</span>
+
+<span class="hljs-meta">---</span>
+<span class="hljs-attr">name:</span> <span class="hljs-string">pinyin_simp.extended</span>
+<span class="hljs-attr">version:</span> <span class="hljs-string">"2019.02.02"</span>
+<span class="hljs-attr">sort:</span> <span class="hljs-string">by_weight</span>
+<span class="hljs-attr">use_preset_vocabulary:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">import_tables:</span>
+<span class="hljs-bullet">  -</span> <span class="hljs-string">pinyin_simp</span>
+<span class="hljs-bullet">  -</span> <span class="hljs-string">luna_pinyin.xiandaihanyuchangyongcibiao</span>
+<span class="hljs-string">...</span>
+</code></pre>
 <p>这里可以看出我们这边引用了两个词典，一个是袖珍拼音输入法原本的词典，另一个是我们找到的。</p>
 <p>将 <a href="https://raw.githubusercontent.com/alswl/Rime/master/luna_pinyin.xiandaihanyuchangyongcibiao.dict.yaml" target="_blank" rel="noopener">现代汉语常用词表</a> 文件下载并复制到 Rime 用户文件夹，最后再将之前在朙月拼音简化字方案中的一些自定义搬运过来，重新部署就大功告成了。</p>
 <p>试了试，好像没什么问题。以前的用户词典也没养多久，懒得处理，就直接从 0 开始重新养吧。</p>
-<h2 id="如臂使指"><a href="#如臂使指" class="headerlink" title="如臂使指"></a>如臂使指</h2><p>从更换了方案使用到现在，期间时不时有新的想法，在多次尝试和积累之后，Rime 已经越来越顺手，同时方案也打磨得越来越细，我有点能体会很多用户推崇 Rime 的乐趣究竟在哪里了。</p>
+<h2 id="如臂使指"><a class="markdownIt-Anchor" href="#如臂使指"></a> 如臂使指</h2>
+<p>从更换了方案使用到现在，期间时不时有新的想法，在多次尝试和积累之后，Rime 已经越来越顺手，同时方案也打磨得越来越细，我有点能体会很多用户推崇 Rime 的乐趣究竟在哪里了。</p>
 <p>我的定制也比开始要变化了更多，我将这些放在 GitHub 上，定期更新，既是备份，也希望能帮到他人。</p>
 <p>平心而论，从一般人的眼光中，Rime 并不是一款能够吊打其他家的存在。但是它能给我更多的可能，以及多了向流氓说「不」的机会，这是我喜欢并使用 Rime 的原因。</p>
-<h2 id="附：GitHub-项目"><a href="#附：GitHub-项目" class="headerlink" title="附：GitHub 项目"></a>附：GitHub 项目</h2><p><a href="https://github.com/huaxianyan/Rime" target="_blank" rel="noopener">https://github.com/huaxianyan/Rime</a></p>
+<h2 id="附github-项目"><a class="markdownIt-Anchor" href="#附github-项目"></a> 附：GitHub 项目</h2>
+<p><a href="https://github.com/huaxianyan/Rime" target="_blank" rel="noopener">https://github.com/huaxianyan/Rime</a></p>
 
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/折腾/" rel="tag"># 折腾</a>
-          
-            <a href="/tags/多平台/" rel="tag"># 多平台</a>
-          
-            <a href="/tags/Rime/" rel="tag"># Rime</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/repair-bicycle.html" rel="next" title="修车">
-                <i class="fa fa-chevron-left"></i> 修车
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/syncthing.html" rel="prev" title="被逼无奈，用 Syncthing 打造自己的同步云盘">
-                被逼无奈，用 Syncthing 打造自己的同步云盘 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
-
-  
-    <div class="comments" id="gitalk-container">
-    </div>
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" alt="Neko7ina" data-original="https://pic.neko7ina.com:7777/images/base/avatar.jpg">
-            
-              <p class="site-author-name" itemprop="name">Neko7ina</p>
-              <div class="site-description motion-element" itemprop="description"></div>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">14</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
+                            <hr>
+                        </div>
+                        <br>
+                        <div>
+                            
+                            <p>
+                                <i class="iconfont icon-tag"></i>
+                                
+                                    <a class="hover-with-bg" href="/tags/%E6%8A%98%E8%85%BE">折腾</a>
+                                
+                                    <a class="hover-with-bg" href="/tags/%E5%A4%9A%E5%B9%B3%E5%8F%B0">多平台</a>
+                                
+                                    <a class="hover-with-bg" href="/tags/Rime">Rime</a>
+                                
+                            </p>
+                            
+                        </div>
+                    </div>
                 </div>
-              
-
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                      <a href="/tags/">
-                    
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">24</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:hua199057@gmail.com" title="E-Mail &rarr; mailto:hua199057@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>E-Mail</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://twitter.com/neko7ina" title="Twitter &rarr; https://twitter.com/neko7ina" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://www.youtube.com/channel/UCcqa7Dq6RRDkHNk_t54sJiQ" title="YouTube &rarr; https://www.youtube.com/channel/UCcqa7Dq6RRDkHNk_t54sJiQ" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://weibo.com/247389636" title="Weibo &rarr; https://weibo.com/247389636" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
-                </span>
-              
             </div>
-          
-
-          
-
-          
-          
-
-          
+        <div class="d-none d-lg-block col-lg-2 toc-container">
             
-          
-          
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;TOC</p> 
+    <div id="tocbot"></div>
+  </div>
 
         </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初次见面"><span class="nav-number">1.</span> <span class="nav-text">初次见面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深陷泥潭"><span class="nav-number">2.</span> <span class="nav-text">深陷泥潭</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从头再来"><span class="nav-number">3.</span> <span class="nav-text">从头再来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如臂使指"><span class="nav-number">4.</span> <span class="nav-text">如臂使指</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附：GitHub-项目"><span class="nav-number">5.</span> <span class="nav-text">附：GitHub 项目</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-        </div>
-      
-
     </div>
-  </aside>
-  
+</div>
+
+<!-- custom -->
 
 
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container comments mx-auto" id="comments">
         
+            <br><br>
+            
+            
+    <script src="https://utteranc.es/client.js" repo="git@github.com:huaxianyan/hexo-comment.git" issue-term="title" label="utterances" theme="github-light" crossorigin="anonymous" async>
+    </script>
+
+	    
+        
+    </div>
+</div>
+
+    
+</main>
+
+
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Neko7ina</span>
-
-  
-
-  
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-
-    
-
-    
-
+<footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/0x2e/Material-T" target="_blank" rel="nofollow noopener"> <b>Material-T</b></a>
+    <br>
     
   </div>
+</footer>
 
-  
-
-<script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script src="//cdn.staticfile.org/jquery/2.1.3/jquery.js"></script>
-
-  
-  <script src="//cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js"></script>
-
-  
-  <script src="//cdn.staticfile.org/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
-
-  
-  <script src="//cdn.staticfile.org/velocity/1.2.1/velocity.min.js"></script>
-
-  
-  <script src="//cdn.staticfile.org/velocity/1.2.1/velocity.ui.min.js"></script>
-
-  
-  <script src="//cdn.staticfile.org/fancybox/3.5.6/jquery.fancybox.min.js"></script>
-
-
-  
-
-
-  <script src="/js/utils.js?v=7.1.0"></script>
-
-  <script src="/js/motion.js?v=7.1.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/affix.js?v=7.1.0"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
-
-
-
-
-  
-  <script src="/js/scrollspy.js?v=7.1.0"></script>
-<script src="/js/post-details.js?v=7.1.0"></script>
-
-
-
-  
-
-
-  <script src="/js/next-boot.js?v=7.1.0"></script>
-
-
-  
-
-  
-
-  
-
-  
-
-
+  <!-- SCRIPTS -->
+  <script src="/lib/mdbootstrap/js/jquery-3.4.1.min.js"></script>
+  <script src="/lib/mdbootstrap/js/popper.min.js"></script>
+  <script src="/lib/mdbootstrap/js/bootstrap.min.js?v=4.3.1"></script>
+  <script src="/lib/mdbootstrap/js/mdb.min.js?v=4.8.7"></script>
+  <script src="/lib/nprogress/nprogress.min.js?v=0.2.0"></script>
+  <script src="/js/main.js"></script>
   
     
-
-  
-
-<script src="//cdn.staticfile.org/gitalk/1.4.0/gitalk.min.js"></script>
-
-
-
-  
-
-<link rel="stylesheet" href="//cdn.staticfile.org/gitalk/1.4.0/gitalk.css">
-
-
-
-  
-
-<script src="//cdn.jsdelivr.net/npm/js-md5@0/src/md5.min.js"></script>
-
-<script>
-  var gitalk = new Gitalk({
-    clientID: '52aaa5e7cca2d4ce7380',
-    clientSecret: '899215fbec1f684b5a4e94701e7b3375e4574a81',
-    repo: 'hexo-comment',
-    owner: 'huaxianyan',
-    admin: ['huaxianyan'],
-    id: md5(location.pathname),
+      <script src="/lib/tocbot/tocbot.min.js?v=4.7.0"></script>
     
-      language: 'zh-CN',
-    
-    distractionFreeMode: 'true'
-  });
-  gitalk.render('gitalk-container');
-</script>
-
+    <script src="/js/post.js"></script>
   
-
-
   
-  <script>
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.json";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
+    <script src="/lib/prettify/prettify.min.js?v=0.1.0"></script>
+    <script>
+      $(document).ready(function(){
+        $('pre').addClass('prettyprint linenums');
+        prettyPrint();
+      })
+    </script>
+  
+  
+    <script src="/lib/typed/typed.min.js?v=2.0.9"></script>
+    <script>
+        var typed = new Typed('#subtitle', {
+          strings: [
+            '  ',
+            "我的输入法，我的 Rime&nbsp;",
+        ],
+        cursorChar: "_",
+        typeSpeed: 77,
+        startDelay: 300, //开始之前延迟300毫秒
+        loop: false,
+        });
+        $(".typed-cursor").addClass("h2");
+    </script>
+  
+  
+    <script src="/lib/anchor/anchor.min.js?v=4.2.0"></script>
+    <script>
+      anchors.options = {
+        placement: "right",
+        visible: "false",
+        
       };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
+      var el = "h1,h2,h3,h4,h5,h6".split(",")
+      var res = []
+      for (item of el) {
+        res.push(".markdown-body > " + item)
       }
-    });
-  </script>
-
-
-
-
-
+      anchors.add(res.join(", "))
+    </script>
   
 
   
-
+    <script src="/js/local-search.js"></script>
+    <script>
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function(){ getSearchFile(path); this.onclick = null }
+    </script>
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
 </body>
 </html>

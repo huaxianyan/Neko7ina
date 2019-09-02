@@ -1,1344 +1,396 @@
 <!DOCTYPE html>
+<html lang="zh-CN">
 
 
 
 
 
-
-
-
-
-
-
-
-
-<html class="theme-next gemini" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#276193">
-
-
-
-
-  
-  
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="author" content="Neko7ina">
+    <meta name="keywords" content="">
+    <title>用 FCM 来推送 QQ 消息 ~ 七言八语</title>
+    <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css?v=5.7.2">
+    <link rel="stylesheet" href="/lib/mdbootstrap/css/bootstrap.min.css?v=4.3.1">
+    <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css?v=4.8.7">
+    <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+    <link rel="stylesheet" href="/lib/nprogress/nprogress.css?v=0.2.0">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
     
-      
+        <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
     
+    <link rel="stylesheet" href="/css/main.css">
+
     
-      
-    
-  <script src="//cdn.staticfile.org/pace/1.0.2/pace.min.js"></script>
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-flash.min.css">
-
-
-
-
-
-
-
-  <meta name="google-site-verification" content="wwzY2BSMtlrJhu-WBn9rnzlFQvkdNt4Yc2vGtJg5g-M">
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-  <link rel="stylesheet" href="//cdn.staticfile.org/fancybox/3.5.6/jquery.fancybox.min.css">
-
-
-
-
-
-
-
-  
-
-<link rel="stylesheet" href="//cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<link rel="stylesheet" href="/css/main.css?v=7.1.0">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#276193">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.1.0',
-    sidebar: {"position":"right","display":"hide","offset":12,"onmobile":false,"dimmer":false},
-    back2top: true,
-    back2top_sidebar: true,
-    fancybox: true,
-    fastclick: true,
-    lazyload: true,
-    tabs: true,
-    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
-
-
-
-
-  <meta name="description" content="月初买了个 iPhone SE，将辣鸡软件全部转移到 iOS 上之后，Android 的使用体验瞬间上升，不用忍受辣鸡国产软件的涂毒，还省了去镇压调教的功夫，续航也大幅提升，快哉快哉。 但是日常用的国产软件还有 QQ 和微信这两大流氓。微信还好，Play Store 上的版本只要关闭了后台就可以使用 FCM 来接收通知（虽然实现方式还是有点不老实），但是 QQ 就真没什么辙。 直到我找到了这个。">
-<meta name="keywords" content="折腾,Android,FFM">
-<meta property="og:type" content="article">
-<meta property="og:title" content="用 FCM 来推送 QQ 消息">
-<meta property="og:url" content="http://www.neko7ina.com/ffm.html">
-<meta property="og:site_name" content="七言八语">
-<meta property="og:description" content="月初买了个 iPhone SE，将辣鸡软件全部转移到 iOS 上之后，Android 的使用体验瞬间上升，不用忍受辣鸡国产软件的涂毒，还省了去镇压调教的功夫，续航也大幅提升，快哉快哉。 但是日常用的国产软件还有 QQ 和微信这两大流氓。微信还好，Play Store 上的版本只要关闭了后台就可以使用 FCM 来接收通知（虽然实现方式还是有点不老实），但是 QQ 就真没什么辙。 直到我找到了这个。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-10T11:13:20.444Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用 FCM 来推送 QQ 消息">
-<meta name="twitter:description" content="月初买了个 iPhone SE，将辣鸡软件全部转移到 iOS 上之后，Android 的使用体验瞬间上升，不用忍受辣鸡国产软件的涂毒，还省了去镇压调教的功夫，续航也大幅提升，快哉快哉。 但是日常用的国产软件还有 QQ 和微信这两大流氓。微信还好，Play Store 上的版本只要关闭了后台就可以使用 FCM 来接收通知（虽然实现方式还是有点不老实），但是 QQ 就真没什么辙。 直到我找到了这个。">
-
-
-
-
-
-  
-  
-  <link rel="canonical" href="http://www.neko7ina.com/ffm">
-
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>用 FCM 来推送 QQ 消息 | 七言八语</title>
-  
-
-
-
-
-  <script async src="//www.googletagmanager.com/gtag/js?id=UA-131548224-1"></script>
-  <script>
-    var host = window.location.hostname;
-    if (host !== "localhost" || !true) {
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-131548224-1');
-    }
-  </script>
-
-
-
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  
-  
-    
-  
+<body>
+<header style="height: 47vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+<div class="container">
+    <a class="navbar-brand" href="/">&nbsp;<strong>七言八语</strong>&nbsp;</a>
 
-  <div class="container sidebar-position-right page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">七言八语</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-    
-    
-  </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
-  </div>
-</div>
 
-
-
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
-
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto text-center">
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
-        </li>
-      
-    </ul>
-  
-
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+            <li class="nav-item">
+                <a class="nav-link" href="/">主页</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/archives/">归档</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/tags/">标签</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/about/">关于</a>
+            </li>
+            
+            
+                <li class="nav-item" id="search-btn">
+                    <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+                </li>
+            
+        </ul>
     </div>
-  </div>
-  <div id="local-search-result"></div>
 </div>
 
 
-
-    </div>
-  
 </nav>
-
-
-
-  
-
-
-
-</div>
-    </header>
-
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-            
-
-          
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.neko7ina.com/ffm.html">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Neko7ina">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://pic.neko7ina.com:7777/images/base/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="七言八语">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">用 FCM 来推送 QQ 消息
-
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-31 21:09:37" itemprop="dateCreated datePublished" datetime="2018-07-31T21:09:37+08:00">2018-07-31</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+    <div class="view intro-2"
+         style="background: url('https://pic.neko7ina.com:7777/images/base/index.jpg')no-repeat center center;background-size: cover;">
+        <div class="full-bg-img">
+            <div class="mask rgba-black-light flex-center">
+                <div class="container text-center white-text wow fadeInUp">
+                    <span class="h2" id="subtitle">
+                        
+                    </span>
+                    
+                        <br>
+                        <p>2018 年 7 月 31 日 晚上 9:09 星期二</p>
+                    
+                </div>
+            </div>
         </div>
-      </header>
-    
+    </div>
+</header>
 
+<main>
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
+        
 
-      
-      
-
-      
-        <p>月初买了个 iPhone SE，将辣鸡软件全部转移到 iOS 上之后，Android 的使用体验瞬间上升，不用忍受辣鸡国产软件的涂毒，还省了去镇压调教的功夫，续航也大幅提升，快哉快哉。</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="d-none d-lg-block col-lg-2"></div>
+            <div class="col-lg-8 nopadding-md">
+                <div class="py-5 z-depth-3 board">
+                    <div class="post-content mx-auto">
+                        <div class="markdown-body">
+                            <p>月初买了个 iPhone SE，将辣鸡软件全部转移到 iOS 上之后，Android 的使用体验瞬间上升，不用忍受辣鸡国产软件的涂毒，还省了去镇压调教的功夫，续航也大幅提升，快哉快哉。</p>
 <p>但是日常用的国产软件还有 QQ 和微信这两大流氓。微信还好，Play Store 上的版本只要关闭了后台就可以使用 FCM 来接收通知（虽然实现方式还是有点不老实），但是 QQ 就真没什么辙。</p>
 <p>直到我找到了这个。</p>
 <a id="more"></a>
-<p><a href="https://github.com/RikkaApps/FCM-for-Mojo" target="_blank" rel="noopener">FCM for Mojo</a>，简称 FFM，由 Rikka 酱开发，借助 <a href="https://github.com/sjdy521/Mojo-Webqq" target="_blank" rel="noopener">Mojo-Webqq</a> 实现将 QQ 消息通过 FCM 推送至 Android 设备。 有了这个，就可以从 FCM 来接收 QQ 消息了。</p>
+<p><a href="https://github.com/RikkaApps/FCM-for-Mojo" target="_blank" rel="noopener">FCM for Mojo</a>，简称 FFM，由 Rikka 酱开发，借助 <a href="https://github.com/sjdy521/Mojo-Webqq" target="_blank" rel="noopener">Mojo-Webqq</a> 实现将 QQ 消息通过 FCM 推送至 Android 设备。 有了这个，就可以从 FCM 来接收 QQ 消息了。</p>
 <p><strong>2018/12/19 更新：</strong></p>
 <blockquote>
 <p><strong>重要通知：WebQQ将在2019年1月1日停止服务，项目目前已停止维护，感谢大家四年来一路陪伴</strong></p>
 </blockquote>
 <p><strong>就到此为止了，留一张做最后的纪念，感谢开发者给我们带来了一段美好时光。</strong></p>
-<p><img width="37%" data-original="https://pic.neko7ina.com:7777/images/20180731/8.png"></p>
+<img src="https://pic.neko7ina.com:7777/images/20180731/8.png" width="37%">
 <p><strong>2018/10/30 更新：增加可选工作，提供 HTTP 基本认证、HTTPS 及 Nginx 配置部分内容。</strong></p>
-<h2 id="配置服务端"><a href="#配置服务端" class="headerlink" title="配置服务端"></a>配置服务端</h2><h3 id="安装相关依赖"><a href="#安装相关依赖" class="headerlink" title="安装相关依赖"></a>安装相关依赖</h3><p>笔者所使用的系统是 Ubuntu 16.04 LTS。</p>
+<h2 id="配置服务端"><a class="markdownIt-Anchor" href="#配置服务端"></a> 配置服务端</h2>
+<h3 id="安装相关依赖"><a class="markdownIt-Anchor" href="#安装相关依赖"></a> 安装相关依赖</h3>
+<p>笔者所使用的系统是 Ubuntu 16.04 LTS。</p>
 <p>git：使用包管理器来安装。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install git</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="bash">apt-get install git
+</code></pre>
 <p>Node.js：版本看自己喜好选择。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -</span><br><span class="line">sudo apt-get install -y nodejs</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="bash">curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install -y nodejs
+</code></pre>
 <p>Mojo-Webqq：项目推荐使用 <a href="https://metacpan.org/pod/distribution/App-cpanminus/bin/cpanm" target="_blank" rel="noopener">cpanm</a>  在线安装或升级模块。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -kL https://cpanmin.us | perl - App::cpanminus</span><br><span class="line">cpanm Mojo::Webqq</span><br><span class="line">cpanm Webqq::Encryption</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="bash">curl -kL https://cpanmin.us | perl - App::cpanminus
+cpanm Mojo::Webqq
+cpanm Webqq::Encryption
+</code></pre>
 <p>如要更新只需再执行 <code>cpanm Mojo::Webqq</code> 即可。</p>
-<h3 id="安装-FCM-for-Mojo-服务端"><a href="#安装-FCM-for-Mojo-服务端" class="headerlink" title="安装 FCM for Mojo 服务端"></a>安装 FCM for Mojo 服务端</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/RikkaApps/FCM-for-Mojo-Server.git</span><br><span class="line"><span class="built_in">cd</span> FCM-for-Mojo-Server</span><br><span class="line">cp config.example.js config.js</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<h3 id="安装-fcm-for-mojo-服务端"><a class="markdownIt-Anchor" href="#安装-fcm-for-mojo-服务端"></a> 安装 FCM for Mojo 服务端</h3>
+<pre class="highlight"><code class="bash"><span class="hljs-built_in">cd</span>
+git <span class="hljs-built_in">clone</span> https://github.com/RikkaApps/FCM-for-Mojo-Server.git
+<span class="hljs-built_in">cd</span> FCM-for-Mojo-Server
+cp config.example.js config.js
+npm install
+</code></pre>
 <p>如要更新，关闭当前正在运行的 FFM 并进入 <code>FCM-for-Mojo-Server</code> 目录执行以下命令。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<h2 id="配置客户端"><a href="#配置客户端" class="headerlink" title="配置客户端"></a>配置客户端</h2><p>前往 Play Store 下载安装 <a href="https://play.google.com/store/apps/details?id=moe.shizuku.fcmformojo" target="_blank" rel="noopener">Android 客户端</a>。</p>
-<p><img width="37%" data-original="https://pic.neko7ina.com:7777/images/20180731/1.png"></p>
+<pre class="highlight"><code class="bash">git pull
+npm install
+</code></pre>
+<h2 id="配置客户端"><a class="markdownIt-Anchor" href="#配置客户端"></a> 配置客户端</h2>
+<p>前往 Play Store 下载安装 <a href="https://play.google.com/store/apps/details?id=moe.shizuku.fcmformojo" target="_blank" rel="noopener">Android 客户端</a>。</p>
+<img src="https://pic.neko7ina.com:7777/images/20180731/1.png" width="37%">
 <p>点击 <code>服务器设置</code>，在 <code>服务器 URL</code> 处填写服务端地址，默认端口 <code>5005</code>，写成 <code>http://w.x.y.z:5005/</code> 形式即可。</p>
-<p><img width="37%" data-original="https://pic.neko7ina.com:7777/images/20180731/2.png"></p>
+<img src="https://pic.neko7ina.com:7777/images/20180731/2.png" width="37%">
 <p>点击 <code>管理设备</code> 点击加号将当前设备加入管理列表，再点击右侧上传云端保存。</p>
-<p><img width="37%" data-original="https://pic.neko7ina.com:7777/images/20180731/3.png"></p>
+<img src="https://pic.neko7ina.com:7777/images/20180731/3.png" width="37%">
 <p>返回主界面点击 <code>账号设置</code> 将自己的账号密码填入其中。账号密码登录现已失效，但是如要实现某些特性还要填写账号密码，详情请看 <a href="https://github.com/sjdy521/Mojo-Webqq/issues/183" target="_blank" rel="noopener">这里</a>。</p>
 <p>FFM 服务端默认使用明文保存密码，如果介意上面的链接中也提及了解决办法。</p>
-<p><img width="37%" data-original="https://pic.neko7ina.com:7777/images/20180731/4.png"></p>
+<img src="https://pic.neko7ina.com:7777/images/20180731/4.png" width="37%">
 <p>最后进入 <code>通知设置</code> 做最后修改。<code>获取前台应用方式</code> 如没有 root，则选择 <code>使用情况访问</code>，否则可以搭配 <a href="https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api&amp;hl=zh" target="_blank" rel="noopener">Shizuku Manager</a> 的 root 模式选择 <code>Shizuku</code> 使用。</p>
-<p><img width="37%" data-original="https://pic.neko7ina.com:7777/images/20180731/5.png"></p>
-<h2 id="测试使用"><a href="#测试使用" class="headerlink" title="测试使用"></a>测试使用</h2><p>服务端进入 <code>FCM-for-Mojo-Server</code> 目录，启动服务端。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
+<img src="https://pic.neko7ina.com:7777/images/20180731/5.png" width="37%">
+<h2 id="测试使用"><a class="markdownIt-Anchor" href="#测试使用"></a> 测试使用</h2>
+<p>服务端进入 <code>FCM-for-Mojo-Server</code> 目录，启动服务端。</p>
+<pre class="highlight"><code class="bash">npm start
+</code></pre>
 <p>如设置无误，手机上会收到通知并自动从服务端下载登录二维码，打开 QQ 选择扫码，点击相册从手机中选择刚下载的二维码，确认登录即可完成。</p>
-<p><img width="37%" data-original="https://pic.neko7ina.com:7777/images/20180731/6.png"></p>
+<img src="https://pic.neko7ina.com:7777/images/20180731/6.png" width="37%">
 <p>现在就可以通过 FCM 来接收你的 QQ 消息了，顺便去系统设置中把 QQ 的后台给关闭掉。</p>
-<h2 id="作为服务启动"><a href="#作为服务启动" class="headerlink" title="作为服务启动"></a>作为服务启动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /lib/systemd/system/ffm.service</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=a server for FCM-for-Mojo-Server</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">User=root</span><br><span class="line">WorkingDirectory=/root/FCM-for-Mojo-Server</span><br><span class="line">ExecStart=/usr/bin/npm start</span><br><span class="line">PrivateTmp=true</span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> ffm</span><br><span class="line">systemctl start ffm</span><br></pre></td></tr></table></figure>
+<h2 id="作为服务启动"><a class="markdownIt-Anchor" href="#作为服务启动"></a> 作为服务启动</h2>
+<pre class="highlight"><code class="bash">vim /lib/systemd/system/ffm.service
+</code></pre>
+<pre class="highlight"><code class="">[Unit]
+Description=a server for FCM-for-Mojo-Server
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/FCM-for-Mojo-Server
+ExecStart=/usr/bin/npm start
+PrivateTmp=true
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<pre class="highlight"><code class="bash">systemctl <span class="hljs-built_in">enable</span> ffm
+systemctl start ffm
+</code></pre>
 <p>现在就可以通过服务来控制 FFM 了。</p>
-<h2 id="可选工作"><a href="#可选工作" class="headerlink" title="可选工作"></a>可选工作</h2><h3 id="HTTP-基本认证"><a href="#HTTP-基本认证" class="headerlink" title="HTTP 基本认证"></a>HTTP 基本认证</h3><p>HTTP 基本认证由 <a href="https://github.com/http-auth/http-auth" target="_blank" rel="noopener">http-auth</a> 实现，这里只使用最简单的方法。</p>
+<h2 id="可选工作"><a class="markdownIt-Anchor" href="#可选工作"></a> 可选工作</h2>
+<h3 id="http-基本认证"><a class="markdownIt-Anchor" href="#http-基本认证"></a> HTTP 基本认证</h3>
+<p>HTTP 基本认证由 <a href="https://github.com/http-auth/http-auth" target="_blank" rel="noopener">http-auth</a> 实现，这里只使用最简单的方法。</p>
 <p>生成密码文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htpasswd -c -s /root/FCM-for-Mojo-Server/ffm_auth username</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="bash">htpasswd -c -s /root/FCM-for-Mojo-Server/ffm_auth username
+</code></pre>
 <p>输入2次密码之后，文件就生成在 FFM 服务端目录。编辑 <code>config.js</code>，找到 <code>basic_auth</code> 那段去掉注释（<code>/*</code> 和 <code>*/</code>）并写上密码文件的路径：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"basic_auth"</span>: &#123;</span><br><span class="line">    <span class="string">"file"</span>: <span class="string">"/root/FCM-for-Mojo-Server/ffm_auth"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<h3 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h3><p>HTTPS 通过 <a href="https://nodejs.org/dist/latest/docs/api/https.html" target="_blank" rel="noopener">https 模块</a> 实现，这里只使用最简单的方法。</p>
+<pre class="highlight"><code class="js">    <span class="hljs-string">"basic_auth"</span>: {
+        <span class="hljs-string">"file"</span>: <span class="hljs-string">"/root/FCM-for-Mojo-Server/ffm_auth"</span>
+    },
+</code></pre>
+<h3 id="https"><a class="markdownIt-Anchor" href="#https"></a> HTTPS</h3>
+<p>HTTPS 通过 <a href="https://nodejs.org/dist/latest/docs/api/https.html" target="_blank" rel="noopener">https 模块</a> 实现，这里只使用最简单的方法。</p>
 <p>编辑 <code>config.js</code>，找到有 <code>https</code> 那段去掉附近的注释（<code>/*</code> 和 <code>*/</code>）：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"https"</span>: &#123;</span><br><span class="line">    <span class="string">"key"</span>: fs.readFileSync(<span class="string">"/etc/nginx/ssl/neko7ina.com.key"</span>),</span><br><span class="line">    <span class="string">"ca"</span>: fs.readFileSync(<span class="string">"/etc/nginx/ssl/ca.cer"</span>),</span><br><span class="line">    <span class="string">"cert"</span>: fs.readFileSync(<span class="string">"/etc/nginx/ssl/fullchain.cer"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="js">    <span class="hljs-string">"https"</span>: {
+        <span class="hljs-string">"key"</span>: fs.readFileSync(<span class="hljs-string">"/etc/nginx/ssl/neko7ina.com.key"</span>),
+        <span class="hljs-string">"ca"</span>: fs.readFileSync(<span class="hljs-string">"/etc/nginx/ssl/ca.cer"</span>),
+        <span class="hljs-string">"cert"</span>: fs.readFileSync(<span class="hljs-string">"/etc/nginx/ssl/fullchain.cer"</span>)
+    }
+</code></pre>
 <p>证书可以使用 <a href="https://acme.sh" target="_blank" rel="noopener">acme.sh</a> 很方便地进行申请，现在支持泛域名证书的申请，在稍后的 Nginx 的配置中可以分配一个单独的二级域名给 FFM 使用。</p>
-<h3 id="配置-Nginx"><a href="#配置-Nginx" class="headerlink" title="配置 Nginx"></a>配置 Nginx</h3><p>在 <code>/etc/nginx/conf.d</code> 中创建一个新的文件 <code>ffm.conf</code> 并写上如下配置：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> ffm.neko7ina.com;</span><br><span class="line">    <span class="attribute">return</span> <span class="number">301</span> https://ffm.neko7ina.com<span class="variable">$request_uri</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line">    <span class="attribute">root</span> /var/www/ffm;</span><br><span class="line">    <span class="attribute">access_log</span>  /var/log/nginx/ffm_access.log;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">ssl_certificate</span> /etc/nginx/ssl/fullchain.cer;</span><br><span class="line">    <span class="attribute">ssl_certificate_key</span> /etc/nginx/ssl/neko7ina.com.key;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">ssl_session_timeout</span> <span class="number">1d</span>;</span><br><span class="line">    <span class="attribute">ssl_session_cache</span> shared:SSL:<span class="number">50m</span>;</span><br><span class="line">    <span class="attribute">ssl_session_tickets</span> <span class="literal">off</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">ssl_protocols</span> TLSv1 TLSv1.<span class="number">1</span> TLSv1.<span class="number">2</span>;</span><br><span class="line">    <span class="attribute">add_header</span> Strict-Transport-Security max-age=<span class="number">15768000</span>;</span><br><span class="line">    <span class="attribute">ssl_stapling</span> <span class="literal">on</span>;</span><br><span class="line">    <span class="attribute">ssl_stapling_verify</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> https://127.0.0.1:5005/;</span><br><span class="line">        <span class="attribute">proxy_redirect</span> <span class="literal">off</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">        <span class="attribute">auth_basic</span> <span class="string">"FCM for Mojo"</span>;</span><br><span class="line">        <span class="attribute">auth_basic_user_file</span> /root/FCM-for-Mojo-Server/ffm_auth;</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -t</span><br><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
+<h3 id="配置-nginx"><a class="markdownIt-Anchor" href="#配置-nginx"></a> 配置 Nginx</h3>
+<p>在 <code>/etc/nginx/conf.d</code> 中创建一个新的文件 <code>ffm.conf</code> 并写上如下配置：</p>
+<pre class="highlight"><code class="nginx"><span class="hljs-section">server</span> {
+    <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span>;
+    <span class="hljs-attribute">server_name</span> ffm.neko7ina.com;
+    <span class="hljs-attribute">return</span> <span class="hljs-number">301</span> https://ffm.neko7ina.com<span class="hljs-variable">$request_uri</span>;
+}
+<span class="hljs-section">server</span> {
+    <span class="hljs-attribute">listen</span> <span class="hljs-number">443</span> ssl;
+    <span class="hljs-attribute">root</span> /var/www/ffm;
+    <span class="hljs-attribute">access_log</span>  /var/log/nginx/ffm_access.log;
+
+    <span class="hljs-attribute">ssl_certificate</span> /etc/nginx/ssl/fullchain.cer;
+    <span class="hljs-attribute">ssl_certificate_key</span> /etc/nginx/ssl/neko7ina.com.key;
+
+    <span class="hljs-attribute">ssl_session_timeout</span> <span class="hljs-number">1d</span>;
+    <span class="hljs-attribute">ssl_session_cache</span> shared:SSL:<span class="hljs-number">50m</span>;
+    <span class="hljs-attribute">ssl_session_tickets</span> <span class="hljs-literal">off</span>;
+
+    <span class="hljs-attribute">ssl_protocols</span> TLSv1 TLSv1.<span class="hljs-number">1</span> TLSv1.<span class="hljs-number">2</span>;
+    <span class="hljs-attribute">add_header</span> Strict-Transport-Security max-age=<span class="hljs-number">15768000</span>;
+    <span class="hljs-attribute">ssl_stapling</span> <span class="hljs-literal">on</span>;
+    <span class="hljs-attribute">ssl_stapling_verify</span> <span class="hljs-literal">on</span>;
+
+    <span class="hljs-attribute">location</span> / {
+        <span class="hljs-attribute">proxy_pass</span> https://127.0.0.1:5005/;
+        <span class="hljs-attribute">proxy_redirect</span> <span class="hljs-literal">off</span>;
+        <span class="hljs-attribute">proxy_set_header</span> Host <span class="hljs-variable">$host</span>;
+        <span class="hljs-attribute">proxy_set_header</span> X-Real-IP <span class="hljs-variable">$remote_addr</span>;
+        <span class="hljs-attribute">proxy_set_header</span> X-Forwarded-For <span class="hljs-variable">$proxy_add_x_forwarded_for</span>;
+        <span class="hljs-attribute">auth_basic</span> <span class="hljs-string">"FCM for Mojo"</span>;
+        <span class="hljs-attribute">auth_basic_user_file</span> /root/FCM-for-Mojo-Server/ffm_auth;
+       }
+}
+</code></pre>
+<pre class="highlight"><code class="bash">nginx -t
+nginx -s reload
+</code></pre>
 <p>最后修改一下客户端上的 <code>服务器配置</code>，将新的 URL 以及登录信息填写进去即可。</p>
-<p><img width="37%" data-original="https://pic.neko7ina.com:7777/images/20180731/7.png"></p>
-<h2 id="收尾工作"><a href="#收尾工作" class="headerlink" title="收尾工作"></a>收尾工作</h2><p>最后换一个简洁版本的 QQ，比如 <a href="https://play.google.com/store/apps/details?id=com.tencent.mobileqqi&amp;hl=zh" target="_blank" rel="noopener">QQ 国际版</a>，并关掉其后台权限及通知权限。</p>
+<img src="https://pic.neko7ina.com:7777/images/20180731/7.png" width="37%">
+<h2 id="收尾工作"><a class="markdownIt-Anchor" href="#收尾工作"></a> 收尾工作</h2>
+<p>最后换一个简洁版本的 QQ，比如 <a href="https://play.google.com/store/apps/details?id=com.tencent.mobileqqi&amp;hl=zh" target="_blank" rel="noopener">QQ 国际版</a>，并关掉其后台权限及通知权限。</p>
 <p>现在，在别的 IM 软件上能够享受的 Android 通知新特性，也可以在 QQ 上享受的到了。</p>
 
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/折腾/" rel="tag"># 折腾</a>
-          
-            <a href="/tags/Android/" rel="tag"># Android</a>
-          
-            <a href="/tags/FFM/" rel="tag"># FFM</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/new-god-of-war.html" rel="next" title="宝剑锋从磨砺出，梅花香自苦寒来——PS4《战神》游感">
-                <i class="fa fa-chevron-left"></i> 宝剑锋从磨砺出，梅花香自苦寒来——PS4《战神》游感
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/travel-in-japan.html" rel="prev" title="日本之行">
-                日本之行 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
-
-  
-    <div class="comments" id="gitalk-container">
-    </div>
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" alt="Neko7ina" data-original="https://pic.neko7ina.com:7777/images/base/avatar.jpg">
-            
-              <p class="site-author-name" itemprop="name">Neko7ina</p>
-              <div class="site-description motion-element" itemprop="description"></div>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">14</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
+                            <hr>
+                        </div>
+                        <br>
+                        <div>
+                            
+                            <p>
+                                <i class="iconfont icon-tag"></i>
+                                
+                                    <a class="hover-with-bg" href="/tags/%E6%8A%98%E8%85%BE">折腾</a>
+                                
+                                    <a class="hover-with-bg" href="/tags/Android">Android</a>
+                                
+                                    <a class="hover-with-bg" href="/tags/FFM">FFM</a>
+                                
+                            </p>
+                            
+                        </div>
+                    </div>
                 </div>
-              
-
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                      <a href="/tags/">
-                    
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">24</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:hua199057@gmail.com" title="E-Mail &rarr; mailto:hua199057@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>E-Mail</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://twitter.com/neko7ina" title="Twitter &rarr; https://twitter.com/neko7ina" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://www.youtube.com/channel/UCcqa7Dq6RRDkHNk_t54sJiQ" title="YouTube &rarr; https://www.youtube.com/channel/UCcqa7Dq6RRDkHNk_t54sJiQ" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://weibo.com/247389636" title="Weibo &rarr; https://weibo.com/247389636" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
-                </span>
-              
             </div>
-          
-
-          
-
-          
-          
-
-          
+        <div class="d-none d-lg-block col-lg-2 toc-container">
             
-          
-          
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;TOC</p> 
+    <div id="tocbot"></div>
+  </div>
 
         </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置服务端"><span class="nav-number">1.</span> <span class="nav-text">配置服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装相关依赖"><span class="nav-number">1.1.</span> <span class="nav-text">安装相关依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-FCM-for-Mojo-服务端"><span class="nav-number">1.2.</span> <span class="nav-text">安装 FCM for Mojo 服务端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置客户端"><span class="nav-number">2.</span> <span class="nav-text">配置客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试使用"><span class="nav-number">3.</span> <span class="nav-text">测试使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作为服务启动"><span class="nav-number">4.</span> <span class="nav-text">作为服务启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可选工作"><span class="nav-number">5.</span> <span class="nav-text">可选工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-基本认证"><span class="nav-number">5.1.</span> <span class="nav-text">HTTP 基本认证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPS"><span class="nav-number">5.2.</span> <span class="nav-text">HTTPS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-Nginx"><span class="nav-number">5.3.</span> <span class="nav-text">配置 Nginx</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#收尾工作"><span class="nav-number">6.</span> <span class="nav-text">收尾工作</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-        </div>
-      
-
     </div>
-  </aside>
-  
+</div>
+
+<!-- custom -->
 
 
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container comments mx-auto" id="comments">
         
+            <br><br>
+            
+            
+    <script src="https://utteranc.es/client.js" repo="git@github.com:huaxianyan/hexo-comment.git" issue-term="title" label="utterances" theme="github-light" crossorigin="anonymous" async>
+    </script>
+
+	    
+        
+    </div>
+</div>
+
+    
+</main>
+
+
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Neko7ina</span>
-
-  
-
-  
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-
-    
-
-    
-
+<footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/0x2e/Material-T" target="_blank" rel="nofollow noopener"> <b>Material-T</b></a>
+    <br>
     
   </div>
+</footer>
 
-  
-
-<script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script src="//cdn.staticfile.org/jquery/2.1.3/jquery.js"></script>
-
-  
-  <script src="//cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js"></script>
-
-  
-  <script src="//cdn.staticfile.org/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
-
-  
-  <script src="//cdn.staticfile.org/velocity/1.2.1/velocity.min.js"></script>
-
-  
-  <script src="//cdn.staticfile.org/velocity/1.2.1/velocity.ui.min.js"></script>
-
-  
-  <script src="//cdn.staticfile.org/fancybox/3.5.6/jquery.fancybox.min.js"></script>
-
-
-  
-
-
-  <script src="/js/utils.js?v=7.1.0"></script>
-
-  <script src="/js/motion.js?v=7.1.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/affix.js?v=7.1.0"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
-
-
-
-
-  
-  <script src="/js/scrollspy.js?v=7.1.0"></script>
-<script src="/js/post-details.js?v=7.1.0"></script>
-
-
-
-  
-
-
-  <script src="/js/next-boot.js?v=7.1.0"></script>
-
-
-  
-
-  
-
-  
-
-  
-
-
+  <!-- SCRIPTS -->
+  <script src="/lib/mdbootstrap/js/jquery-3.4.1.min.js"></script>
+  <script src="/lib/mdbootstrap/js/popper.min.js"></script>
+  <script src="/lib/mdbootstrap/js/bootstrap.min.js?v=4.3.1"></script>
+  <script src="/lib/mdbootstrap/js/mdb.min.js?v=4.8.7"></script>
+  <script src="/lib/nprogress/nprogress.min.js?v=0.2.0"></script>
+  <script src="/js/main.js"></script>
   
     
-
-  
-
-<script src="//cdn.staticfile.org/gitalk/1.4.0/gitalk.min.js"></script>
-
-
-
-  
-
-<link rel="stylesheet" href="//cdn.staticfile.org/gitalk/1.4.0/gitalk.css">
-
-
-
-  
-
-<script src="//cdn.jsdelivr.net/npm/js-md5@0/src/md5.min.js"></script>
-
-<script>
-  var gitalk = new Gitalk({
-    clientID: '52aaa5e7cca2d4ce7380',
-    clientSecret: '899215fbec1f684b5a4e94701e7b3375e4574a81',
-    repo: 'hexo-comment',
-    owner: 'huaxianyan',
-    admin: ['huaxianyan'],
-    id: md5(location.pathname),
+      <script src="/lib/tocbot/tocbot.min.js?v=4.7.0"></script>
     
-      language: 'zh-CN',
-    
-    distractionFreeMode: 'true'
-  });
-  gitalk.render('gitalk-container');
-</script>
-
+    <script src="/js/post.js"></script>
   
-
-
   
-  <script>
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.json";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
+    <script src="/lib/prettify/prettify.min.js?v=0.1.0"></script>
+    <script>
+      $(document).ready(function(){
+        $('pre').addClass('prettyprint linenums');
+        prettyPrint();
+      })
+    </script>
+  
+  
+    <script src="/lib/typed/typed.min.js?v=2.0.9"></script>
+    <script>
+        var typed = new Typed('#subtitle', {
+          strings: [
+            '  ',
+            "用 FCM 来推送 QQ 消息&nbsp;",
+        ],
+        cursorChar: "_",
+        typeSpeed: 77,
+        startDelay: 300, //开始之前延迟300毫秒
+        loop: false,
+        });
+        $(".typed-cursor").addClass("h2");
+    </script>
+  
+  
+    <script src="/lib/anchor/anchor.min.js?v=4.2.0"></script>
+    <script>
+      anchors.options = {
+        placement: "right",
+        visible: "false",
+        
       };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
+      var el = "h1,h2,h3,h4,h5,h6".split(",")
+      var res = []
+      for (item of el) {
+        res.push(".markdown-body > " + item)
       }
-    });
-  </script>
-
-
-
-
-
+      anchors.add(res.join(", "))
+    </script>
   
 
   
-
+    <script src="/js/local-search.js"></script>
+    <script>
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function(){ getSearchFile(path); this.onclick = null }
+    </script>
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
 </body>
 </html>
