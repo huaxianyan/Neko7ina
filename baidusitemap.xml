@@ -4,8 +4,44 @@
 
     
   <url>
+    <loc>http://www.neko7ina.com/travel-in-japan.html</loc>
+    <lastmod>2019-09-03T10:29:45.401Z</lastmod>
+    <data>
+        <display>
+        <title>日本之行</title>
+        <pubTime>2018-12-31T12:41:26.000Z</pubTime>
+        
+        <tag>旅行</tag>
+         
+        <tag>日本</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.neko7ina.com/repair-bicycle.html</loc>
+    <lastmod>2019-09-03T10:15:14.528Z</lastmod>
+    <data>
+        <display>
+        <title>修车</title>
+        <pubTime>2019-01-14T10:31:33.000Z</pubTime>
+        
+        <tag>随笔</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.neko7ina.com/new-god-of-war.html</loc>
-    <lastmod>2019-09-02T08:12:18.441Z</lastmod>
+    <lastmod>2019-09-03T10:05:33.569Z</lastmod>
     <data>
         <display>
         <title>宝剑锋从磨砺出，梅花香自苦寒来——PS4《战神》游感</title>
@@ -36,9 +72,9 @@
          
         <tag>折腾</tag>
          
-        <tag>GBF</tag>
-         
         <tag>Nginx</tag>
+         
+        <tag>GBF</tag>
          
          
            
@@ -101,9 +137,9 @@
          
         <tag>Syncthing</tag>
          
-        <tag>Nginx</tag>
-         
         <tag>Linux</tag>
+         
+        <tag>Nginx</tag>
          
          
            
@@ -171,42 +207,6 @@
         <tag>多平台</tag>
          
         <tag>Rime</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.neko7ina.com/repair-bicycle.html</loc>
-    <lastmod>2019-07-10T11:09:26.043Z</lastmod>
-    <data>
-        <display>
-        <title>修车</title>
-        <pubTime>2019-01-14T10:31:33.000Z</pubTime>
-        
-        <tag>随笔</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.neko7ina.com/travel-in-japan.html</loc>
-    <lastmod>2019-07-10T11:09:09.873Z</lastmod>
-    <data>
-        <display>
-        <title>日本之行</title>
-        <pubTime>2018-12-31T12:41:26.000Z</pubTime>
-        
-        <tag>旅行</tag>
-         
-        <tag>日本</tag>
          
          
            
