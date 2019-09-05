@@ -4,6 +4,218 @@
 
     
   <url>
+    <loc>http://www.neko7ina.com/proxy_pass-for-gbf.html</loc>
+    <lastmod>2019-09-05T06:22:25.531Z</lastmod>
+    <data>
+        <display>
+        <title>使用反向代理加速 GBF</title>
+        <pubTime>2019-07-30T16:22:35.000Z</pubTime>
+        
+        <tag>游戏</tag>
+         
+        <tag>折腾</tag>
+         
+        <tag>GBF</tag>
+         
+        <tag>Nginx</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.neko7ina.com/ff7r-battle.html</loc>
+    <lastmod>2019-09-05T05:55:21.913Z</lastmod>
+    <data>
+        <display>
+        <title>FF7R 战斗系统简单剖析</title>
+        <pubTime>2019-06-13T13:21:21.000Z</pubTime>
+        
+        <tag>最终幻想</tag>
+         
+        <tag>FINAL FANTASY</tag>
+         
+        <tag>FF7R</tag>
+         
+        <tag>FF7</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.neko7ina.com/about-my-pictures.html</loc>
+    <lastmod>2019-09-05T05:54:22.932Z</lastmod>
+    <data>
+        <display>
+        <title>懒人的「图床」打造</title>
+        <pubTime>2019-04-27T02:51:13.000Z</pubTime>
+        
+        <tag>折腾</tag>
+         
+        <tag>Syncthing</tag>
+         
+        <tag>Nginx</tag>
+         
+        <tag>Linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.neko7ina.com/some-problems-on-macos.html</loc>
+    <lastmod>2019-09-05T05:25:38.124Z</lastmod>
+    <data>
+        <display>
+        <title>处理了点 macOS 上的小问题</title>
+        <pubTime>2019-04-21T17:11:40.000Z</pubTime>
+        
+        <tag>折腾</tag>
+         
+        <tag>Syncthing</tag>
+         
+        <tag>Rime</tag>
+         
+        <tag>Synology</tag>
+         
+        <tag>macOS</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.neko7ina.com/rime.html</loc>
+    <lastmod>2019-09-05T05:02:13.292Z</lastmod>
+    <data>
+        <display>
+        <title>我的输入法，我的 Rime</title>
+        <pubTime>2019-02-28T05:15:47.000Z</pubTime>
+        
+        <tag>折腾</tag>
+         
+        <tag>多平台</tag>
+         
+        <tag>Rime</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.neko7ina.com/ffm.html</loc>
+    <lastmod>2019-09-05T04:57:33.822Z</lastmod>
+    <data>
+        <display>
+        <title>用 FCM 来推送 QQ 消息</title>
+        <pubTime>2018-07-31T13:09:37.000Z</pubTime>
+        
+        <tag>折腾</tag>
+         
+        <tag>Android</tag>
+         
+        <tag>FFM</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.neko7ina.com/syncthing.html</loc>
+    <lastmod>2019-09-05T04:55:37.287Z</lastmod>
+    <data>
+        <display>
+        <title>被逼无奈，用 Syncthing 打造自己的同步云盘</title>
+        <pubTime>2019-03-30T17:19:38.000Z</pubTime>
+        
+        <tag>折腾</tag>
+         
+        <tag>多平台</tag>
+         
+        <tag>Syncthing</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.neko7ina.com/synology.html</loc>
+    <lastmod>2019-09-05T04:52:50.278Z</lastmod>
+    <data>
+        <display>
+        <title>Synology 的使用初体验</title>
+        <pubTime>2019-04-20T07:53:51.000Z</pubTime>
+        
+        <tag>折腾</tag>
+         
+        <tag>群晖</tag>
+         
+        <tag>Synology</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.neko7ina.com/food-in-memory.html</loc>
+    <lastmod>2019-09-05T04:39:20.023Z</lastmod>
+    <data>
+        <display>
+        <title>鸭血粉丝</title>
+        <pubTime>2018-03-07T10:09:40.000Z</pubTime>
+        
+        <tag>杂谈</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.neko7ina.com/misster-seven.html</loc>
+    <lastmod>2019-09-05T04:39:06.671Z</lastmod>
+    <data>
+        <display>
+        <title>杀手七先生</title>
+        <pubTime>2018-03-16T17:35:41.000Z</pubTime>
+        
+        <tag>跑团</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.neko7ina.com/travel-in-japan.html</loc>
     <lastmod>2019-09-03T10:29:45.401Z</lastmod>
     <data>
@@ -61,184 +273,6 @@
 
     
   <url>
-    <loc>http://www.neko7ina.com/play-gbf-better.html</loc>
-    <lastmod>2019-07-30T16:24:27.995Z</lastmod>
-    <data>
-        <display>
-        <title>如何更好地玩 GBF</title>
-        <pubTime>2019-07-30T16:22:35.000Z</pubTime>
-        
-        <tag>游戏</tag>
-         
-        <tag>折腾</tag>
-         
-        <tag>Nginx</tag>
-         
-        <tag>GBF</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.neko7ina.com/ffm.html</loc>
-    <lastmod>2019-07-10T11:13:20.444Z</lastmod>
-    <data>
-        <display>
-        <title>用 FCM 来推送 QQ 消息</title>
-        <pubTime>2018-07-31T13:09:37.000Z</pubTime>
-        
-        <tag>折腾</tag>
-         
-        <tag>Android</tag>
-         
-        <tag>FFM</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.neko7ina.com/synology.html</loc>
-    <lastmod>2019-07-10T11:11:37.990Z</lastmod>
-    <data>
-        <display>
-        <title>Synology 的使用初体验</title>
-        <pubTime>2019-04-20T07:53:51.000Z</pubTime>
-        
-        <tag>折腾</tag>
-         
-        <tag>群晖</tag>
-         
-        <tag>Synology</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.neko7ina.com/about-my-pictures.html</loc>
-    <lastmod>2019-07-10T11:10:55.314Z</lastmod>
-    <data>
-        <display>
-        <title>懒人的「图床」打造</title>
-        <pubTime>2019-04-27T02:51:13.000Z</pubTime>
-        
-        <tag>折腾</tag>
-         
-        <tag>Syncthing</tag>
-         
-        <tag>Linux</tag>
-         
-        <tag>Nginx</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.neko7ina.com/some-problems-on-macos.html</loc>
-    <lastmod>2019-07-10T11:10:14.176Z</lastmod>
-    <data>
-        <display>
-        <title>处理了点 macOS 上的小问题</title>
-        <pubTime>2019-04-21T17:11:40.000Z</pubTime>
-        
-        <tag>折腾</tag>
-         
-        <tag>Rime</tag>
-         
-        <tag>Synology</tag>
-         
-        <tag>Syncthing</tag>
-         
-        <tag>macOS</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.neko7ina.com/syncthing.html</loc>
-    <lastmod>2019-07-10T11:09:50.672Z</lastmod>
-    <data>
-        <display>
-        <title>被逼无奈，用 Syncthing 打造自己的同步云盘</title>
-        <pubTime>2019-03-30T17:19:38.000Z</pubTime>
-        
-        <tag>折腾</tag>
-         
-        <tag>多平台</tag>
-         
-        <tag>Syncthing</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.neko7ina.com/rime.html</loc>
-    <lastmod>2019-07-10T11:09:39.829Z</lastmod>
-    <data>
-        <display>
-        <title>我的输入法，我的 Rime</title>
-        <pubTime>2019-02-28T05:15:47.000Z</pubTime>
-        
-        <tag>折腾</tag>
-         
-        <tag>多平台</tag>
-         
-        <tag>Rime</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.neko7ina.com/ff7r-battle.html</loc>
-    <lastmod>2019-06-13T15:16:24.780Z</lastmod>
-    <data>
-        <display>
-        <title>FF7R 战斗系统简单剖析</title>
-        <pubTime>2019-06-13T13:21:21.000Z</pubTime>
-        
-        <tag>最终幻想</tag>
-         
-        <tag>FINAL FANTASY</tag>
-         
-        <tag>FF7R</tag>
-         
-        <tag>FF7</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.neko7ina.com/yorosiku.html</loc>
     <lastmod>2019-01-01T06:56:04.000Z</lastmod>
     <data>
@@ -247,40 +281,6 @@
         <pubTime>2018-01-19T08:19:16.000Z</pubTime>
         
         <tag>随笔</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.neko7ina.com/food-in-memory.html</loc>
-    <lastmod>2018-12-10T06:32:06.627Z</lastmod>
-    <data>
-        <display>
-        <title>鸭血粉丝</title>
-        <pubTime>2018-03-07T10:09:40.000Z</pubTime>
-        
-        <tag>杂谈</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.neko7ina.com/misster-seven.html</loc>
-    <lastmod>2018-12-10T06:31:53.037Z</lastmod>
-    <data>
-        <display>
-        <title>杀手七先生</title>
-        <pubTime>2018-03-16T17:35:41.000Z</pubTime>
-        
-        <tag>跑团</tag>
          
          
            

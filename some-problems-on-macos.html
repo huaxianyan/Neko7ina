@@ -103,7 +103,7 @@
                             <p>最近折腾了一些东西，在使用的时候渐渐发现了一些问题。</p>
 <p>逐个解决的同时，发现都是 macOS 上发生的，便写下这篇小结记录。</p>
 <a id="more"></a>
-<h2 id="DS-Store-文件"><a href="#DS-Store-文件" class="headerlink" title=".DS_Store 文件"></a>.DS_Store 文件</h2><p>.DS_Store 文件是 macOS 的 Finder 生成的文件，网上似乎有很多人对其深恶痛绝。</p>
+<h1 id="DS-Store-文件"><a href="#DS-Store-文件" class="headerlink" title=".DS_Store 文件"></a>.DS_Store 文件</h1><p>.DS_Store 文件是 macOS 的 Finder 生成的文件，网上似乎有很多人对其深恶痛绝。</p>
 <p>我对它的看法还可以，在 macOS 上的确也发挥了不错的作用。</p>
 <p>但是在其他设备不仅没用，看着还很难受，每个文件夹都有整得跟病毒似的，所以还是动手料理了它。</p>
 <p>.DS_Store 的处理方式搜了一下，基本就只有那些个方法在各个地方复读。</p>
@@ -116,9 +116,12 @@
 <p>看来只有另寻他法了。</p>
 <p>但是我又一想，我对 .DS_Store 本身又没啥意见，只要它别在出现在别的设备上，那么从这条路子出发是否可行呢？</p>
 <p>答案是可以。</p>
-<h3 id="Syncthing"><a href="#Syncthing" class="headerlink" title="Syncthing"></a>Syncthing</h3><p>Syncthing 的同步文件夹有个忽略模式，可以靠这个来控制需要同步的内容。</p>
+<h2 id="Syncthing"><a href="#Syncthing" class="headerlink" title="Syncthing"></a>Syncthing</h2><p>Syncthing 的同步文件夹有个忽略模式，可以靠这个来控制需要同步的内容。</p>
 <p>那么进入 Syncthing 的 Web UI 界面，展开要控制的文件夹，点击 <code>选项</code>，在弹出的窗口中选择 <code>忽略模式</code> 选项卡，在里面就可以编写忽略规则。</p>
 <p><img src="https://pic.neko7ina.com:7777/images/20190422/1.png" alt="忽略模式"></p>
+<center><i>忽略模式</i></center>
+
+<p><br></p>
 <p>具体规则可以查看 <a href="https://docs.syncthing.net/users/ignoring.html" target="_blank" rel="noopener">官方文档</a>，这里加入一条新规则：</p>
 <pre><code>(?d).DS_Store
 </code></pre><p>保存之后即可生效。</p>
@@ -129,7 +132,7 @@
 </code></pre>
 <p>只要打开终端，粘贴以上命令，回车执行即可生效。</p>
 <p>理论上执行后需要重启后才能生效，但我没重启后发现也没有生成了。</p>
-<h2 id="Rime-输入法"><a href="#Rime-输入法" class="headerlink" title="Rime 输入法"></a>Rime 输入法</h2><p>Rime 输入法在 macOS 上的发行版叫鼠鬚管（Squirrel），不同于 Windows 上的小狼毫（Weasel），所以在将配置文件搬过来的时候，要 <code>weasel.custom.yaml</code> 的文件名，要改成 <code>squirrel.custom.yaml</code>。</p>
+<h1 id="Rime-输入法"><a href="#Rime-输入法" class="headerlink" title="Rime 输入法"></a>Rime 输入法</h1><p>Rime 输入法在 macOS 上的发行版叫鼠鬚管（Squirrel），不同于 Windows 上的小狼毫（Weasel），所以在将配置文件搬过来的时候，要 <code>weasel.custom.yaml</code> 的文件名，要改成 <code>squirrel.custom.yaml</code>。</p>
 <p>不过这个问题不大，大问题在于，我每次部署的时候都提示失败，明明我仔细检查相关的文件都在。</p>
 <p>虽然可以正常使用，但每次重新部署或者同步时提示错误，还是挺闹心的，于是在这上面花时间研究怎么解决。</p>
 <p>一步步尝试，最终发现还是引入了袖珍简化字拼音输入方案产生的问题。</p>
@@ -147,11 +150,11 @@
                                 
                                     <a class="hover-with-bg" href="/tags/%E6%8A%98%E8%85%BE">折腾</a>
                                 
+                                    <a class="hover-with-bg" href="/tags/Syncthing">Syncthing</a>
+                                
                                     <a class="hover-with-bg" href="/tags/Rime">Rime</a>
                                 
                                     <a class="hover-with-bg" href="/tags/Synology">Synology</a>
-                                
-                                    <a class="hover-with-bg" href="/tags/Syncthing">Syncthing</a>
                                 
                                     <a class="hover-with-bg" href="/tags/macOS">macOS</a>
                                 

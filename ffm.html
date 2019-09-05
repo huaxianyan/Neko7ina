@@ -112,7 +112,7 @@
 <p><strong>就到此为止了，留一张做最后的纪念，感谢开发者给我们带来了一段美好时光。</strong></p>
 <p><img src="https://pic.neko7ina.com:7777/images/20180731/8.png" width="37%"></p>
 <p><strong>2018/10/30 更新：增加可选工作，提供 HTTP 基本认证、HTTPS 及 Nginx 配置部分内容。</strong></p>
-<h2 id="配置服务端"><a href="#配置服务端" class="headerlink" title="配置服务端"></a>配置服务端</h2><h3 id="安装相关依赖"><a href="#安装相关依赖" class="headerlink" title="安装相关依赖"></a>安装相关依赖</h3><p>笔者所使用的系统是 Ubuntu 16.04 LTS。</p>
+<h1 id="配置服务端"><a href="#配置服务端" class="headerlink" title="配置服务端"></a>配置服务端</h1><h2 id="安装相关依赖"><a href="#安装相关依赖" class="headerlink" title="安装相关依赖"></a>安装相关依赖</h2><p>笔者所使用的系统是 Ubuntu 16.04 LTS。</p>
 <p>git：使用包管理器来安装。</p>
 <pre><code class="bash">apt-get install git
 </code></pre>
@@ -126,7 +126,7 @@ cpanm Mojo::Webqq
 cpanm Webqq::Encryption
 </code></pre>
 <p>如要更新只需再执行 <code>cpanm Mojo::Webqq</code> 即可。</p>
-<h3 id="安装-FCM-for-Mojo-服务端"><a href="#安装-FCM-for-Mojo-服务端" class="headerlink" title="安装 FCM for Mojo 服务端"></a>安装 FCM for Mojo 服务端</h3><pre><code class="bash">cd
+<h2 id="安装-FCM-for-Mojo-服务端"><a href="#安装-FCM-for-Mojo-服务端" class="headerlink" title="安装 FCM for Mojo 服务端"></a>安装 FCM for Mojo 服务端</h2><pre><code class="bash">cd
 git clone https://github.com/RikkaApps/FCM-for-Mojo-Server.git
 cd FCM-for-Mojo-Server
 cp config.example.js config.js
@@ -136,7 +136,7 @@ npm install
 <pre><code class="bash">git pull
 npm install
 </code></pre>
-<h2 id="配置客户端"><a href="#配置客户端" class="headerlink" title="配置客户端"></a>配置客户端</h2><p>前往 Play Store 下载安装 <a href="https://play.google.com/store/apps/details?id=moe.shizuku.fcmformojo" target="_blank" rel="noopener">Android 客户端</a>。</p>
+<h1 id="配置客户端"><a href="#配置客户端" class="headerlink" title="配置客户端"></a>配置客户端</h1><p>前往 Play Store 下载安装 <a href="https://play.google.com/store/apps/details?id=moe.shizuku.fcmformojo" target="_blank" rel="noopener">Android 客户端</a>。</p>
 <p><img src="https://pic.neko7ina.com:7777/images/20180731/1.png" width="37%"></p>
 <p>点击 <code>服务器设置</code>，在 <code>服务器 URL</code> 处填写服务端地址，默认端口 <code>5005</code>，写成 <code>http://w.x.y.z:5005/</code> 形式即可。</p>
 <p><img src="https://pic.neko7ina.com:7777/images/20180731/2.png" width="37%"></p>
@@ -147,13 +147,13 @@ npm install
 <p><img src="https://pic.neko7ina.com:7777/images/20180731/4.png" width="37%"></p>
 <p>最后进入 <code>通知设置</code> 做最后修改。<code>获取前台应用方式</code> 如没有 root，则选择 <code>使用情况访问</code>，否则可以搭配 <a href="https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api&amp;hl=zh" target="_blank" rel="noopener">Shizuku Manager</a> 的 root 模式选择 <code>Shizuku</code> 使用。</p>
 <p><img src="https://pic.neko7ina.com:7777/images/20180731/5.png" width="37%"></p>
-<h2 id="测试使用"><a href="#测试使用" class="headerlink" title="测试使用"></a>测试使用</h2><p>服务端进入 <code>FCM-for-Mojo-Server</code> 目录，启动服务端。</p>
+<h1 id="测试使用"><a href="#测试使用" class="headerlink" title="测试使用"></a>测试使用</h1><p>服务端进入 <code>FCM-for-Mojo-Server</code> 目录，启动服务端。</p>
 <pre><code class="bash">npm start
 </code></pre>
 <p>如设置无误，手机上会收到通知并自动从服务端下载登录二维码，打开 QQ 选择扫码，点击相册从手机中选择刚下载的二维码，确认登录即可完成。</p>
 <p><img src="https://pic.neko7ina.com:7777/images/20180731/6.png" width="37%"></p>
 <p>现在就可以通过 FCM 来接收你的 QQ 消息了，顺便去系统设置中把 QQ 的后台给关闭掉。</p>
-<h2 id="作为服务启动"><a href="#作为服务启动" class="headerlink" title="作为服务启动"></a>作为服务启动</h2><pre><code class="bash">vim /lib/systemd/system/ffm.service
+<h1 id="作为服务启动"><a href="#作为服务启动" class="headerlink" title="作为服务启动"></a>作为服务启动</h1><pre><code class="bash">vim /lib/systemd/system/ffm.service
 </code></pre>
 <pre><code>[Unit]
 Description=a server for FCM-for-Mojo-Server
@@ -173,7 +173,7 @@ WantedBy=multi-user.target
 systemctl start ffm
 </code></pre>
 <p>现在就可以通过服务来控制 FFM 了。</p>
-<h2 id="可选工作"><a href="#可选工作" class="headerlink" title="可选工作"></a>可选工作</h2><h3 id="HTTP-基本认证"><a href="#HTTP-基本认证" class="headerlink" title="HTTP 基本认证"></a>HTTP 基本认证</h3><p>HTTP 基本认证由 <a href="https://github.com/http-auth/http-auth" target="_blank" rel="noopener">http-auth</a> 实现，这里只使用最简单的方法。</p>
+<h1 id="可选工作"><a href="#可选工作" class="headerlink" title="可选工作"></a>可选工作</h1><h2 id="HTTP-基本认证"><a href="#HTTP-基本认证" class="headerlink" title="HTTP 基本认证"></a>HTTP 基本认证</h2><p>HTTP 基本认证由 <a href="https://github.com/http-auth/http-auth" target="_blank" rel="noopener">http-auth</a> 实现，这里只使用最简单的方法。</p>
 <p>生成密码文件</p>
 <pre><code class="bash">htpasswd -c -s /root/FCM-for-Mojo-Server/ffm_auth username
 </code></pre>
@@ -182,7 +182,7 @@ systemctl start ffm
         &quot;file&quot;: &quot;/root/FCM-for-Mojo-Server/ffm_auth&quot;
     },
 </code></pre>
-<h3 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h3><p>HTTPS 通过 <a href="https://nodejs.org/dist/latest/docs/api/https.html" target="_blank" rel="noopener">https 模块</a> 实现，这里只使用最简单的方法。</p>
+<h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2><p>HTTPS 通过 <a href="https://nodejs.org/dist/latest/docs/api/https.html" target="_blank" rel="noopener">https 模块</a> 实现，这里只使用最简单的方法。</p>
 <p>编辑 <code>config.js</code>，找到有 <code>https</code> 那段去掉附近的注释（<code>/*</code> 和 <code>*/</code>）：</p>
 <pre><code class="js">    &quot;https&quot;: {
         &quot;key&quot;: fs.readFileSync(&quot;/etc/nginx/ssl/neko7ina.com.key&quot;),
@@ -191,7 +191,7 @@ systemctl start ffm
     }
 </code></pre>
 <p>证书可以使用 <a href="https://acme.sh" target="_blank" rel="noopener">acme.sh</a> 很方便地进行申请，现在支持泛域名证书的申请，在稍后的 Nginx 的配置中可以分配一个单独的二级域名给 FFM 使用。</p>
-<h3 id="配置-Nginx"><a href="#配置-Nginx" class="headerlink" title="配置 Nginx"></a>配置 Nginx</h3><p>在 <code>/etc/nginx/conf.d</code> 中创建一个新的文件 <code>ffm.conf</code> 并写上如下配置：</p>
+<h2 id="配置-Nginx"><a href="#配置-Nginx" class="headerlink" title="配置 Nginx"></a>配置 Nginx</h2><p>在 <code>/etc/nginx/conf.d</code> 中创建一个新的文件 <code>ffm.conf</code> 并写上如下配置：</p>
 <pre><code class="nginx">server {
     listen 80;
     server_name ffm.neko7ina.com;
@@ -230,7 +230,7 @@ nginx -s reload
 </code></pre>
 <p>最后修改一下客户端上的 <code>服务器配置</code>，将新的 URL 以及登录信息填写进去即可。</p>
 <p><img src="https://pic.neko7ina.com:7777/images/20180731/7.png" width="37%"></p>
-<h2 id="收尾工作"><a href="#收尾工作" class="headerlink" title="收尾工作"></a>收尾工作</h2><p>最后换一个简洁版本的 QQ，比如 <a href="https://play.google.com/store/apps/details?id=com.tencent.mobileqqi&amp;hl=zh" target="_blank" rel="noopener">QQ 国际版</a>，并关掉其后台权限及通知权限。</p>
+<h1 id="收尾工作"><a href="#收尾工作" class="headerlink" title="收尾工作"></a>收尾工作</h1><p>最后换一个简洁版本的 QQ，比如 <a href="https://play.google.com/store/apps/details?id=com.tencent.mobileqqi&amp;hl=zh" target="_blank" rel="noopener">QQ 国际版</a>，并关掉其后台权限及通知权限。</p>
 <p>现在，在别的 IM 软件上能够享受的 Android 通知新特性，也可以在 QQ 上享受的到了。</p>
 
                             <hr>
