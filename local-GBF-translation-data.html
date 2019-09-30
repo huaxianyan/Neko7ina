@@ -14,7 +14,7 @@
   <meta name="description" content="">
   <meta name="author" content="Neko7ina">
   <meta name="keywords" content="">
-  <title>使用反向代理加速 GBF ~ 七言八语</title>
+  <title>本地构建数据加速 GBF 翻译 ~ 七言八语</title>
   <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/font-awesome/css/all.min.css?v=5.7.2">
   <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/css/bootstrap.min.css?v=4.3.1">
   <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/css/mdb.min.css?v=4.8.7">
@@ -72,7 +72,7 @@
 
 </nav>
     <div class="view intro-2"
-         style="background: url('https://pic.neko7ina.com:7777/images/20190731/banner.jpg')no-repeat center center;background-size: cover;">
+         style="background: url('https://pic.neko7ina.com:7777/images/20190930/banner.jpg')no-repeat center center;background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
           <div class="container text-center white-text wow fadeInUp">
@@ -81,7 +81,7 @@
                     </span>
             
               <br>
-              <p>2019 年 7 月 31 日 星期三 凌晨 12:22</p>
+              <p>2019 年 9 月 30 日 星期一 下午 3:14</p>
             
           </div>
         </div>
@@ -100,45 +100,107 @@
       <div class="py-5 z-depth-3 board">
         <div class="post-content mx-auto">
           <div class="markdown-body">
-            <p>GBF 直连还不错的时候不多，其他时候就需要点辅助手段来更顺畅地玩游戏。</p>
-<p>以前一直都是用浏览器分配指定域名走代理，后来在 NGA 上看到反代这个思路，尝试了一下发现效果不错，就这么用了下来。</p>
-<p>想要使用这个方法，<font color="#DC143C">需要有一台自己的海外的 VPS，并且国内直连过去的效果还不错。</font></p>
+            <p>一直在用同事的 <a href="https://github.com/BLHXFY-Group/BLHXFY" target="_blank" rel="noopener">GBF 翻译项目</a>，但是因为项目是托管在 GitHub 上，卡起来还是很影响使用体验的。</p>
+<p>不过 GBF 翻译提供自定义数据源功能，基于此可以本地构建 GBF 翻译数据，加快 GBF 相应速度，提高游戏体验。</p>
 <a id="more"></a>
-<blockquote>
-<p>图片 Pixiv ID = 69939714</p>
-</blockquote>
-<h1 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h1><p>这里我用了 Nginx，其他如 Caddy 之类的按照各自规则修改即可。</p>
-<p>首先在 VPS 上安装 Nginx，各大发行版的包管理均有，安装完毕后下载配置文件到 Nginx 的配置路径下，一般为 <code>/etc/nginx/conf.d</code>。</p>
-<pre><code class="bash">cd /etc/nginx/conf.d
-wget https://raw.githubusercontent.com/huaxianyan/gbf-nginx-proxy_pass/master/gbf.conf
-nginx -t
-nginx -s reload
+<font color="#DC143C">请注意，GBF 翻译使用与否取决于个人意愿，可能存在的风险均由使用者个人承担，这里不作推荐。</font>
+
+<p>但如果确定使用，希望在使用体验上有更进一步的提高，可以继续往下看。</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>打开 <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a> 下载 Windows 版安装程序，打开安装程序按着引导安装即可。</p>
+<h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><p>使用 Homebrew 安装 Git。</p>
+<pre><code class="bash">brew install git
 </code></pre>
-<p>如 Nginx 为编译安装，可以在目录下新建 <code>conf.d</code> 文件夹，修改 <code>nginx.conf</code> 将路径 include 进去，再将配置文件放到该位置，重启 Nginx。</p>
-<p>这样不出意外，服务端就启动完成了。</p>
-<h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><h2 id="Windows-amp-Linux-amp-macOS"><a href="#Windows-amp-Linux-amp-macOS" class="headerlink" title="Windows &amp; Linux &amp; macOS"></a>Windows &amp; Linux &amp; macOS</h2><p>下载安装 <a href="https://github.com/oldj/SwitchHosts#switchhosts" target="_blank" rel="noopener">SwitchHosts!</a>，Windows 下需要用管理员权限运行。</p>
-<p>新建一条规则，将 GBF 相关域名的地址指向 VPS IP，像下面这样。</p>
-<pre><code class="hosts">1.2.3.4 game.granbluefantasy.jp
-1.2.3.4 game-a.granbluefantasy.jp
-1.2.3.4 game-a1.granbluefantasy.jp
-1.2.3.4 game-a2.granbluefantasy.jp
-1.2.3.4 game-a3.granbluefantasy.jp
-1.2.3.4 game-a4.granbluefantasy.jp
-1.2.3.4 game-a5.granbluefantasy.jp
-1.2.3.4 gbf.game.mbga.jp
-1.2.3.4 gbf.game-a.mbga.jp
-1.2.3.4 gbf.game-a1.mbga.jp
-1.2.3.4 gbf.game-a2.mbga.jp
-1.2.3.4 gbf.game-a3.mbga.jp
-1.2.3.4 gbf.game-a4.mbga.jp
-1.2.3.4 gbf.game-a5.mbga.jp
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>使用包管理工具安装 Git，这里笔者使用的是 Ubuntu 的包管理工具安装。</p>
+<pre><code>apt install git
+</code></pre><h2 id="安装-Nginx"><a href="#安装-Nginx" class="headerlink" title="安装 Nginx"></a>安装 Nginx</h2><h3 id="Windows-1"><a href="#Windows-1" class="headerlink" title="Windows"></a>Windows</h3><p>打开 <a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">http://nginx.org/en/download.html</a> 下载 Windows 版程序，打开后解压到合适位置。</p>
+<h3 id="macOS-1"><a href="#macOS-1" class="headerlink" title="macOS"></a>macOS</h3><p>使用 Homebrew 安装 Nginx。</p>
+<pre><code class="bash">brew install nginx
 </code></pre>
-<p><code>1.2.3.4</code> 处为 VPS IP。</p>
-<p>现在应该可以使用远程 VPS 来反代加速 GBF 加载了。</p>
-<h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><p>使用 <a href="https://github.com/Lerist/Go-Hosts" target="_blank" rel="noopener">Go Hosts</a> 来实现修改，事先建立一个文件，规则类似上述，然后打开 Go Hosts 加载本地文件即可。</p>
-<h2 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h2><p><a href="https://apps.apple.com/us/app/shadowrocket/id932747118" target="_blank" rel="noopener">Shadowrocket</a> 支持 hosts，直接添加规则即可，规则类似上述。</p>
-<h1 id="其他心得"><a href="#其他心得" class="headerlink" title="其他心得"></a>其他心得</h1><p>之前尝试过用 Nginx 在本地缓存，但是会造成偶尔发生 504，最后决定在服务端不做缓存，让浏览器自然缓存，使用体验基本没什么影响。</p>
-<p>如果决定做缓存，定期重载 Nginx 好像有利于反代效果，可以自行加进 crontab。</p>
+<h3 id="Linux-1"><a href="#Linux-1" class="headerlink" title="Linux"></a>Linux</h3><p>使用包管理工具安装 Nginx，或自行下载编译安装，这里笔者使用的是 Ubuntu 的包管理工具。</p>
+<pre><code class="bash">apt install nginx
+</code></pre>
+<h1 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h1><h2 id="下载-GBF-翻译数据到本地"><a href="#下载-GBF-翻译数据到本地" class="headerlink" title="下载 GBF 翻译数据到本地"></a>下载 GBF 翻译数据到本地</h2><p>Windows 可以在合适的位置打开 Git Bash，或者直接打开 CMD，因为 Git 在安装过程中自动添加了 PATH，macOS 和 Linux 则在合适的位置打开 Terminal。</p>
+<p>输入 </p>
+<p><code>git clone -b gh-pages https://github.com/biuuu/BLHXFY.git</code></p>
+<p>下载数据源。</p>
+<h2 id="启动-Nginx"><a href="#启动-Nginx" class="headerlink" title="启动 Nginx"></a>启动 Nginx</h2><h3 id="Windows-2"><a href="#Windows-2" class="headerlink" title="Windows"></a>Windows</h3><p>打开 Nginx 目录下 <code>conf</code> 文件夹下的 <code>nginx.conf</code> 文件，在 <code>http</code> 段内新加一个 <code>server</code> 段，填入如下配置：</p>
+<pre><code class="nginx">server {
+        listen 4567;
+        server_name 127.0.0.1;
+        location / {
+                root D:\BLHXFY;
+                access_log off;
+                expires    1d;
+                add_header Access-Control-Allow-Origin *;
+                add_header Access-Control-Allow-Methods &#39;GET, POST, OPTIONS&#39;;
+                add_header Access-Control-Allow-Headers &#39;DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization&#39;;
+                if ($request_method = &#39;OPTIONS&#39;) {
+                        return 204;
+                }
+        }
+}
+</code></pre>
+<p><code>root</code> 后路径为你 Git 下载下来的 GBF 翻译数据所在路径。</p>
+<p>保存关闭后运行 <code>nginx.exe</code> 启动。</p>
+<h3 id="macOS-2"><a href="#macOS-2" class="headerlink" title="macOS"></a>macOS</h3><p>打开配置文件 <code>vim /usr/local/etc/nginx/nginx.conf</code>，在 <code>http</code> 段内新加一个 <code>server</code> 段，填入如下配置：</p>
+<pre><code class="nginx">server {
+        listen 4567;
+        server_name 127.0.0.1;
+        location / {
+                root /Users/Neko7ina/BLHXFY/;
+                access_log off;
+                expires    1d;
+                add_header Access-Control-Allow-Origin *;
+                add_header Access-Control-Allow-Methods &#39;GET, POST, OPTIONS&#39;;
+                add_header Access-Control-Allow-Headers &#39;DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization&#39;;
+                if ($request_method = &#39;OPTIONS&#39;) {
+                        return 204;
+                }
+        }
+}
+</code></pre>
+<p><code>root</code> 后路径为你 Git 下载下来的 GBF 翻译数据所在路径。</p>
+<p>保存退出，启动 Nginx：</p>
+<pre><code class="bash">nginx -t
+nginx
+</code></pre>
+<h3 id="Linux-2"><a href="#Linux-2" class="headerlink" title="Linux"></a>Linux</h3><p>新建一个配置文件并加入下述配置内容：</p>
+<pre><code class="bash">vim /etc/nginx/conf.d/blhxfy.conf
+</code></pre>
+<pre><code class="nginx">server {
+        listen 4567;
+        server_name 127.0.0.1;
+        location / {
+                root /srv/BLHXFY;
+                access_log off;
+                expires    1d;
+                add_header Access-Control-Allow-Origin *;
+                add_header Access-Control-Allow-Methods &#39;GET, POST, OPTIONS&#39;;
+                add_header Access-Control-Allow-Headers &#39;DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization&#39;;
+                if ($request_method = &#39;OPTIONS&#39;) {
+                        return 204;
+                }
+        }
+}
+</code></pre>
+<p><code>root</code> 后路径为你 Git 下载下来的 GBF 翻译数据所在路径。</p>
+<p>保存退出，启动 Nginx：</p>
+<pre><code class="bash">nginx -t
+nginx
+</code></pre>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>首先确定已经安装 GBF 翻译，在安装油猴的情况下打开 <a href="https://blhx.danmu9.com/blhxfy/extension.user.js" target="_blank" rel="noopener">https://blhx.danmu9.com/blhxfy/extension.user.js</a> 即可完成安装。</p>
+<p>安装完之后，打开设置界面，会发现多了一个 <code>汉化插件设置</code>，点击打开。</p>
+<p><img src="https://pic.neko7ina.com:7777/images/20190930/1.png" width="37%"></p>
+<p>在第一项数据源中填入 <code>http://127.0.0.1:4567</code>，然后滚到到下方点击返回设置。</p>
+<p><img src="https://pic.neko7ina.com:7777/images/20190930/2.png" width="37%"></p>
+<p>现在 GBF 翻译使用的就是本地数据源了，加载速度飞快。</p>
+<h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><p>更新就很容易了，切换到 GBF 翻译数据所在路径，执行 <code>git pull</code> 即可更新。</p>
+<p>如果碰到如下问题：</p>
+<p><code>fatal: refusing to merge unrelated histories</code></p>
+<p>只要重设一下再更新即可：</p>
+<pre><code class="bash">git reset --hard origin/gh-pages
+git pull
+</code></pre>
 
             <hr>
           </div>
@@ -147,8 +209,6 @@ nginx -s reload
             
             <p>
               <i class="iconfont icon-tag"></i>
-              
-                <a class="hover-with-bg" href="/tags/%E6%B8%B8%E6%88%8F">游戏</a>
               
                 <a class="hover-with-bg" href="/tags/%E6%8A%98%E8%85%BE">折腾</a>
               
@@ -254,7 +314,7 @@ nginx -s reload
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "使用反向代理加速 GBF&nbsp;",
+        "本地构建数据加速 GBF 翻译&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 97,

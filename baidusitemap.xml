@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>http://www.neko7ina.com/local-GBF-translation-data.html</loc>
+    <lastmod>2019-09-30T07:14:37.579Z</lastmod>
+    <data>
+        <display>
+        <title>本地构建数据加速 GBF 翻译</title>
+        <pubTime>2019-09-30T07:14:37.000Z</pubTime>
+        
+        <tag>折腾</tag>
+         
+        <tag>GBF</tag>
+         
+        <tag>Nginx</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.neko7ina.com/proxy_pass-for-gbf.html</loc>
     <lastmod>2019-09-05T06:22:25.531Z</lastmod>
     <data>
@@ -15,9 +36,9 @@
          
         <tag>折腾</tag>
          
-        <tag>Nginx</tag>
-         
         <tag>GBF</tag>
+         
+        <tag>Nginx</tag>
          
          
            
@@ -61,9 +82,9 @@
          
         <tag>Syncthing</tag>
          
-        <tag>Linux</tag>
-         
         <tag>Nginx</tag>
+         
+        <tag>Linux</tag>
          
          
            
@@ -84,9 +105,9 @@
          
         <tag>Rime</tag>
          
-        <tag>Syncthing</tag>
-         
         <tag>Synology</tag>
+         
+        <tag>Syncthing</tag>
          
         <tag>macOS</tag>
          
