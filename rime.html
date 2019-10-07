@@ -15,15 +15,15 @@
   <meta name="author" content="Neko7ina">
   <meta name="keywords" content="">
   <title>我的输入法，我的 Rime ~ 七言八语</title>
-  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
-  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/css/mdb.min.css">
+  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/github-markdown/github-markdown.min.css">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
   
-    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+    <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/prettify/tomorrow-night-eighties.min.css">
   
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/css/main.css">
 
   
 </head>
@@ -119,54 +119,57 @@
 <a id="more"></a>
 <p>Rime，中文名为 <a href="https://rime.im/" target="_blank" rel="noopener">中州韵输入法引擎</a>，是由佛振编写的开源中文输入法。</p>
 <p>现在的 Windows 发行版在 Win 10 上的表现已经相当不错，尤其相对于几年前，对我个人来说是能用和不能用的区别。</p>
-<h1 id="初次见面"><a href="#初次见面" class="headerlink" title="初次见面"></a>初次见面</h1><p>从官网上下载并安装了最新的 Windows 版，按 F4 切换到朙月拼音简化字，就可以像一般输入法一样使用，感觉还不错。</p>
+<h1 id="初次见面"><a class="markdownIt-Anchor" href="#初次见面"></a> 初次见面</h1>
+<p>从官网上下载并安装了最新的 Windows 版，按 F4 切换到朙月拼音简化字，就可以像一般输入法一样使用，感觉还不错。</p>
 <p>简单适应了一下，就开始输入法的调教工作了。Rime 被很多人喜爱，强大的定制功能功不可没，具体可以看官方的 <a href="https://github.com/rime/home/wiki/CustomizationGuide" target="_blank" rel="noopener">定制指南</a>。</p>
 <p>那么按照我的习惯，首先要干掉左 Shift 键。</p>
 <p>安装时，程序会让用户指定一个 Rime 用户文件夹，在文件夹里我们建立文件 <code>default.custom.yaml</code> 并编辑，加入下面一段：</p>
-<pre><code class="yaml">patch:
-  &quot;ascii_composer/switch_key/Shift_L&quot;: noop
+<pre class="highlight"><code class="yaml"><span class="hljs-attr">patch:</span>
+  <span class="hljs-string">"ascii_composer/switch_key/Shift_L"</span><span class="hljs-string">:</span> <span class="hljs-string">noop</span>
 </code></pre>
 <p>重新部署后再按了按左 Shift，果然就和不存在一样，很好。</p>
 <p>用了一段时间之后，我又发现标点符号的确提供了更多选择，但是会影响键入速度，于是我将比较常用的标点符号又处理了一下。</p>
 <p>在 Rime 用户文件夹建立 <code>luna_pinyin_simp.custom.yaml</code> 并加入以下内容：</p>
-<pre><code class="yaml">patch:
-  punctuator:
-    import_preset: default
-    half_shape:
-      &#39;`&#39;: &#39;`&#39;
-      &#39;@&#39;: &#39;@&#39;
-      &#39;#&#39;: &#39;#&#39;
-      &#39;%&#39;: &#39;%&#39;
-      &#39;=&#39;: &#39;=&#39;
-      &#39;/&#39;: &#39;/&#39;
-      &#39;\&#39;: &#39;、&#39;
-      &#39;~&#39;: &#39;~&#39;
-    full_shape:
-      &#39;`&#39;: &#39;`&#39;
-      &#39;@&#39;: &#39;@&#39;
-      &#39;#&#39;: &#39;#&#39;
-      &#39;%&#39;: &#39;%&#39;
-      &#39;=&#39;: &#39;=&#39;
-      &#39;/&#39;: &#39;/&#39;
-      &#39;\&#39;: &#39;、&#39;
+<pre class="highlight"><code class="yaml"><span class="hljs-attr">patch:</span>
+<span class="hljs-attr">  punctuator:</span>
+<span class="hljs-attr">    import_preset:</span> <span class="hljs-string">default</span>
+<span class="hljs-attr">    half_shape:</span>
+      <span class="hljs-string">'`'</span><span class="hljs-string">:</span> <span class="hljs-string">'`'</span>
+      <span class="hljs-string">'@'</span><span class="hljs-string">:</span> <span class="hljs-string">'@'</span>
+      <span class="hljs-string">'#'</span><span class="hljs-string">:</span> <span class="hljs-string">'#'</span>
+      <span class="hljs-string">'%'</span><span class="hljs-string">:</span> <span class="hljs-string">'%'</span>
+      <span class="hljs-string">'='</span><span class="hljs-string">:</span> <span class="hljs-string">'='</span>
+      <span class="hljs-string">'/'</span><span class="hljs-string">:</span> <span class="hljs-string">'/'</span>
+      <span class="hljs-string">'\': '</span><span class="hljs-string">、'</span>
+      <span class="hljs-string">'~'</span><span class="hljs-string">:</span> <span class="hljs-string">'~'</span>
+<span class="hljs-attr">    full_shape:</span>
+      <span class="hljs-string">'`'</span><span class="hljs-string">:</span> <span class="hljs-string">'`'</span>
+      <span class="hljs-string">'@'</span><span class="hljs-string">:</span> <span class="hljs-string">'@'</span>
+      <span class="hljs-string">'#'</span><span class="hljs-string">:</span> <span class="hljs-string">'#'</span>
+      <span class="hljs-string">'%'</span><span class="hljs-string">:</span> <span class="hljs-string">'%'</span>
+      <span class="hljs-string">'='</span><span class="hljs-string">:</span> <span class="hljs-string">'='</span>
+      <span class="hljs-string">'/'</span><span class="hljs-string">:</span> <span class="hljs-string">'/'</span>
+      <span class="hljs-string">'\': '</span><span class="hljs-string">、'</span>
 </code></pre>
 <p>好像还少了点什么？哦自定义短语功能，继续编辑 <code>luna_pinyin_simp.custom.yaml</code> 加入以下内容：</p>
-<pre><code class="yaml">patch:
-  &quot;engine/translators/@next&quot;: table_translator@custom_phrase
-  custom_phrase:
-    dictionary: &quot;&quot;
-    user_dict: custom_phrase
-    db_class: stabledb
-    enable_completion: false
-    enable_sentence: false
-    initial_quality: 1
+<pre class="highlight"><code class="yaml"><span class="hljs-attr">patch:</span>
+  <span class="hljs-string">"engine/translators/@next"</span><span class="hljs-string">:</span> <span class="hljs-string">table_translator@custom_phrase</span>
+<span class="hljs-attr">  custom_phrase:</span>
+<span class="hljs-attr">    dictionary:</span> <span class="hljs-string">""</span>
+<span class="hljs-attr">    user_dict:</span> <span class="hljs-string">custom_phrase</span>
+<span class="hljs-attr">    db_class:</span> <span class="hljs-string">stabledb</span>
+<span class="hljs-attr">    enable_completion:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">    enable_sentence:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">    initial_quality:</span> <span class="hljs-number">1</span>
 </code></pre>
 <p>至于文件 <code>custom_phrase.txt</code> 参考 <a href="https://gist.github.com/lotem/5440677" target="_blank" rel="noopener">这里</a> 建立放在 Rime 用户文件夹，编辑内容即可实现。</p>
 <p>另外，一个文件内只需要一段 Patch，多个定制直接在下面跟定制内容即可。</p>
 <p>这么简单定制了一下，基本就回归了我的日常使用习惯。</p>
-<h1 id="深陷泥潭"><a href="#深陷泥潭" class="headerlink" title="深陷泥潭"></a>深陷泥潭</h1><p>使用了半个多月，我发现了一个事情：在我的候选列表首页中，有一些没有用过的字占据着，不仅看着不爽，还影响我的选字效率。</p>
+<h1 id="深陷泥潭"><a class="markdownIt-Anchor" href="#深陷泥潭"></a> 深陷泥潭</h1>
+<p>使用了半个多月，我发现了一个事情：在我的候选列表首页中，有一些没有用过的字占据着，不仅看着不爽，还影响我的选字效率。</p>
 <p><img src="https://pic.neko7ina.com:7777/images/20190228/1.png" srcset="/img/loading.gif" alt="没用过的字"></p>
-<p><center><i>没用过的字</i></center><br><br></p>
+<center><i>没用过的字</i></center>
+<br>
 <p>发现这个现象后，我开始有意识地去注意这些字，最后发现这些字的候选顺序是会和另外一个字绑定的。比如「𧹒」，就一直跟着「买」，跟兄弟似的谁也不离谁。</p>
 <p>向作者提了个 <a href="https://github.com/rime/home/issues/322" target="_blank" rel="noopener">issue</a>，在交流的过程中我明白了几个事情。</p>
 <ul>
@@ -174,37 +177,40 @@
 <li>用户词典记录的词频是按繁体字来计的，转换出的所有简体字共享词频，这个是这些字都会紧跟其他字的原因。</li>
 </ul>
 <p>作者提供的两种解决方案工作量都不小，为了图省事，我借助修改 <code>custom_phrase.txt</code> 文件固定「买」「卖」两字顺序，总算能够让「卖」跟在「买」后面了。</p>
-<h1 id="从头再来"><a href="#从头再来" class="headerlink" title="从头再来"></a>从头再来</h1><p>可能我考虑的比较多，我总觉得这种使用方式会有隐患，等到真的用很长时间后再考虑就太痛苦了。</p>
+<h1 id="从头再来"><a class="markdownIt-Anchor" href="#从头再来"></a> 从头再来</h1>
+<p>可能我考虑的比较多，我总觉得这种使用方式会有隐患，等到真的用很长时间后再考虑就太痛苦了。</p>
 <p>于是在寻觅之下，我发现了另外一个输入方案——<a href="https://github.com/rime/rime-pinyin-simp" target="_blank" rel="noopener">袖珍简化字拼音</a>。</p>
 <p>这是一款以简体中文为出发点的输入方案，简单试用了一下没有什么问题，看了下记录的用户词典也是简体中文，就是字库的确是比较薄弱。</p>
 <p>为了弥补字库的问题，在搜索过程中我又发现了这个 <a href="https://github.com/alswl/Rime" target="_blank" rel="noopener">项目</a>。其中「现在汉语常用词表」，特别适合作为起步基础词库，那么我们就将它带进输入法中。</p>
 <p>首先在 Rime 用户文件夹中创建文件 <code>pinyin_simp.custom.yaml</code> 并编辑，添加以下内容：</p>
-<pre><code class="yaml">patch:
-  &quot;translator/dictionary&quot;: pinyin_simp.extended
+<pre class="highlight"><code class="yaml"><span class="hljs-attr">patch:</span>
+  <span class="hljs-string">"translator/dictionary"</span><span class="hljs-string">:</span> <span class="hljs-string">pinyin_simp.extended</span>
 </code></pre>
 <p>这样我们就将输入法的词典指定到这个文件了。</p>
 <p>然后再在文件夹中创建文件 <code>pinyin_simp.extended.dict.yaml</code>，打开添加以下内容：</p>
-<pre><code class="yaml"># Rime dictionary
-# encoding: utf-8
-#
+<pre class="highlight"><code class="yaml"><span class="hljs-comment"># Rime dictionary</span>
+<span class="hljs-comment"># encoding: utf-8</span>
+<span class="hljs-comment">#</span>
 
----
-name: pinyin_simp.extended
-version: &quot;2019.02.02&quot;
-sort: by_weight
-use_preset_vocabulary: false
-import_tables:
-  - pinyin_simp
-  - luna_pinyin.xiandaihanyuchangyongcibiao
-...
+<span class="hljs-meta">---</span>
+<span class="hljs-attr">name:</span> <span class="hljs-string">pinyin_simp.extended</span>
+<span class="hljs-attr">version:</span> <span class="hljs-string">"2019.02.02"</span>
+<span class="hljs-attr">sort:</span> <span class="hljs-string">by_weight</span>
+<span class="hljs-attr">use_preset_vocabulary:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">import_tables:</span>
+<span class="hljs-bullet">  -</span> <span class="hljs-string">pinyin_simp</span>
+<span class="hljs-bullet">  -</span> <span class="hljs-string">luna_pinyin.xiandaihanyuchangyongcibiao</span>
+<span class="hljs-string">...</span>
 </code></pre>
 <p>这里可以看出我们这边引用了两个词典，一个是袖珍拼音输入法原本的词典，另一个是我们找到的。</p>
 <p>将 <a href="https://raw.githubusercontent.com/alswl/Rime/master/luna_pinyin.xiandaihanyuchangyongcibiao.dict.yaml" target="_blank" rel="noopener">现代汉语常用词表</a> 文件下载并复制到 Rime 用户文件夹，最后再将之前在朙月拼音简化字方案中的一些自定义搬运过来，重新部署就大功告成了。</p>
 <p>试了试，好像没什么问题。以前的用户词典也没养多久，懒得处理，就直接从 0 开始重新养吧。</p>
-<h1 id="如臂使指"><a href="#如臂使指" class="headerlink" title="如臂使指"></a>如臂使指</h1><p>从更换了方案使用到现在，期间时不时有新的想法，在多次尝试和积累之后，Rime 已经越来越顺手，同时方案也打磨得越来越细，我有点能体会很多用户推崇 Rime 的乐趣究竟在哪里了。</p>
+<h1 id="如臂使指"><a class="markdownIt-Anchor" href="#如臂使指"></a> 如臂使指</h1>
+<p>从更换了方案使用到现在，期间时不时有新的想法，在多次尝试和积累之后，Rime 已经越来越顺手，同时方案也打磨得越来越细，我有点能体会很多用户推崇 Rime 的乐趣究竟在哪里了。</p>
 <p>我的定制也比开始要变化了更多，我将这些放在 GitHub 上，定期更新，既是备份，也希望能帮到他人。</p>
 <p>平心而论，从一般人的眼光中，Rime 并不是一款能够吊打其他家的存在。但是它能给我更多的可能，以及多了向流氓说「不」的机会，这是我喜欢并使用 Rime 的原因。</p>
-<h1 id="附：GitHub-项目"><a href="#附：GitHub-项目" class="headerlink" title="附：GitHub 项目"></a>附：GitHub 项目</h1><p><a href="https://github.com/huaxianyan/Rime" target="_blank" rel="noopener">https://github.com/huaxianyan/Rime</a></p>
+<h1 id="附github-项目"><a class="markdownIt-Anchor" href="#附github-项目"></a> 附：GitHub 项目</h1>
+<p><a href="https://github.com/huaxianyan/Rime" target="_blank" rel="noopener">https://github.com/huaxianyan/Rime</a></p>
 
             <hr>
           </div>
@@ -297,22 +303,22 @@ import_tables:
 </footer>
 
 <!-- SCRIPTS -->
-<script src="/lib/jquery/jquery.min.js"></script>
-<script src="/lib/popper/popper.min.js"></script>
-<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
-<script src="/js/main.js"></script>
+<script src="https://pic.neko7ina.com:7777/public/lib/jquery/jquery.min.js"></script>
+<script src="https://pic.neko7ina.com:7777/public/lib/popper/popper.min.js"></script>
+<script src="https://pic.neko7ina.com:7777/public/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/js/mdb.min.js"></script>
+<script src="https://pic.neko7ina.com:7777/public/js/main.js"></script>
 
-  <script src="/js/lazyload.js"></script>
+  <script src="https://pic.neko7ina.com:7777/public/js/lazyload.js"></script>
 
 
   
-    <script src="/lib/tocbot/tocbot.min.js"></script>
+    <script src="https://pic.neko7ina.com:7777/public/lib/tocbot/tocbot.min.js"></script>
   
-  <script src="/js/post.js"></script>
+  <script src="https://pic.neko7ina.com:7777/public/js/post.js"></script>
 
 
-  <script src="/lib/prettify/prettify.min.js"></script>
+  <script src="https://pic.neko7ina.com:7777/public/lib/prettify/prettify.min.js"></script>
   <script>
     $(document).ready(function () {
       $('pre').addClass('prettyprint linenums');
@@ -321,7 +327,7 @@ import_tables:
   </script>
 
 
-  <script src="/lib/typed/typed.min.js"></script>
+  <script src="https://pic.neko7ina.com:7777/public/lib/typed/typed.min.js"></script>
   <script>
     var typed = new Typed('#subtitle', {
       strings: [
@@ -340,7 +346,7 @@ import_tables:
   </script>
 
 
-  <script src="/lib/anchor/anchor.min.js"></script>
+  <script src="https://pic.neko7ina.com:7777/public/lib/anchor/anchor.min.js"></script>
   <script>
     anchors.options = {
       placement: "right",
@@ -357,7 +363,7 @@ import_tables:
 
 
 
-  <script src="/js/local-search.js"></script>
+  <script src="https://pic.neko7ina.com:7777/public/js/local-search.js"></script>
   <script>
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
