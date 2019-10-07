@@ -15,16 +15,15 @@
   <meta name="author" content="Neko7ina">
   <meta name="keywords" content="">
   <title>我的输入法，我的 Rime ~ 七言八语</title>
-  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/font-awesome/css/all.min.css?v=5.7.2">
-  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/css/bootstrap.min.css?v=4.3.1">
-  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/css/mdb.min.css?v=4.8.7">
-  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/github-markdown/github-markdown.min.css">
-  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/nprogress/nprogress.css?v=0.2.0">
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
   
-    <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/prettify/tomorrow-night-eighties.min.css">
+    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
   
-  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/css/main.css">
+  <link rel="stylesheet" href="/css/main.css">
 
   
 </head>
@@ -44,18 +43,26 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto text-center">
         
+          
+          
           <li class="nav-item">
             <a class="nav-link" href="/">主页</a>
           </li>
         
+          
+          
           <li class="nav-item">
             <a class="nav-link" href="/archives/">归档</a>
           </li>
         
+          
+          
           <li class="nav-item">
             <a class="nav-link" href="/tags/">标签</a>
           </li>
         
+          
+          
           <li class="nav-item">
             <a class="nav-link" href="/about/">关于</a>
           </li>
@@ -71,19 +78,25 @@
 
 
 </nav>
+
     <div class="view intro-2"
-         style="background: url('https://pic.neko7ina.com:7777/images/base/index.jpg')no-repeat center center;background-size: cover;">
+         style="background: url('https://pic.neko7ina.com:7777/images/base/index.jpg')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
-          <div class="container text-center white-text wow fadeInUp">
-                    <span class="h2" id="subtitle">
-                      
-                    </span>
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
             
               <br>
               <p>2019 年 2 月 28 日 星期四 下午 1:15</p>
             
           </div>
+
+          
         </div>
       </div>
     </div>
@@ -97,7 +110,7 @@
   <div class="row">
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
-      <div class="py-5 z-depth-3 board">
+      <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto">
           <div class="markdown-body">
             <p>我这个人比较守旧，很多习惯不到非变不可的时候，是很少会主动去寻求改变的。</p>
@@ -152,7 +165,7 @@
 <p>另外，一个文件内只需要一段 Patch，多个定制直接在下面跟定制内容即可。</p>
 <p>这么简单定制了一下，基本就回归了我的日常使用习惯。</p>
 <h1 id="深陷泥潭"><a href="#深陷泥潭" class="headerlink" title="深陷泥潭"></a>深陷泥潭</h1><p>使用了半个多月，我发现了一个事情：在我的候选列表首页中，有一些没有用过的字占据着，不仅看着不爽，还影响我的选字效率。</p>
-<p><img src="https://pic.neko7ina.com:7777/images/20190228/1.png" alt="没用过的字"></p>
+<p><img src="https://pic.neko7ina.com:7777/images/20190228/1.png" srcset="/img/loading.gif" alt="没用过的字"></p>
 <p><center><i>没用过的字</i></center><br><br></p>
 <p>发现这个现象后，我开始有意识地去注意这些字，最后发现这些字的候选顺序是会和另外一个字绑定的。比如「𧹒」，就一直跟着「买」，跟兄弟似的谁也不离谁。</p>
 <p>向作者提了个 <a href="https://github.com/rime/home/issues/322" target="_blank" rel="noopener">issue</a>，在交流的过程中我明白了几个事情。</p>
@@ -246,6 +259,12 @@ import_tables:
   </main>
 
   
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
     <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -278,20 +297,22 @@ import_tables:
 </footer>
 
 <!-- SCRIPTS -->
-<script src="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/js/jquery-3.4.1.min.js"></script>
-<script src="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/js/popper.min.js"></script>
-<script src="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/js/bootstrap.min.js?v=4.3.1"></script>
-<script src="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/js/mdb.min.js?v=4.8.7"></script>
-<script src="https://pic.neko7ina.com:7777/public/lib/nprogress/nprogress.min.js?v=0.2.0"></script>
-<script src="https://pic.neko7ina.com:7777/public/js/main.js"></script>
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/popper/popper.min.js"></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
+<script src="/js/main.js"></script>
+
+  <script src="/js/lazyload.js"></script>
+
 
   
-    <script src="https://pic.neko7ina.com:7777/public/lib/tocbot/tocbot.min.js?v=4.7.0"></script>
+    <script src="/lib/tocbot/tocbot.min.js"></script>
   
-  <script src="https://pic.neko7ina.com:7777/public/js/post.js"></script>
+  <script src="/js/post.js"></script>
 
 
-  <script src="https://pic.neko7ina.com:7777/public/lib/prettify/prettify.min.js?v=0.1.0"></script>
+  <script src="/lib/prettify/prettify.min.js"></script>
   <script>
     $(document).ready(function () {
       $('pre').addClass('prettyprint linenums');
@@ -300,7 +321,7 @@ import_tables:
   </script>
 
 
-  <script src="https://pic.neko7ina.com:7777/public/lib/typed/typed.min.js?v=2.0.9"></script>
+  <script src="/lib/typed/typed.min.js"></script>
   <script>
     var typed = new Typed('#subtitle', {
       strings: [
@@ -319,7 +340,7 @@ import_tables:
   </script>
 
 
-  <script src="https://pic.neko7ina.com:7777/public/lib/anchor/anchor.min.js?v=4.2.0"></script>
+  <script src="/lib/anchor/anchor.min.js"></script>
   <script>
     anchors.options = {
       placement: "right",
@@ -336,7 +357,7 @@ import_tables:
 
 
 
-  <script src="https://pic.neko7ina.com:7777/public/js/local-search.js"></script>
+  <script src="/js/local-search.js"></script>
   <script>
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
@@ -345,6 +366,7 @@ import_tables:
       this.onclick = null
     }
   </script>
+
 
 </body>
 </html>

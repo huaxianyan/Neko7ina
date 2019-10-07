@@ -15,16 +15,15 @@
   <meta name="author" content="Neko7ina">
   <meta name="keywords" content="">
   <title>本地构建数据加速 GBF 翻译 ~ 七言八语</title>
-  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/font-awesome/css/all.min.css?v=5.7.2">
-  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/css/bootstrap.min.css?v=4.3.1">
-  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/css/mdb.min.css?v=4.8.7">
-  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/github-markdown/github-markdown.min.css">
-  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/nprogress/nprogress.css?v=0.2.0">
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
   
-    <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/prettify/tomorrow-night-eighties.min.css">
+    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
   
-  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/css/main.css">
+  <link rel="stylesheet" href="/css/main.css">
 
   
 </head>
@@ -44,18 +43,26 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto text-center">
         
+          
+          
           <li class="nav-item">
             <a class="nav-link" href="/">主页</a>
           </li>
         
+          
+          
           <li class="nav-item">
             <a class="nav-link" href="/archives/">归档</a>
           </li>
         
+          
+          
           <li class="nav-item">
             <a class="nav-link" href="/tags/">标签</a>
           </li>
         
+          
+          
           <li class="nav-item">
             <a class="nav-link" href="/about/">关于</a>
           </li>
@@ -71,19 +78,25 @@
 
 
 </nav>
+
     <div class="view intro-2"
-         style="background: url('https://pic.neko7ina.com:7777/images/20190930/banner.jpg')no-repeat center center;background-size: cover;">
+         style="background: url('https://pic.neko7ina.com:7777/images/20190930/banner.jpg')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
-          <div class="container text-center white-text wow fadeInUp">
-                    <span class="h2" id="subtitle">
-                      
-                    </span>
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
             
               <br>
               <p>2019 年 9 月 30 日 星期一 下午 3:14</p>
             
           </div>
+
+          
         </div>
       </div>
     </div>
@@ -97,13 +110,13 @@
   <div class="row">
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
-      <div class="py-5 z-depth-3 board">
+      <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto">
           <div class="markdown-body">
             <p>一直在用同事的 <a href="https://github.com/BLHXFY-Group/BLHXFY" target="_blank" rel="noopener">GBF 翻译项目</a>，但是因为项目是托管在 GitHub 上，卡起来还是很影响使用体验的。</p>
 <p>不过 GBF 翻译提供自定义数据源功能，基于此可以本地构建 GBF 翻译数据，加快 GBF 相应速度，提高游戏体验。</p>
 <a id="more"></a>
-<font color="#DC143C">请注意，GBF 翻译使用与否取决于个人意愿，可能存在的风险均由使用者个人承担，这里不作推荐。</font>
+<font color="#DC143C">请注意，GBF 翻译使用与否取决于个人意愿，可能存在的风险均由使用者个人承担，这里不作推荐。</font> 
 
 <p>但如果确定使用，希望在使用体验上有更进一步的提高，可以继续往下看。</p>
 <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>打开 <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a> 下载 Windows 版安装程序，打开安装程序按着引导安装即可。</p>
@@ -190,9 +203,9 @@ nginx
 </code></pre>
 <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>首先确定已经安装 GBF 翻译，在安装油猴的情况下打开 <a href="https://blhx.danmu9.com/blhxfy/extension.user.js" target="_blank" rel="noopener">https://blhx.danmu9.com/blhxfy/extension.user.js</a> 即可完成安装。</p>
 <p>安装完之后，打开设置界面，会发现多了一个 <code>汉化插件设置</code>，点击打开。</p>
-<p><img src="https://pic.neko7ina.com:7777/images/20190930/1.png" width="37%"></p>
+<p><img src="https://pic.neko7ina.com:7777/images/20190930/1.png" srcset="/img/loading.gif" width="37%"></p>
 <p>在第一项数据源中填入 <code>http://127.0.0.1:4567</code>，然后滚到到下方点击返回设置。</p>
-<p><img src="https://pic.neko7ina.com:7777/images/20190930/2.png" width="37%"></p>
+<p><img src="https://pic.neko7ina.com:7777/images/20190930/2.png" srcset="/img/loading.gif" width="37%"></p>
 <p>现在 GBF 翻译使用的就是本地数据源了，加载速度飞快。</p>
 <h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><p>更新就很容易了，切换到 GBF 翻译数据所在路径，执行 <code>git pull</code> 即可更新。</p>
 <p>如果碰到如下问题：</p>
@@ -212,9 +225,9 @@ git pull
               
                 <a class="hover-with-bg" href="/tags/%E6%8A%98%E8%85%BE">折腾</a>
               
-                <a class="hover-with-bg" href="/tags/GBF">GBF</a>
-              
                 <a class="hover-with-bg" href="/tags/Nginx">Nginx</a>
+              
+                <a class="hover-with-bg" href="/tags/GBF">GBF</a>
               
             </p>
             
@@ -255,6 +268,12 @@ git pull
   </main>
 
   
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
     <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -287,20 +306,22 @@ git pull
 </footer>
 
 <!-- SCRIPTS -->
-<script src="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/js/jquery-3.4.1.min.js"></script>
-<script src="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/js/popper.min.js"></script>
-<script src="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/js/bootstrap.min.js?v=4.3.1"></script>
-<script src="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/js/mdb.min.js?v=4.8.7"></script>
-<script src="https://pic.neko7ina.com:7777/public/lib/nprogress/nprogress.min.js?v=0.2.0"></script>
-<script src="https://pic.neko7ina.com:7777/public/js/main.js"></script>
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/popper/popper.min.js"></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
+<script src="/js/main.js"></script>
+
+  <script src="/js/lazyload.js"></script>
+
 
   
-    <script src="https://pic.neko7ina.com:7777/public/lib/tocbot/tocbot.min.js?v=4.7.0"></script>
+    <script src="/lib/tocbot/tocbot.min.js"></script>
   
-  <script src="https://pic.neko7ina.com:7777/public/js/post.js"></script>
+  <script src="/js/post.js"></script>
 
 
-  <script src="https://pic.neko7ina.com:7777/public/lib/prettify/prettify.min.js?v=0.1.0"></script>
+  <script src="/lib/prettify/prettify.min.js"></script>
   <script>
     $(document).ready(function () {
       $('pre').addClass('prettyprint linenums');
@@ -309,7 +330,7 @@ git pull
   </script>
 
 
-  <script src="https://pic.neko7ina.com:7777/public/lib/typed/typed.min.js?v=2.0.9"></script>
+  <script src="/lib/typed/typed.min.js"></script>
   <script>
     var typed = new Typed('#subtitle', {
       strings: [
@@ -328,7 +349,7 @@ git pull
   </script>
 
 
-  <script src="https://pic.neko7ina.com:7777/public/lib/anchor/anchor.min.js?v=4.2.0"></script>
+  <script src="/lib/anchor/anchor.min.js"></script>
   <script>
     anchors.options = {
       placement: "right",
@@ -345,7 +366,7 @@ git pull
 
 
 
-  <script src="https://pic.neko7ina.com:7777/public/js/local-search.js"></script>
+  <script src="/js/local-search.js"></script>
   <script>
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
@@ -354,6 +375,7 @@ git pull
       this.onclick = null
     }
   </script>
+
 
 </body>
 </html>

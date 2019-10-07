@@ -15,16 +15,15 @@
   <meta name="author" content="Neko7ina">
   <meta name="keywords" content="">
   <title>使用反向代理加速 GBF ~ 七言八语</title>
-  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/font-awesome/css/all.min.css?v=5.7.2">
-  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/css/bootstrap.min.css?v=4.3.1">
-  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/css/mdb.min.css?v=4.8.7">
-  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/github-markdown/github-markdown.min.css">
-  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/nprogress/nprogress.css?v=0.2.0">
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
   
-    <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/lib/prettify/tomorrow-night-eighties.min.css">
+    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
   
-  <link rel="stylesheet" href="https://pic.neko7ina.com:7777/public/css/main.css">
+  <link rel="stylesheet" href="/css/main.css">
 
   
 </head>
@@ -44,18 +43,26 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto text-center">
         
+          
+          
           <li class="nav-item">
             <a class="nav-link" href="/">主页</a>
           </li>
         
+          
+          
           <li class="nav-item">
             <a class="nav-link" href="/archives/">归档</a>
           </li>
         
+          
+          
           <li class="nav-item">
             <a class="nav-link" href="/tags/">标签</a>
           </li>
         
+          
+          
           <li class="nav-item">
             <a class="nav-link" href="/about/">关于</a>
           </li>
@@ -71,19 +78,25 @@
 
 
 </nav>
+
     <div class="view intro-2"
-         style="background: url('https://pic.neko7ina.com:7777/images/20190731/banner.jpg')no-repeat center center;background-size: cover;">
+         style="background: url('https://pic.neko7ina.com:7777/images/20190731/banner.jpg')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
-          <div class="container text-center white-text wow fadeInUp">
-                    <span class="h2" id="subtitle">
-                      
-                    </span>
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
             
               <br>
               <p>2019 年 7 月 31 日 星期三 凌晨 12:22</p>
             
           </div>
+
+          
         </div>
       </div>
     </div>
@@ -97,7 +110,7 @@
   <div class="row">
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
-      <div class="py-5 z-depth-3 board">
+      <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto">
           <div class="markdown-body">
             <p>GBF 直连还不错的时候不多，其他时候就需要点辅助手段来更顺畅地玩游戏。</p>
@@ -152,9 +165,9 @@ nginx -s reload
               
                 <a class="hover-with-bg" href="/tags/%E6%8A%98%E8%85%BE">折腾</a>
               
-                <a class="hover-with-bg" href="/tags/GBF">GBF</a>
-              
                 <a class="hover-with-bg" href="/tags/Nginx">Nginx</a>
+              
+                <a class="hover-with-bg" href="/tags/GBF">GBF</a>
               
             </p>
             
@@ -195,6 +208,12 @@ nginx -s reload
   </main>
 
   
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
     <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -227,20 +246,22 @@ nginx -s reload
 </footer>
 
 <!-- SCRIPTS -->
-<script src="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/js/jquery-3.4.1.min.js"></script>
-<script src="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/js/popper.min.js"></script>
-<script src="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/js/bootstrap.min.js?v=4.3.1"></script>
-<script src="https://pic.neko7ina.com:7777/public/lib/mdbootstrap/js/mdb.min.js?v=4.8.7"></script>
-<script src="https://pic.neko7ina.com:7777/public/lib/nprogress/nprogress.min.js?v=0.2.0"></script>
-<script src="https://pic.neko7ina.com:7777/public/js/main.js"></script>
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/popper/popper.min.js"></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
+<script src="/js/main.js"></script>
+
+  <script src="/js/lazyload.js"></script>
+
 
   
-    <script src="https://pic.neko7ina.com:7777/public/lib/tocbot/tocbot.min.js?v=4.7.0"></script>
+    <script src="/lib/tocbot/tocbot.min.js"></script>
   
-  <script src="https://pic.neko7ina.com:7777/public/js/post.js"></script>
+  <script src="/js/post.js"></script>
 
 
-  <script src="https://pic.neko7ina.com:7777/public/lib/prettify/prettify.min.js?v=0.1.0"></script>
+  <script src="/lib/prettify/prettify.min.js"></script>
   <script>
     $(document).ready(function () {
       $('pre').addClass('prettyprint linenums');
@@ -249,7 +270,7 @@ nginx -s reload
   </script>
 
 
-  <script src="https://pic.neko7ina.com:7777/public/lib/typed/typed.min.js?v=2.0.9"></script>
+  <script src="/lib/typed/typed.min.js"></script>
   <script>
     var typed = new Typed('#subtitle', {
       strings: [
@@ -268,7 +289,7 @@ nginx -s reload
   </script>
 
 
-  <script src="https://pic.neko7ina.com:7777/public/lib/anchor/anchor.min.js?v=4.2.0"></script>
+  <script src="/lib/anchor/anchor.min.js"></script>
   <script>
     anchors.options = {
       placement: "right",
@@ -285,7 +306,7 @@ nginx -s reload
 
 
 
-  <script src="https://pic.neko7ina.com:7777/public/js/local-search.js"></script>
+  <script src="/js/local-search.js"></script>
   <script>
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
@@ -294,6 +315,7 @@ nginx -s reload
       this.onclick = null
     }
   </script>
+
 
 </body>
 </html>
