@@ -145,7 +145,8 @@
 <h2 id="下载-gbf-翻译数据到本地"><a class="markdownIt-Anchor" href="#下载-gbf-翻译数据到本地"></a> 下载 GBF 翻译数据到本地</h2>
 <p>Windows 可以在合适的位置打开 Git Bash，或者直接打开 CMD，因为 Git 在安装过程中自动添加了 PATH，macOS 和 Linux 则在合适的位置打开 Terminal。</p>
 <p>输入</p>
-<p><code>git clone -b gh-pages https://github.com/biuuu/BLHXFY.git</code></p>
+<pre class="highlight"><code class="bash">git <span class="hljs-built_in">clone</span> -b gh-pages https://github.com/biuuu/BLHXFY.git
+</code></pre>
 <p>下载数据源。</p>
 <h2 id="启动-nginx"><a class="markdownIt-Anchor" href="#启动-nginx"></a> 启动 Nginx</h2>
 <h3 id="windows-3"><a class="markdownIt-Anchor" href="#windows-3"></a> Windows</h3>
@@ -226,7 +227,8 @@ nginx
 <h1 id="更新"><a class="markdownIt-Anchor" href="#更新"></a> 更新</h1>
 <p>更新就很容易了，切换到 GBF 翻译数据所在路径，执行 <code>git pull</code> 即可更新。</p>
 <p>如果碰到如下问题：</p>
-<p><code>fatal: refusing to merge unrelated histories</code></p>
+<pre class="highlight"><code class="bash">fatal: refusing to merge unrelated histories
+</code></pre>
 <p>只要重设一下再更新即可：</p>
 <pre class="highlight"><code class="bash">git reset --hard origin/gh-pages
 git pull
@@ -269,14 +271,6 @@ git pull
 <!-- Comments -->
 <div class="col-lg-7 mx-auto nopadding-md">
   <div class="container comments mx-auto" id="comments">
-    
-      <br><br>
-      
-      
-  <script src="https://utteranc.es/client.js" repo="huaxianyan/hexo-comment" issue-term="title" label="utterances" theme="github-light" crossorigin="anonymous" async>
-  </script>
-
-
     
   </div>
 </div>
