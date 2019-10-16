@@ -120,21 +120,18 @@
 <blockquote>
 <p>图片 Pixiv ID = 69939714</p>
 </blockquote>
-<h1 id="服务端"><a class="markdownIt-Anchor" href="#服务端"></a> 服务端</h1>
-<p>这里我用了 Nginx，其他如 Caddy 之类的按照各自规则修改即可。</p>
+<h1 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h1><p>这里我用了 Nginx，其他如 Caddy 之类的按照各自规则修改即可。</p>
 <p>首先在 VPS 上安装 Nginx，各大发行版的包管理均有，安装完毕后下载配置文件到 Nginx 的配置路径下，一般为 <code>/etc/nginx/conf.d</code>。</p>
-<pre class="highlight"><code class="bash"><span class="hljs-built_in">cd</span> /etc/nginx/conf.d
+<pre><code class="bash">cd /etc/nginx/conf.d
 wget https://raw.githubusercontent.com/huaxianyan/gbf-nginx-proxy_pass/master/gbf.conf
 nginx -t
 nginx -s reload
 </code></pre>
 <p>如 Nginx 为编译安装，可以在目录下新建 <code>conf.d</code> 文件夹，修改 <code>nginx.conf</code> 将路径 include 进去，再将配置文件放到该位置，重启 Nginx。</p>
 <p>这样不出意外，服务端就启动完成了。</p>
-<h1 id="客户端"><a class="markdownIt-Anchor" href="#客户端"></a> 客户端</h1>
-<h2 id="windows-linux-macos"><a class="markdownIt-Anchor" href="#windows-linux-macos"></a> Windows &amp; Linux &amp; macOS</h2>
-<p>下载安装 <a href="https://github.com/oldj/SwitchHosts#switchhosts" target="_blank" rel="noopener">SwitchHosts!</a>，Windows 下需要用管理员权限运行。</p>
+<h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><h2 id="Windows-amp-Linux-amp-macOS"><a href="#Windows-amp-Linux-amp-macOS" class="headerlink" title="Windows &amp; Linux &amp; macOS"></a>Windows &amp; Linux &amp; macOS</h2><p>下载安装 <a href="https://github.com/oldj/SwitchHosts#switchhosts" target="_blank" rel="noopener">SwitchHosts!</a>，Windows 下需要用管理员权限运行。</p>
 <p>新建一条规则，将 GBF 相关域名的地址指向 VPS IP，像下面这样。</p>
-<pre class="highlight"><code class="hosts">1.2.3.4 game.granbluefantasy.jp
+<pre><code class="hosts">1.2.3.4 game.granbluefantasy.jp
 1.2.3.4 game-a.granbluefantasy.jp
 1.2.3.4 game-a1.granbluefantasy.jp
 1.2.3.4 game-a2.granbluefantasy.jp
@@ -151,12 +148,9 @@ nginx -s reload
 </code></pre>
 <p><code>1.2.3.4</code> 处为 VPS IP。</p>
 <p>现在应该可以使用远程 VPS 来反代加速 GBF 加载了。</p>
-<h2 id="android"><a class="markdownIt-Anchor" href="#android"></a> Android</h2>
-<p>使用 <a href="https://github.com/Lerist/Go-Hosts" target="_blank" rel="noopener">Go Hosts</a> 来实现修改，事先建立一个文件，规则类似上述，然后打开 Go Hosts 加载本地文件即可。</p>
-<h2 id="ios"><a class="markdownIt-Anchor" href="#ios"></a> iOS</h2>
-<p><a href="https://apps.apple.com/us/app/shadowrocket/id932747118" target="_blank" rel="noopener">Shadowrocket</a> 支持 hosts，直接添加规则即可，规则类似上述。</p>
-<h1 id="其他心得"><a class="markdownIt-Anchor" href="#其他心得"></a> 其他心得</h1>
-<p>之前尝试过用 Nginx 在本地缓存，但是会造成偶尔发生 504，最后决定在服务端不做缓存，让浏览器自然缓存，使用体验基本没什么影响。</p>
+<h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><p>使用 <a href="https://github.com/Lerist/Go-Hosts" target="_blank" rel="noopener">Go Hosts</a> 来实现修改，事先建立一个文件，规则类似上述，然后打开 Go Hosts 加载本地文件即可。</p>
+<h2 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h2><p><a href="https://apps.apple.com/us/app/shadowrocket/id932747118" target="_blank" rel="noopener">Shadowrocket</a> 支持 hosts，直接添加规则即可，规则类似上述。</p>
+<h1 id="其他心得"><a href="#其他心得" class="headerlink" title="其他心得"></a>其他心得</h1><p>之前尝试过用 Nginx 在本地缓存，但是会造成偶尔发生 504，最后决定在服务端不做缓存，让浏览器自然缓存，使用体验基本没什么影响。</p>
 <p>如果决定做缓存，定期重载 Nginx 好像有利于反代效果，可以自行加进 crontab。</p>
 
             <hr>
@@ -167,13 +161,13 @@ nginx -s reload
             <p>
               <i class="iconfont icon-tag"></i>
               
-                <a class="hover-with-bg" href="/tags/%E6%8A%98%E8%85%BE">折腾</a>
-              
                 <a class="hover-with-bg" href="/tags/%E6%B8%B8%E6%88%8F">游戏</a>
               
-                <a class="hover-with-bg" href="/tags/Nginx">Nginx</a>
+                <a class="hover-with-bg" href="/tags/%E6%8A%98%E8%85%BE">折腾</a>
               
                 <a class="hover-with-bg" href="/tags/GBF">GBF</a>
+              
+                <a class="hover-with-bg" href="/tags/Nginx">Nginx</a>
               
             </p>
             

@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://www.neko7ina.com/local-GBF-translation-data.html</loc>
-    <lastmod>2019-10-11T16:34:23.221Z</lastmod>
+    <lastmod>2019-10-16T18:01:15.499Z</lastmod>
     <data>
         <display>
         <title>本地构建数据加速 GBF 翻译</title>
@@ -13,9 +13,9 @@
         
         <tag>折腾</tag>
          
-        <tag>Nginx</tag>
-         
         <tag>GBF</tag>
+         
+        <tag>Nginx</tag>
          
          
            
@@ -32,13 +32,13 @@
         <title>使用反向代理加速 GBF</title>
         <pubTime>2019-07-30T16:22:35.000Z</pubTime>
         
-        <tag>折腾</tag>
-         
         <tag>游戏</tag>
          
-        <tag>Nginx</tag>
+        <tag>折腾</tag>
          
         <tag>GBF</tag>
+         
+        <tag>Nginx</tag>
          
          
            
@@ -80,11 +80,11 @@
         
         <tag>折腾</tag>
          
+        <tag>Nginx</tag>
+         
         <tag>Syncthing</tag>
          
         <tag>Linux</tag>
-         
-        <tag>Nginx</tag>
          
          
            
@@ -105,11 +105,11 @@
          
         <tag>Rime</tag>
          
-        <tag>Syncthing</tag>
-         
         <tag>Synology</tag>
          
         <tag>macOS</tag>
+         
+        <tag>Syncthing</tag>
          
          
            
