@@ -3,19 +3,38 @@
   
     
     <entry>
-      <title>本地构建数据加速 GBF 翻译</title>
-      <link href="/local-GBF-translation-data.html"/>
-      <url>/local-GBF-translation-data.html</url>
-      <content type="html"><![CDATA[<p>一直在用同事的 <a href="https://github.com/BLHXFY-Group/BLHXFY" target="_blank" rel="noopener">GBF 翻译项目</a>，但是因为项目是托管在 GitHub 上，卡起来还是很影响使用体验的。</p><p>不过 GBF 翻译提供自定义数据源功能，基于此可以本地构建 GBF 翻译数据，加快 GBF 相应速度，提高游戏体验。</p><a id="more"></a><font color="#DC143C">请注意，GBF 翻译使用与否取决于个人意愿，可能存在的风险均由使用者个人承担，这里不作推荐。</font> <p>但如果确定使用，希望在使用体验上有更进一步的提高，可以继续往下看。</p><h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>打开 <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a> 下载 Windows 版安装程序，打开安装程序按着引导安装即可。</p><h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><p>使用 Homebrew 安装 Git。</p><pre><code class="bash">brew install git</code></pre><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>使用包管理工具安装 Git，这里笔者使用的是 Ubuntu 的包管理工具安装。</p><pre><code>apt install git</code></pre><h2 id="安装-Nginx"><a href="#安装-Nginx" class="headerlink" title="安装 Nginx"></a>安装 Nginx</h2><h3 id="Windows-1"><a href="#Windows-1" class="headerlink" title="Windows"></a>Windows</h3><p>打开 <a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">http://nginx.org/en/download.html</a> 下载 Windows 版程序，打开后解压到合适位置。</p><h3 id="macOS-1"><a href="#macOS-1" class="headerlink" title="macOS"></a>macOS</h3><p>使用 Homebrew 安装 Nginx。</p><pre><code class="bash">brew install nginx</code></pre><h3 id="Linux-1"><a href="#Linux-1" class="headerlink" title="Linux"></a>Linux</h3><p>使用包管理工具安装 Nginx，或自行下载编译安装，这里笔者使用的是 Ubuntu 的包管理工具。</p><pre><code class="bash">apt install nginx</code></pre><h1 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h1><h2 id="下载-GBF-翻译数据到本地"><a href="#下载-GBF-翻译数据到本地" class="headerlink" title="下载 GBF 翻译数据到本地"></a>下载 GBF 翻译数据到本地</h2><p>Windows 可以在合适的位置打开 Git Bash，或者直接打开 CMD，因为 Git 在安装过程中自动添加了 PATH，macOS 和 Linux 则在合适的位置打开 Terminal。</p><p>输入 </p><pre><code class="bash">git clone -b gh-pages https://github.com/biuuu/BLHXFY.git</code></pre><p>下载数据源。</p><h2 id="启动-Nginx"><a href="#启动-Nginx" class="headerlink" title="启动 Nginx"></a>启动 Nginx</h2><h3 id="Windows-2"><a href="#Windows-2" class="headerlink" title="Windows"></a>Windows</h3><p>打开 Nginx 目录下 <code>conf</code> 文件夹下的 <code>nginx.conf</code> 文件，在 <code>http</code> 段内新加一个 <code>server</code> 段，填入如下配置：</p><pre><code class="nginx">server {        listen 4567;        server_name 127.0.0.1;        location / {                root D:/BLHXFY;                access_log off;                expires    1d;                add_header Access-Control-Allow-Origin *;                add_header Access-Control-Allow-Methods &#39;GET, POST, OPTIONS&#39;;                add_header Access-Control-Allow-Headers &#39;DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization&#39;;                if ($request_method = &#39;OPTIONS&#39;) {                        return 204;                }        }}</code></pre><p><code>root</code> 后路径为你 Git 下载下来的 GBF 翻译数据所在路径。</p><p>保存关闭后运行 <code>nginx.exe</code> 启动。</p><h3 id="macOS-2"><a href="#macOS-2" class="headerlink" title="macOS"></a>macOS</h3><p>打开配置文件 <code>vim /usr/local/etc/nginx/nginx.conf</code>，在 <code>http</code> 段内新加一个 <code>server</code> 段，填入如下配置：</p><pre><code class="nginx">server {        listen 4567;        server_name 127.0.0.1;        location / {                root /Users/Neko7ina/BLHXFY/;                access_log off;                expires    1d;                add_header Access-Control-Allow-Origin *;                add_header Access-Control-Allow-Methods &#39;GET, POST, OPTIONS&#39;;                add_header Access-Control-Allow-Headers &#39;DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization&#39;;                if ($request_method = &#39;OPTIONS&#39;) {                        return 204;                }        }}</code></pre><p><code>root</code> 后路径为你 Git 下载下来的 GBF 翻译数据所在路径。</p><p>保存退出，启动 Nginx：</p><pre><code class="bash">nginx -tnginx</code></pre><h3 id="Linux-2"><a href="#Linux-2" class="headerlink" title="Linux"></a>Linux</h3><p>新建一个配置文件并加入下述配置内容：</p><pre><code class="bash">vim /etc/nginx/conf.d/blhxfy.conf</code></pre><pre><code class="nginx">server {        listen 4567;        server_name 127.0.0.1;        location / {                root /srv/BLHXFY;                access_log off;                expires    1d;                add_header Access-Control-Allow-Origin *;                add_header Access-Control-Allow-Methods &#39;GET, POST, OPTIONS&#39;;                add_header Access-Control-Allow-Headers &#39;DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization&#39;;                if ($request_method = &#39;OPTIONS&#39;) {                        return 204;                }        }}</code></pre><p><code>root</code> 后路径为你 Git 下载下来的 GBF 翻译数据所在路径。</p><p>保存退出，启动 Nginx：</p><pre><code class="bash">nginx -tnginx</code></pre><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>首先确定已经安装 GBF 翻译，在安装油猴的情况下打开 <a href="https://blhx.danmu9.com/blhxfy/extension.user.js" target="_blank" rel="noopener">https://blhx.danmu9.com/blhxfy/extension.user.js</a> 即可完成安装。</p><p>安装完之后，打开设置界面，会发现多了一个 <code>汉化插件设置</code>，点击打开。</p><p><img src="https://pic.neko7ina.com:7777/images/20190930/1.png" srcset="/img/loading.gif" width="37%"></p><p>在第一项数据源中填入 <code>http://127.0.0.1:4567</code>，然后滚到到下方点击返回设置。</p><p><img src="https://pic.neko7ina.com:7777/images/20190930/2.png" srcset="/img/loading.gif" width="37%"></p><p>现在 GBF 翻译使用的就是本地数据源了，加载速度飞快。</p><h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><p>更新就很容易了，切换到 GBF 翻译数据所在路径，执行 <code>git pull</code> 即可更新。</p><p>如果碰到如下问题：</p><pre><code class="bash">fatal: refusing to merge unrelated histories</code></pre><p>只要重设一下再更新即可：</p><pre><code class="bash">git reset --hard origin/gh-pagesgit pull</code></pre>]]></content>
+      <title>GBF 翻译本地数据一键包</title>
+      <link href="/easy-local-GBF-translation-data.html"/>
+      <url>/easy-local-GBF-translation-data.html</url>
+      <content type="html"><![CDATA[<p>显示在首页部分</p><p>之前简单说了下 <a href="https://www.neko7ina.com/local-GBF-translation-data.html">本地构建数据加速 GBF 翻译</a>，但是朋友觉得还是有点烦琐。</p><p>为了能够轻易上手，也考虑到大部分人的系统平台都是 Windows，就做了一键使用包，方便朋友以及需要的人使用。</p><a id="more"></a><blockquote><p>图片 Pixiv ID = 60718967</p></blockquote><h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>下载一键包到本地，百度盘虽然恶心，但是好在一键包不大，一时也找不到其他的替代品了。地址如下：</p><p><a href="https://pan.baidu.com/s/1Udb14UlxTGU94GYn_rGtug，提取码" target="_blank" rel="noopener">https://pan.baidu.com/s/1Udb14UlxTGU94GYn_rGtug，提取码</a> <code>vzzq</code>。</p><p>将一键包里内容从 <code>GBF</code> 目录起解压至计算机的 C 盘根目录下：</p><p><img src="https://pic.neko7ina.com:7777/images/20191101/1.jpg" srcset="/img/loading.gif" alt=""></p><p>这样准备工作就做完了。</p><h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><p>打开 <code>C:\GBF\Nginx</code> 目录下的 <code>nginx-service.bat</code> 批处理文件，使用给予 UAC 权限确保正常运行。</p><p>打开之后界面如下：</p><p><img src="https://pic.neko7ina.com:7777/images/20191101/2.jpg" srcset="/img/loading.gif" alt=""></p><p>使用逻辑非常简单，先安装再开启即可，如若卸载则先停止再卸载。</p><p>过程中若有 Nginx 进程残留，可以使用第五项清理。</p><p>安装启动后会使用服务开机自启，无需再额外配置。</p><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>使用方法之前已经说过这里就不赘述了，详情请看 <a href="https://www.neko7ina.com/local-GBF-translation-data.html#%E4%BD%BF%E7%94%A8">这里</a>。</p><h1 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q &amp; A"></a>Q &amp; A</h1><p><strong>Q: 这些程序安不安全？</strong></p><p>A: Nginx 来源 <a href="https://nginx.org/en/" target="_blank" rel="noopener">nginx.org</a>，<code>nginx-service.exe</code> 是由 <a href="https://github.com/kohsuke/winsw" target="_blank" rel="noopener">winsw</a> 项目的可执行程序改名，数据源从 <a href="https://github.com/biuuu/BLHXFY/tree/gh-pages" target="_blank" rel="noopener">GBF 翻译</a> 项目下载，我只提供一点配置文件和批处理，这些都编辑可阅。</p><p><strong>Q: 如何更新数据源？</strong></p><p>A: 每隔一段时间访问 <a href="https://github.com/biuuu/BLHXFY/archive/gh-pages.zip" target="_blank" rel="noopener">https://github.com/biuuu/BLHXFY/archive/gh-pages.zip</a> 下载最新的数据源，将本地 <code>C:\GBF\BLHXFY</code> 目录下的内容全部删除， 将压缩文件 <code>BLHXFY-gh-pages</code> 目录下的所有内容解压进即可完成更新。</p><p><strong>Q: 不想放在 C 盘怎么办？</strong></p><p>A: 配置文件都很简单，有能力自己动手，这里写 C 盘只是保证任何人可以开袋即食。</p>]]></content>
       
       
         <tags>
             
             <tag> 折腾 </tag>
             
+            <tag> GBF </tag>
+            
             <tag> Nginx </tag>
             
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>本地构建数据加速 GBF 翻译</title>
+      <link href="/local-GBF-translation-data.html"/>
+      <url>/local-GBF-translation-data.html</url>
+      <content type="html"><![CDATA[<p>一直在用同事的 <a href="https://github.com/BLHXFY-Group/BLHXFY" target="_blank" rel="noopener">GBF 翻译项目</a>，但是因为项目是托管在 GitHub 上，卡起来还是很影响使用体验的。</p><p>不过 GBF 翻译提供自定义数据源功能，基于此可以本地构建 GBF 翻译数据，加快 GBF 相应速度，提高游戏体验。</p><a id="more"></a><font color="#DC143C">请注意，GBF 翻译使用与否取决于个人意愿，可能存在的风险均由使用者个人承担，这里不作推荐。</font> <p>但如果确定使用，希望在使用体验上有更进一步的提高，可以继续往下看。</p><h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>打开 <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a> 下载 Windows 版安装程序，打开安装程序按着引导安装即可。</p><h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><p>使用 Homebrew 安装 Git。</p><pre><code class="bash">brew install git</code></pre><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>使用包管理工具安装 Git，这里笔者使用的是 Ubuntu 的包管理工具安装。</p><pre><code>apt install git</code></pre><h2 id="安装-Nginx"><a href="#安装-Nginx" class="headerlink" title="安装 Nginx"></a>安装 Nginx</h2><h3 id="Windows-1"><a href="#Windows-1" class="headerlink" title="Windows"></a>Windows</h3><p>打开 <a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">http://nginx.org/en/download.html</a> 下载 Windows 版程序，打开后解压到合适位置。</p><h3 id="macOS-1"><a href="#macOS-1" class="headerlink" title="macOS"></a>macOS</h3><p>使用 Homebrew 安装 Nginx。</p><pre><code class="bash">brew install nginx</code></pre><h3 id="Linux-1"><a href="#Linux-1" class="headerlink" title="Linux"></a>Linux</h3><p>使用包管理工具安装 Nginx，或自行下载编译安装，这里笔者使用的是 Ubuntu 的包管理工具。</p><pre><code class="bash">apt install nginx</code></pre><h1 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h1><h2 id="下载-GBF-翻译数据到本地"><a href="#下载-GBF-翻译数据到本地" class="headerlink" title="下载 GBF 翻译数据到本地"></a>下载 GBF 翻译数据到本地</h2><p>Windows 可以在合适的位置打开 Git Bash，或者直接打开 CMD，因为 Git 在安装过程中自动添加了 PATH，macOS 和 Linux 则在合适的位置打开 Terminal。</p><p>输入 </p><pre><code class="bash">git clone -b gh-pages https://github.com/biuuu/BLHXFY.git</code></pre><p>下载数据源。</p><h2 id="启动-Nginx"><a href="#启动-Nginx" class="headerlink" title="启动 Nginx"></a>启动 Nginx</h2><h3 id="Windows-2"><a href="#Windows-2" class="headerlink" title="Windows"></a>Windows</h3><p>打开 Nginx 目录下 <code>conf</code> 文件夹下的 <code>nginx.conf</code> 文件，在 <code>http</code> 段内新加一个 <code>server</code> 段，填入如下配置：</p><pre><code class="nginx">server {        listen 4567;        server_name localhost;        location / {                root D:/BLHXFY;                access_log off;                expires    1d;                add_header Access-Control-Allow-Origin *;                add_header Access-Control-Allow-Methods &#39;GET, POST, OPTIONS&#39;;                add_header Access-Control-Allow-Headers &#39;DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization&#39;;                if ($request_method = &#39;OPTIONS&#39;) {                        return 204;                }        }}</code></pre><p><code>root</code> 后路径为你 Git 下载下来的 GBF 翻译数据所在路径。</p><p>保存关闭后运行 <code>nginx.exe</code> 启动。</p><h3 id="macOS-2"><a href="#macOS-2" class="headerlink" title="macOS"></a>macOS</h3><p>打开配置文件 <code>vim /usr/local/etc/nginx/nginx.conf</code>，在 <code>http</code> 段内新加一个 <code>server</code> 段，填入如下配置：</p><pre><code class="nginx">server {        listen 4567;        server_name localhost;        location / {                root /Users/Neko7ina/BLHXFY/;                access_log off;                expires    1d;                add_header Access-Control-Allow-Origin *;                add_header Access-Control-Allow-Methods &#39;GET, POST, OPTIONS&#39;;                add_header Access-Control-Allow-Headers &#39;DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization&#39;;                if ($request_method = &#39;OPTIONS&#39;) {                        return 204;                }        }}</code></pre><p><code>root</code> 后路径为你 Git 下载下来的 GBF 翻译数据所在路径。</p><p>保存退出，启动 Nginx：</p><pre><code class="bash">nginx -tnginx</code></pre><h3 id="Linux-2"><a href="#Linux-2" class="headerlink" title="Linux"></a>Linux</h3><p>新建一个配置文件并加入下述配置内容：</p><pre><code class="bash">vim /etc/nginx/conf.d/blhxfy.conf</code></pre><pre><code class="nginx">server {        listen 4567;        server_name localhost;        location / {                root /srv/BLHXFY;                access_log off;                expires    1d;                add_header Access-Control-Allow-Origin *;                add_header Access-Control-Allow-Methods &#39;GET, POST, OPTIONS&#39;;                add_header Access-Control-Allow-Headers &#39;DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization&#39;;                if ($request_method = &#39;OPTIONS&#39;) {                        return 204;                }        }}</code></pre><p><code>root</code> 后路径为你 Git 下载下来的 GBF 翻译数据所在路径。</p><p>保存退出，启动 Nginx：</p><pre><code class="bash">nginx -tnginx</code></pre><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>首先确定已经安装 GBF 翻译，在安装油猴的情况下打开 <a href="https://blhx.danmu9.com/blhxfy/extension.user.js" target="_blank" rel="noopener">https://blhx.danmu9.com/blhxfy/extension.user.js</a> 即可完成安装。</p><p>安装完之后，打开设置界面，会发现多了一个 <code>汉化插件设置</code>，点击打开。</p><p><img src="https://pic.neko7ina.com:7777/images/20190930/1.png" srcset="/img/loading.gif" width="37%"></p><p>在第一项数据源中填入 <code>http://127.0.0.1:4567</code>，然后滚到到下方点击返回设置。</p><p><img src="https://pic.neko7ina.com:7777/images/20190930/2.png" srcset="/img/loading.gif" width="37%"></p><p>现在 GBF 翻译使用的就是本地数据源了，加载速度飞快。</p><h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><p>更新就很容易了，切换到 GBF 翻译数据所在路径，执行 <code>git pull</code> 即可更新。</p><p>如果碰到如下问题：</p><pre><code class="bash">fatal: refusing to merge unrelated histories</code></pre><p>只要重设一下再更新即可：</p><pre><code class="bash">git reset --hard origin/gh-pagesgit pull</code></pre>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 折腾 </tag>
+            
             <tag> GBF </tag>
+            
+            <tag> Nginx </tag>
             
         </tags>
       
@@ -30,13 +49,13 @@
       
         <tags>
             
-            <tag> 折腾 </tag>
-            
             <tag> 游戏 </tag>
             
-            <tag> Nginx </tag>
+            <tag> 折腾 </tag>
             
             <tag> GBF </tag>
+            
+            <tag> Nginx </tag>
             
         </tags>
       
@@ -76,9 +95,9 @@
             
             <tag> Syncthing </tag>
             
-            <tag> Linux </tag>
-            
             <tag> Nginx </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -95,13 +114,13 @@
             
             <tag> 折腾 </tag>
             
-            <tag> Syncthing </tag>
-            
-            <tag> macOS </tag>
+            <tag> Rime </tag>
             
             <tag> Synology </tag>
             
-            <tag> Rime </tag>
+            <tag> macOS </tag>
+            
+            <tag> Syncthing </tag>
             
         </tags>
       
@@ -118,9 +137,9 @@
             
             <tag> 折腾 </tag>
             
-            <tag> Synology </tag>
-            
             <tag> 群晖 </tag>
+            
+            <tag> Synology </tag>
             
         </tags>
       

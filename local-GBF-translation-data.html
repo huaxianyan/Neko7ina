@@ -161,7 +161,7 @@
 <h2 id="启动-Nginx"><a href="#启动-Nginx" class="headerlink" title="启动 Nginx"></a>启动 Nginx</h2><h3 id="Windows-2"><a href="#Windows-2" class="headerlink" title="Windows"></a>Windows</h3><p>打开 Nginx 目录下 <code>conf</code> 文件夹下的 <code>nginx.conf</code> 文件，在 <code>http</code> 段内新加一个 <code>server</code> 段，填入如下配置：</p>
 <pre><code class="nginx">server {
         listen 4567;
-        server_name 127.0.0.1;
+        server_name localhost;
         location / {
                 root D:/BLHXFY;
                 access_log off;
@@ -180,7 +180,7 @@
 <h3 id="macOS-2"><a href="#macOS-2" class="headerlink" title="macOS"></a>macOS</h3><p>打开配置文件 <code>vim /usr/local/etc/nginx/nginx.conf</code>，在 <code>http</code> 段内新加一个 <code>server</code> 段，填入如下配置：</p>
 <pre><code class="nginx">server {
         listen 4567;
-        server_name 127.0.0.1;
+        server_name localhost;
         location / {
                 root /Users/Neko7ina/BLHXFY/;
                 access_log off;
@@ -204,7 +204,7 @@ nginx
 </code></pre>
 <pre><code class="nginx">server {
         listen 4567;
-        server_name 127.0.0.1;
+        server_name localhost;
         location / {
                 root /srv/BLHXFY;
                 access_log off;
@@ -248,9 +248,9 @@ git pull
               
                 <a class="hover-with-bg" href="/tags/%E6%8A%98%E8%85%BE">折腾</a>
               
-                <a class="hover-with-bg" href="/tags/Nginx">Nginx</a>
-              
                 <a class="hover-with-bg" href="/tags/GBF">GBF</a>
+              
+                <a class="hover-with-bg" href="/tags/Nginx">Nginx</a>
               
             </p>
             
