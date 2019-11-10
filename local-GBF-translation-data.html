@@ -15,37 +15,21 @@
   <meta name="author" content="Neko7ina">
   <meta name="keywords" content="">
   <title>本地构建数据加速 GBF 翻译 - 七言八语</title>
+
   <link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/mdbootstrap/css/mdb.min.css">
-  <link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/github-markdown/github-markdown.min.css">
-  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
-  
-    <link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/prettify/tomorrow-night-eighties.min.css">
-  
-  <link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/css/main.css">
-
-  
+<link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/mdbootstrap/css/mdb.min.css">
+<link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/github-markdown/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
 
+  <link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/prettify/tomorrow-night-eighties.min.css">
 
-  <!-- Google Analytics -->
-  <script>
-    (function (i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date();
-      a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-      a.async = 1;
-      a.src = g;
-      m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-    ga('create', 'UA-131548224-1', 'auto');
-    ga('send', 'pageview');
-  </script>
-  <!-- End Google Analytics -->
+<link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/css/main.css">
+
+
+  <link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/fancybox/jquery.fancybox.min.css">
+
 
 </head>
 
@@ -100,7 +84,7 @@
 
 </nav>
 
-    <div class="view intro-2"
+    <div class="view intro-2" id="background"
          style="background: url('https://pic.neko7ina.com:7777/images/20190930/banner.jpg')no-repeat center center;
            background-size: cover;
            background-attachment: fixed;">
@@ -113,7 +97,39 @@
 
             
               <br>
-              <p>2019 年 9 月 30 日 星期一 下午 3:14</p>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  2019 年 9 月 30 日 星期一 下午 3:14
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    926 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      4 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
             
           </div>
 
@@ -132,7 +148,7 @@
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="py-5 z-depth-3" id="board">
-        <div class="post-content mx-auto">
+        <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
             <p>一直在用同事的 <a href="https://github.com/BLHXFY-Group/BLHXFY" target="_blank" rel="noopener">GBF 翻译项目</a>，但是因为项目是托管在 GitHub 上，卡起来还是很影响使用体验的。</p>
 <p>不过 GBF 翻译提供自定义数据源功能，基于此可以本地构建 GBF 翻译数据，加快 GBF 相应速度，提高游戏体验。</p>
@@ -225,9 +241,9 @@ nginx
 </code></pre>
 <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>首先确定已经安装 GBF 翻译，在安装油猴的情况下打开 <a href="https://blhx.danmu9.com/blhxfy/extension.user.js" target="_blank" rel="noopener">https://blhx.danmu9.com/blhxfy/extension.user.js</a> 即可完成安装。</p>
 <p>安装完之后，打开设置界面，会发现多了一个 <code>汉化插件设置</code>，点击打开。</p>
-<p><img src="https://pic.neko7ina.com:7777/images/20190930/1.png" srcset="/img/loading.gif" width="37%"></p>
+<p><img src="https://pic.neko7ina.com:7777/images/20190930/1.png" srcset="https://cdn.neko7ina.com:7777/public/img/loading.gif" width="37%"></p>
 <p>在第一项数据源中填入 <code>http://127.0.0.1:4567</code>，然后滚到到下方点击返回设置。</p>
-<p><img src="https://pic.neko7ina.com:7777/images/20190930/2.png" srcset="/img/loading.gif" width="37%"></p>
+<p><img src="https://pic.neko7ina.com:7777/images/20190930/2.png" srcset="https://cdn.neko7ina.com:7777/public/img/loading.gif" width="37%"></p>
 <p>现在 GBF 翻译使用的就是本地数据源了，加载速度飞快。</p>
 <h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><p>更新就很容易了，切换到 GBF 翻译数据所在路径，执行 <code>git pull</code> 即可更新。</p>
 <p>如果碰到如下问题：</p>
@@ -242,16 +258,20 @@ git pull
           </div>
           <br>
           <div>
-            
             <p>
-              <i class="iconfont icon-tag"></i>
-              
-                <a class="hover-with-bg" href="/tags/%E6%8A%98%E8%85%BE">折腾</a>
-              
-                <a class="hover-with-bg" href="/tags/Nginx">Nginx</a>
-              
-                <a class="hover-with-bg" href="/tags/GBF">GBF</a>
-              
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/%E6%8A%98%E8%85%BE">折腾</a>
+                
+                  <a class="hover-with-bg" href="/tags/Nginx">Nginx</a>
+                
+                  <a class="hover-with-bg" href="/tags/GBF">GBF</a>
+                
+              </span>
+            
             </p>
             
           </div>
@@ -316,7 +336,26 @@ git pull
     <i class="iconfont icon-love"></i>
     <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
     <br>
+
     
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
+
+
+
+    
+
   </div>
 </footer>
 
@@ -327,7 +366,9 @@ git pull
 <script src="https://cdn.neko7ina.com:7777/public/lib/mdbootstrap/js/mdb.min.js"></script>
 <script src="https://cdn.neko7ina.com:7777/public/js/main.js"></script>
 
+
   <script src="https://cdn.neko7ina.com:7777/public/js/lazyload.js"></script>
+
 
 
   
@@ -336,13 +377,56 @@ git pull
   <script src="https://cdn.neko7ina.com:7777/public/js/post.js"></script>
 
 
+
+  <script src="https://cdn.neko7ina.com:7777/public/lib/smooth-scroll/smooth-scroll.min.js"></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+      ga('create', 'UA-131548224-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
   <script src="https://cdn.neko7ina.com:7777/public/lib/prettify/prettify.min.js"></script>
   <script>
     $(document).ready(function () {
-      $('pre').addClass('prettyprint linenums');
+      $('pre').addClass('prettyprint  linenums');
       prettyPrint();
     })
   </script>
+
 
 
   <script src="https://cdn.neko7ina.com:7777/public/lib/typed/typed.min.js"></script>
@@ -364,6 +448,7 @@ git pull
   </script>
 
 
+
   <script src="https://cdn.neko7ina.com:7777/public/lib/anchor/anchor.min.js"></script>
   <script>
     anchors.options = {
@@ -383,13 +468,32 @@ git pull
 
   <script src="https://cdn.neko7ina.com:7777/public/js/local-search.js"></script>
   <script>
-    var path = "https://pic.neko7ina.com:7777/public/local-search.xml";
+    var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
       getSearchFile(path);
       this.onclick = null
     }
   </script>
+
+
+
+  <script src="https://cdn.neko7ina.com:7777/public/lib/fancybox/jquery.fancybox.min.js"></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
 
 
 </body>

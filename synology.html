@@ -15,37 +15,21 @@
   <meta name="author" content="Neko7ina">
   <meta name="keywords" content="">
   <title>Synology 的使用初体验 - 七言八语</title>
+
   <link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/mdbootstrap/css/mdb.min.css">
-  <link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/github-markdown/github-markdown.min.css">
-  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
-  
-    <link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/prettify/tomorrow-night-eighties.min.css">
-  
-  <link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/css/main.css">
-
-  
+<link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/mdbootstrap/css/mdb.min.css">
+<link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/github-markdown/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
 
+  <link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/prettify/tomorrow-night-eighties.min.css">
 
-  <!-- Google Analytics -->
-  <script>
-    (function (i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date();
-      a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-      a.async = 1;
-      a.src = g;
-      m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-    ga('create', 'UA-131548224-1', 'auto');
-    ga('send', 'pageview');
-  </script>
-  <!-- End Google Analytics -->
+<link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/css/main.css">
+
+
+  <link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/fancybox/jquery.fancybox.min.css">
+
 
 </head>
 
@@ -100,7 +84,7 @@
 
 </nav>
 
-    <div class="view intro-2"
+    <div class="view intro-2" id="background"
          style="background: url('https://pic.neko7ina.com:7777/images/base/index.jpg')no-repeat center center;
            background-size: cover;
            background-attachment: fixed;">
@@ -113,7 +97,39 @@
 
             
               <br>
-              <p>2019 年 4 月 20 日 星期六 下午 3:53</p>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  2019 年 4 月 20 日 星期六 下午 3:53
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    1.5k 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      5 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
             
           </div>
 
@@ -132,7 +148,7 @@
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="py-5 z-depth-3" id="board">
-        <div class="post-content mx-auto">
+        <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
             <p>上个月在折腾 Syncthing 取代 Dropbox 时，我就觉得在 VPS 上存放不太稳。</p>
 <p>虽然多终端都有副本，很难运气差到同时爆炸，但心底还是想有个更靠谱的存放地点。</p>
@@ -140,7 +156,7 @@
 <a id="more"></a>
 <p>事先做了点简单功课，审视了下自身需求，对空间、性能及功能扩展方面要求不高，人特别懒又想稳定方便，那么黑群就直接 Pass 了。</p>
 <p>最终选择了 Synology DS218j 这款，顺便买了 2 块希捷酷狼。</p>
-<p><img src="https://pic.neko7ina.com:7777/images/20190420/1.jpg" srcset="/img/loading.gif" alt="真不便宜"></p>
+<p><img src="https://pic.neko7ina.com:7777/images/20190420/1.jpg" srcset="https://cdn.neko7ina.com:7777/public/img/loading.gif" alt="真不便宜"></p>
 <center><i>真不便宜</i></center>
 
 <p><br></p>
@@ -156,7 +172,7 @@
 <h2 id="DDNS"><a href="#DDNS" class="headerlink" title="DDNS"></a>DDNS</h2><p>DDNS 有个使用先决条件：必须拥有公网 IP。</p>
 <p>群晖自带 DDNS 支持，并提供 DDNS 注册，相比现在那些所谓说着免费但用起来处处设卡的某些商家，群晖这个简单易用到我想哭。</p>
 <p>在 <code>控制面板</code> - <code>外部访问</code> 可以直接看到 <code>DDNS</code> 选项卡，点击 <code>新增</code>，<code>服务提供商</code> 选择 <code>Synology</code> 即可使用群晖的 DDNS 注册，选好域名填好信息，只要 <code>主机名称</code> 没人使用，就可成功开启 DDNS。</p>
-<p><img src="https://pic.neko7ina.com:7777/images/20190420/2.png" srcset="/img/loading.gif" alt="DDNS"></p>
+<p><img src="https://pic.neko7ina.com:7777/images/20190420/2.png" srcset="https://cdn.neko7ina.com:7777/public/img/loading.gif" alt="DDNS"></p>
 <center><i>DDNS</i></center>
 
 <p><br></p>
@@ -164,7 +180,7 @@
 <p>但是这还没完呢，群晖因为是接在路由器下面的，通过 DDNS 也只是连到路由器，所以还需要在路由器上做端口转发，这才能够顺利连到群晖本体。</p>
 <p>大部分路由器都有个端口转发的选项，找到这里，打开端口转发。</p>
 <p>在下面的规则配置中添加一条，将 5000 端口映射到本地群晖 IP 的 5000 端口，保存生效。</p>
-<p><img src="https://pic.neko7ina.com:7777/images/20190420/3.png" srcset="/img/loading.gif" alt="端口转发"></p>
+<p><img src="https://pic.neko7ina.com:7777/images/20190420/3.png" srcset="https://cdn.neko7ina.com:7777/public/img/loading.gif" alt="端口转发"></p>
 <center><i>端口转发</i></center>
 
 <p><br></p>
@@ -178,7 +194,7 @@
 <h2 id="Let-39-s-Encrypt-证书"><a href="#Let-39-s-Encrypt-证书" class="headerlink" title="Let&#39;s Encrypt 证书"></a>Let&#39;s Encrypt 证书</h2><p>涉及到安全，就肯定会涉及到证书。</p>
 <p>群晖默认自签了一个证书，使用自签证书虽可达到目的，但每个设备都需要安装证书，否则就各种警告。</p>
 <p>还好群晖支持 Let&#39;s Encrypt 签发，打开 <code>控制面板</code> - <code>安全性</code>，转到 <code>证书</code> 选项卡，点击 <code>新增</code> 添加新证书，之后的动作选择 <code>从 Let&#39;s Encrypt 获取证书</code>，并勾上 <code>设为默认证书</code>。</p>
-<p><img src="https://pic.neko7ina.com:7777/images/20190420/4.png" srcset="/img/loading.gif" alt="Let&#39;s Encrypt 证书"></p>
+<p><img src="https://pic.neko7ina.com:7777/images/20190420/4.png" srcset="https://cdn.neko7ina.com:7777/public/img/loading.gif" alt="Let&#39;s Encrypt 证书"></p>
 <center><i>Let&#39;s Encrypt 证书</i></center>
 
 <p><br></p>
@@ -200,16 +216,20 @@
           </div>
           <br>
           <div>
-            
             <p>
-              <i class="iconfont icon-tag"></i>
-              
-                <a class="hover-with-bg" href="/tags/%E6%8A%98%E8%85%BE">折腾</a>
-              
-                <a class="hover-with-bg" href="/tags/Synology">Synology</a>
-              
-                <a class="hover-with-bg" href="/tags/%E7%BE%A4%E6%99%96">群晖</a>
-              
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/%E6%8A%98%E8%85%BE">折腾</a>
+                
+                  <a class="hover-with-bg" href="/tags/%E7%BE%A4%E6%99%96">群晖</a>
+                
+                  <a class="hover-with-bg" href="/tags/Synology">Synology</a>
+                
+              </span>
+            
             </p>
             
           </div>
@@ -274,7 +294,26 @@
     <i class="iconfont icon-love"></i>
     <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
     <br>
+
     
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
+
+
+
+    
+
   </div>
 </footer>
 
@@ -285,7 +324,9 @@
 <script src="https://cdn.neko7ina.com:7777/public/lib/mdbootstrap/js/mdb.min.js"></script>
 <script src="https://cdn.neko7ina.com:7777/public/js/main.js"></script>
 
+
   <script src="https://cdn.neko7ina.com:7777/public/js/lazyload.js"></script>
+
 
 
   
@@ -294,13 +335,56 @@
   <script src="https://cdn.neko7ina.com:7777/public/js/post.js"></script>
 
 
+
+  <script src="https://cdn.neko7ina.com:7777/public/lib/smooth-scroll/smooth-scroll.min.js"></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+      ga('create', 'UA-131548224-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
   <script src="https://cdn.neko7ina.com:7777/public/lib/prettify/prettify.min.js"></script>
   <script>
     $(document).ready(function () {
-      $('pre').addClass('prettyprint linenums');
+      $('pre').addClass('prettyprint  linenums');
       prettyPrint();
     })
   </script>
+
 
 
   <script src="https://cdn.neko7ina.com:7777/public/lib/typed/typed.min.js"></script>
@@ -322,6 +406,7 @@
   </script>
 
 
+
   <script src="https://cdn.neko7ina.com:7777/public/lib/anchor/anchor.min.js"></script>
   <script>
     anchors.options = {
@@ -341,13 +426,32 @@
 
   <script src="https://cdn.neko7ina.com:7777/public/js/local-search.js"></script>
   <script>
-    var path = "https://pic.neko7ina.com:7777/public/local-search.xml";
+    var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
       getSearchFile(path);
       this.onclick = null
     }
   </script>
+
+
+
+  <script src="https://cdn.neko7ina.com:7777/public/lib/fancybox/jquery.fancybox.min.js"></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
 
 
 </body>

@@ -22,6 +22,11 @@ body a:hover {
 .hover-with-bg:hover {
   background-color: #f8f9fa !important;
 }
+.visitors {
+  font-size: 0.8em;
+  padding: 0.45rem;
+  float: right;
+}
 #board {
   position: relative;
   margin-top: -3rem;
@@ -86,6 +91,24 @@ body a:hover {
     font-size: 1rem;
     line-height: 2.5rem;
   }
+}
+.pagination a,
+.pagination .current {
+  outline: 0;
+  border: 0;
+  background-color: transparent;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.75rem;
+  line-height: 1.25;
+  -webkit-border-radius: 0.125rem;
+  border-radius: 0.125rem;
+  -webkit-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.pagination a:hover,
+.pagination .current {
+  background-color: #eee;
 }
 .scroll-down-bar {
   position: absolute;
@@ -213,6 +236,23 @@ body a:hover {
   -moz-transform: rotate(-135deg);
   -o-transform: rotate(-135deg);
   transform: rotate(-135deg);
+}
+.wechat {
+  cursor: pointer;
+  position: relative;
+}
+.wechat:hover .wechat-qrcode {
+  display: block;
+}
+.wechat-qrcode {
+  width: 200px;
+  height: 300px;
+  background: url("") no-repeat;
+  background-size: 100%;
+  position: absolute;
+  right: -100px;
+  z-index: 99;
+  display: none;
 }
 @-moz-keyframes scroll-down {
   0% {
@@ -451,6 +491,9 @@ h6::before {
   .comments {
     max-width: 64rem;
   }
+}
+.katex-block {
+  overflow-x: auto;
 }
 .about-avatar {
   position: relative;
