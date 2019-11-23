@@ -16,19 +16,19 @@
   <meta name="keywords" content="">
   <title>被逼无奈，用 Syncthing 打造自己的同步云盘 - 七言八语</title>
 
-  <link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/font-awesome/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/mdbootstrap/css/mdb.min.css">
-<link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/github-markdown/github-markdown.min.css">
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
 
-  <link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/prettify/tomorrow-night-eighties.min.css">
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
 
-<link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/css/main.css">
+<link rel="stylesheet" href="/css/main.css">
 
 
-  <link rel="stylesheet" href="https://cdn.neko7ina.com:7777/public/lib/fancybox/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css">
 
 
 </head>
@@ -85,7 +85,7 @@
 </nav>
 
     <div class="view intro-2" id="background"
-         style="background: url('https://pic.neko7ina.com:7777/images/base/index.jpg')no-repeat center center;
+         style="background: url('../../images/base/index.jpg')no-repeat center center;
            background-size: cover;
            background-attachment: fixed;">
       <div class="full-bg-img">
@@ -212,58 +212,42 @@ systemctl start syncthing
 <h3 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h3><p>没啥说的，<a href="https://play.google.com/store/apps/details?id=com.nutomic.syncthingandroid" target="_blank" rel="noopener">官方客户端</a>。</p>
 <p>更新也是按照 Google Play 官方提示更新。</p>
 <h3 id="Synology"><a href="#Synology" class="headerlink" title="Synology"></a>Synology</h3><p>打开 <code>套件中心</code> - <code>设置</code> - <code>套件来源</code>，点击 <code>新增</code> 添加第三方来源 SynoCommunity，地址为 <a href="http://packages.synocommunity.com/" target="_blank" rel="noopener">http://packages.synocommunity.com/</a>，确定保存。</p>
-<p><img src="https://pic.neko7ina.com:7777/images/20190331/1.png" srcset="https://cdn.neko7ina.com:7777/public/img/loading.gif" alt="添加来源"></p>
-<center><i>添加来源</i></center>
-
-<p><br></p>
+<p><img src="/images/20190331/1.png" srcset="/img/loading.gif" alt="添加来源"></p>
+<p><center><i>添加来源</i></center><br><br></p>
 <p>刷新套件中心会看到多出一个 <code>社群</code> 类别，点进去找到 Syncthing 安装即可。</p>
-<p><img src="https://pic.neko7ina.com:7777/images/20190331/2.png" srcset="https://cdn.neko7ina.com:7777/public/img/loading.gif" alt="安装 Syncthing"></p>
-<center><i>安装 Syncthing</i></center>
-
-<p><br></p>
+<p><img src="/images/20190331/2.png" srcset="/img/loading.gif" alt="安装 Syncthing"></p>
+<p><center><i>安装 Syncthing</i></center><br><br></p>
 <p>这个客户端 Web GUI 默认监听 <code>0.0.0.0:8384</code>，可以直接访问群晖内网 IP 的 8384 端口而不需要更改任何设置。</p>
 <p>更新可以依赖套件中心（可能会慢），或 Web GUI 自动更新。</p>
 <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>不论服务端还是客户端，使用逻辑都是同一套的 Web UI，服务端访问方式上面已说，本地客户端可以访问 <code>http://127.0.0.1:8384/</code>。</p>
 <p>当然，SyncTrayzor 之类的客户端自带界面。</p>
-<p><img src="https://pic.neko7ina.com:7777/images/20190331/3.png" srcset="https://cdn.neko7ina.com:7777/public/img/loading.gif" alt="Web GUI 界面"></p>
-<center><i>Web GUI 界面</i></center>
-
-<p><br></p>
+<p><img src="/images/20190331/3.png" srcset="/img/loading.gif" alt="Web GUI 界面"></p>
+<p><center><i>Web GUI 界面</i></center><br><br></p>
 <p>右上角 <code>操作</code> 中有个 <code>显示 ID</code>，点开可以看到 ID 和二维码，方便其他设备添加该设备，点击右下角的 <code>添加远程设备</code> 输入 ID 提交添加申请，被添加的设备通过后设备之间就联系上了。</p>
 <p>在用电脑添加服务端时，在 <code>共享</code> 选项卡中把 <code>作为中介</code> 勾上，这样其他设备在添加服务端后，会自动把与服务端联系的设备自动添加上。</p>
-<p><img src="https://pic.neko7ina.com:7777/images/20190331/4.png" srcset="https://cdn.neko7ina.com:7777/public/img/loading.gif" alt="添加设备"></p>
-<center><i>添加设备</i></center>
-
-<p><br></p>
+<p><img src="/images/20190331/4.png" srcset="/img/loading.gif" alt="添加设备"></p>
+<p><center><i>添加设备</i></center><br><br></p>
 <p>设备添加完了，就该设置同步了。</p>
 <p>点击 <code>添加文件夹</code> 打开界面。</p>
-<p><img src="https://pic.neko7ina.com:7777/images/20190331/5.png" srcset="https://cdn.neko7ina.com:7777/public/img/loading.gif" alt="添加文件夹"></p>
-<center><i>添加文件夹</i></center>
-
-<p><br></p>
+<p><img src="/images/20190331/5.png" srcset="/img/loading.gif" alt="添加文件夹"></p>
+<p><center><i>添加文件夹</i></center><br><br></p>
 <p>设置一下 <code>文件夹路径</code>，不要去 <code>动文件夹 ID</code>，<code>文件夹标签</code> 按自己的习惯填写。</p>
 <p>然后打开 <code>版本控制</code> 选项卡。</p>
-<p><img src="https://pic.neko7ina.com:7777/images/20190331/6.png" srcset="https://cdn.neko7ina.com:7777/public/img/loading.gif" alt="版本控制"></p>
-<center><i>版本控制</i></center>
-
-<p><br></p>
+<p><img src="/images/20190331/6.png" srcset="/img/loading.gif" alt="版本控制"></p>
+<p><center><i>版本控制</i></center><br><br></p>
 <p>Syncthing 有一个强大的版本控制功能，合理设置能有效降低误操作带来的损失。</p>
 <p>对于一般使用者来说，<code>简易版本控制</code> 够用了，保留版本数量随自己喜好。</p>
 <p>实际使用中，效果是这样的：</p>
-<p><img src="https://pic.neko7ina.com:7777/images/20190331/7.png" srcset="https://cdn.neko7ina.com:7777/public/img/loading.gif" alt="恢复历史版本"></p>
-<center><i>恢复历史版本</i></center>
-
-<p><br></p>
+<p><img src="/images/20190331/7.png" srcset="/img/loading.gif" alt="恢复历史版本"></p>
+<p><center><i>恢复历史版本</i></center><br><br></p>
 <p>这时再回到 <code>共享</code> 选项卡，把文件夹共享给要同步的设备，目标设备接受就算完成了。</p>
 <p>如果设备勾选了 <code>自动接受</code>，在共享勾上时就会自动接受并开始同步，但会在默认目录建立，所以如果对路径有比较强的规划，不推荐给设备勾选此选项。</p>
 <p>不过这里有个问题，Android 客户端接受之后会让用户设置文件夹属性，并指定位置，但 Web UI 界面下接受后就直接在默认目录按照 <code>文件夹标签</code> 建立文件夹，这个并不符合所有人的使用习惯，起码不符合我的。</p>
 <p>为了避免这个文件，我会在所有设备上先建立好要同步的文件夹，指定好路径，只要所有设备里同步文件夹的 <code>文件夹 ID</code> 一致，设置完后勾上共享就可以开始同步了。</p>
 <p>到这里，属于我自己的私人同步云盘就建立起来并正常开始工作了，使用方式和 Dropbox 并无太大区别，将要同步的内容丢到文件夹中即可。</p>
 <h1 id="微小的工作"><a href="#微小的工作" class="headerlink" title="微小的工作"></a>微小的工作</h1><h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p>Web UI 的字体我总是看它不太爽，尤其是字母和数字对不齐真是要了我的老命。</p>
-<p><img src="https://pic.neko7ina.com:7777/images/20190331/8.png" srcset="https://cdn.neko7ina.com:7777/public/img/loading.gif" alt="这字体可真让我难受"></p>
-<center><i>这字体可真让我难受</i></center>
-
-<p><br></p>
+<p><img src="/images/20190331/8.png" srcset="/img/loading.gif" alt="这字体可真让我难受"></p>
+<p><center><i>这字体可真让我难受</i></center><br><br></p>
 <p>看了看好像是默认字体的锅，想了想还是没忍住把它给干了。</p>
 <p>使用类似 <a href="https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne" target="_blank" rel="noopener">Stylus</a> 之类的扩展，在里面添加一个新样式，写入如下内容：</p>
 <pre><code class="css">h4 {
@@ -271,10 +255,8 @@ systemctl start syncthing
 }
 </code></pre>
 <p>然后应用于本地及远程 Web UI 的地址即可，效果如下：</p>
-<p><img src="https://pic.neko7ina.com:7777/images/20190331/9.png" srcset="https://cdn.neko7ina.com:7777/public/img/loading.gif" alt="对齐后就舒服了"></p>
-<center><i>对齐后就舒服了</i></center>
-
-<p><br></p>
+<p><img src="/images/20190331/9.png" srcset="/img/loading.gif" alt="对齐后就舒服了"></p>
+<p><center><i>对齐后就舒服了</i></center><br><br></p>
 <h2 id="eaDir-文件夹"><a href="#eaDir-文件夹" class="headerlink" title="@eaDir 文件夹"></a>@eaDir 文件夹</h2><p>DSM 会在含有图片的文件夹建立索引，@eaDir 文件夹就是为了实现这个功能而在目录自动添加的。</p>
 <p>但是对我来说，其他设备上看到这个挺烦的，还好 Syncthing 支持忽略模式，可以写一条规则避免将这个文件夹同步到别的设备上。</p>
 <p>点击要修改的文件夹，点击 <code>选项</code>，转到 <code>忽略模式</code> 选项卡，在下面正文部分添加一条：</p>
@@ -375,25 +357,25 @@ systemctl start syncthing
 </footer>
 
 <!-- SCRIPTS -->
-<script src="https://cdn.neko7ina.com:7777/public/lib/jquery/jquery.min.js"></script>
-<script src="https://cdn.neko7ina.com:7777/public/lib/popper/popper.min.js"></script>
-<script src="https://cdn.neko7ina.com:7777/public/lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="https://cdn.neko7ina.com:7777/public/lib/mdbootstrap/js/mdb.min.js"></script>
-<script src="https://cdn.neko7ina.com:7777/public/js/main.js"></script>
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/popper/popper.min.js"></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
+<script src="/js/main.js"></script>
 
 
-  <script src="https://cdn.neko7ina.com:7777/public/js/lazyload.js"></script>
+  <script src="/js/lazyload.js"></script>
 
 
 
   
-    <script src="https://cdn.neko7ina.com:7777/public/lib/tocbot/tocbot.min.js"></script>
+    <script src="/lib/tocbot/tocbot.min.js"></script>
   
-  <script src="https://cdn.neko7ina.com:7777/public/js/post.js"></script>
+  <script src="/js/post.js"></script>
 
 
 
-  <script src="https://cdn.neko7ina.com:7777/public/lib/smooth-scroll/smooth-scroll.min.js"></script>
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js"></script>
 
 
 
@@ -432,7 +414,7 @@ systemctl start syncthing
 
 
 
-  <script src="https://cdn.neko7ina.com:7777/public/lib/prettify/prettify.min.js"></script>
+  <script src="/lib/prettify/prettify.min.js"></script>
   <script>
     $(document).ready(function () {
       $('pre').addClass('prettyprint  linenums');
@@ -442,7 +424,7 @@ systemctl start syncthing
 
 
 
-  <script src="https://cdn.neko7ina.com:7777/public/lib/typed/typed.min.js"></script>
+  <script src="/lib/typed/typed.min.js"></script>
   <script>
     var typed = new Typed('#subtitle', {
       strings: [
@@ -462,7 +444,7 @@ systemctl start syncthing
 
 
 
-  <script src="https://cdn.neko7ina.com:7777/public/lib/anchor/anchor.min.js"></script>
+  <script src="/lib/anchor/anchor.min.js"></script>
   <script>
     anchors.options = {
       placement: "right",
@@ -479,7 +461,7 @@ systemctl start syncthing
 
 
 
-  <script src="https://cdn.neko7ina.com:7777/public/js/local-search.js"></script>
+  <script src="/js/local-search.js"></script>
   <script>
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
@@ -491,7 +473,7 @@ systemctl start syncthing
 
 
 
-  <script src="https://cdn.neko7ina.com:7777/public/lib/fancybox/jquery.fancybox.min.js"></script>
+  <script src="/lib/fancybox/jquery.fancybox.min.js"></script>
   <script>
     $("#post img:not(.no-zoom img, img[no-zoom])").each(
       function () {
